@@ -34,11 +34,13 @@
             this.btnReport = new System.Windows.Forms.Button();
             this.btnSuppliers = new System.Windows.Forms.Button();
             this.btnSales = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnProducts
             // 
-            this.btnProducts.Location = new System.Drawing.Point(36, 205);
+            this.btnProducts.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProducts.Location = new System.Drawing.Point(34, 67);
             this.btnProducts.Name = "btnProducts";
             this.btnProducts.Size = new System.Drawing.Size(158, 39);
             this.btnProducts.TabIndex = 0;
@@ -47,7 +49,8 @@
             // 
             // btnCustomers
             // 
-            this.btnCustomers.Location = new System.Drawing.Point(236, 205);
+            this.btnCustomers.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCustomers.Location = new System.Drawing.Point(234, 67);
             this.btnCustomers.Name = "btnCustomers";
             this.btnCustomers.Size = new System.Drawing.Size(158, 39);
             this.btnCustomers.TabIndex = 1;
@@ -56,7 +59,8 @@
             // 
             // btnEmployees
             // 
-            this.btnEmployees.Location = new System.Drawing.Point(418, 205);
+            this.btnEmployees.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmployees.Location = new System.Drawing.Point(416, 67);
             this.btnEmployees.Name = "btnEmployees";
             this.btnEmployees.Size = new System.Drawing.Size(158, 39);
             this.btnEmployees.TabIndex = 2;
@@ -65,7 +69,8 @@
             // 
             // btnReport
             // 
-            this.btnReport.Location = new System.Drawing.Point(36, 274);
+            this.btnReport.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReport.Location = new System.Drawing.Point(34, 136);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(158, 39);
             this.btnReport.TabIndex = 3;
@@ -74,7 +79,8 @@
             // 
             // btnSuppliers
             // 
-            this.btnSuppliers.Location = new System.Drawing.Point(236, 274);
+            this.btnSuppliers.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSuppliers.Location = new System.Drawing.Point(234, 136);
             this.btnSuppliers.Name = "btnSuppliers";
             this.btnSuppliers.Size = new System.Drawing.Size(158, 39);
             this.btnSuppliers.TabIndex = 4;
@@ -83,18 +89,30 @@
             // 
             // btnSales
             // 
-            this.btnSales.Location = new System.Drawing.Point(418, 274);
+            this.btnSales.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSales.Location = new System.Drawing.Point(416, 136);
             this.btnSales.Name = "btnSales";
             this.btnSales.Size = new System.Drawing.Size(158, 39);
             this.btnSales.TabIndex = 5;
             this.btnSales.Text = "Sales";
             this.btnSales.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(251, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(124, 27);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Navigation";
+            // 
             // Navigation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(648, 238);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSales);
             this.Controls.Add(this.btnSuppliers);
             this.Controls.Add(this.btnReport);
@@ -104,6 +122,7 @@
             this.Name = "Navigation";
             this.Text = "Navigation";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -115,5 +134,6 @@
         private System.Windows.Forms.Button btnReport;
         private System.Windows.Forms.Button btnSuppliers;
         private System.Windows.Forms.Button btnSales;
+        private System.Windows.Forms.Label label1;
     }
 }
