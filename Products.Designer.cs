@@ -1,6 +1,6 @@
 ﻿namespace Finale_Projek_V2._0
 {
-    partial class Customers
+    partial class Products
     {
         /// <summary>
         /// Required designer variable.
@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnChangeProd = new System.Windows.Forms.Button();
+            this.btnRemoveProd = new System.Windows.Forms.Button();
+            this.btnAddProd = new System.Windows.Forms.Button();
             this.btnView = new System.Windows.Forms.Button();
-            this.btnAddCust = new System.Windows.Forms.Button();
-            this.btnRemove = new System.Windows.Forms.Button();
-            this.btnChange = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,61 +41,61 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(569, 426);
+            this.dataGridView1.Size = new System.Drawing.Size(571, 426);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // btnChangeProd
+            // 
+            this.btnChangeProd.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangeProd.Location = new System.Drawing.Point(597, 186);
+            this.btnChangeProd.Name = "btnChangeProd";
+            this.btnChangeProd.Size = new System.Drawing.Size(181, 33);
+            this.btnChangeProd.TabIndex = 8;
+            this.btnChangeProd.Text = "Change Product";
+            this.btnChangeProd.UseVisualStyleBackColor = true;
+            // 
+            // btnRemoveProd
+            // 
+            this.btnRemoveProd.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoveProd.Location = new System.Drawing.Point(597, 132);
+            this.btnRemoveProd.Name = "btnRemoveProd";
+            this.btnRemoveProd.Size = new System.Drawing.Size(182, 34);
+            this.btnRemoveProd.TabIndex = 7;
+            this.btnRemoveProd.Text = "Remove Product";
+            this.btnRemoveProd.UseVisualStyleBackColor = true;
+            // 
+            // btnAddProd
+            // 
+            this.btnAddProd.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddProd.Location = new System.Drawing.Point(597, 76);
+            this.btnAddProd.Name = "btnAddProd";
+            this.btnAddProd.Size = new System.Drawing.Size(181, 32);
+            this.btnAddProd.TabIndex = 6;
+            this.btnAddProd.Text = "Add Product";
+            this.btnAddProd.UseVisualStyleBackColor = true;
             // 
             // btnView
             // 
             this.btnView.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnView.Location = new System.Drawing.Point(597, 12);
+            this.btnView.Location = new System.Drawing.Point(598, 23);
             this.btnView.Name = "btnView";
             this.btnView.Size = new System.Drawing.Size(181, 32);
-            this.btnView.TabIndex = 1;
+            this.btnView.TabIndex = 5;
             this.btnView.Text = "View all";
             this.btnView.UseVisualStyleBackColor = true;
             // 
-            // btnAddCust
-            // 
-            this.btnAddCust.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddCust.Location = new System.Drawing.Point(596, 65);
-            this.btnAddCust.Name = "btnAddCust";
-            this.btnAddCust.Size = new System.Drawing.Size(181, 32);
-            this.btnAddCust.TabIndex = 2;
-            this.btnAddCust.Text = "Add Customer";
-            this.btnAddCust.UseVisualStyleBackColor = true;
-            // 
-            // btnRemove
-            // 
-            this.btnRemove.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemove.Location = new System.Drawing.Point(596, 121);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(182, 34);
-            this.btnRemove.TabIndex = 3;
-            this.btnRemove.Text = "Remove Customer";
-            this.btnRemove.UseVisualStyleBackColor = true;
-            // 
-            // btnChange
-            // 
-            this.btnChange.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChange.Location = new System.Drawing.Point(596, 175);
-            this.btnChange.Name = "btnChange";
-            this.btnChange.Size = new System.Drawing.Size(181, 33);
-            this.btnChange.TabIndex = 4;
-            this.btnChange.Text = "Change Customer";
-            this.btnChange.UseVisualStyleBackColor = true;
-            // 
-            // Customers
+            // Products
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnChange);
-            this.Controls.Add(this.btnRemove);
-            this.Controls.Add(this.btnAddCust);
+            this.Controls.Add(this.btnChangeProd);
+            this.Controls.Add(this.btnRemoveProd);
+            this.Controls.Add(this.btnAddProd);
             this.Controls.Add(this.btnView);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "Customers";
-            this.Text = "Customers";
+            this.Name = "Products";
+            this.Text = "Products";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -104,9 +104,9 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnChangeProd;
+        private System.Windows.Forms.Button btnRemoveProd;
+        private System.Windows.Forms.Button btnAddProd;
         private System.Windows.Forms.Button btnView;
-        private System.Windows.Forms.Button btnAddCust;
-        private System.Windows.Forms.Button btnRemove;
-        private System.Windows.Forms.Button btnChange;
     }
 }
