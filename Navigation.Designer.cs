@@ -33,6 +33,7 @@
             this.btnEmployees = new System.Windows.Forms.Button();
             this.btnReport = new System.Windows.Forms.Button();
             this.btnSuppliers = new System.Windows.Forms.Button();
+            this.btnSales = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnProducts
@@ -80,11 +81,21 @@
             this.btnSuppliers.Text = "Manage Suppliers";
             this.btnSuppliers.UseVisualStyleBackColor = true;
             // 
+            // btnSales
+            // 
+            this.btnSales.Location = new System.Drawing.Point(418, 274);
+            this.btnSales.Name = "btnSales";
+            this.btnSales.Size = new System.Drawing.Size(158, 39);
+            this.btnSales.TabIndex = 5;
+            this.btnSales.Text = "Sales";
+            this.btnSales.UseVisualStyleBackColor = true;
+            // 
             // Navigation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnSales);
             this.Controls.Add(this.btnSuppliers);
             this.Controls.Add(this.btnReport);
             this.Controls.Add(this.btnEmployees);
@@ -103,5 +114,6 @@
         private System.Windows.Forms.Button btnEmployees;
         private System.Windows.Forms.Button btnReport;
         private System.Windows.Forms.Button btnSuppliers;
+        private System.Windows.Forms.Button btnSales;
     }
 }
