@@ -61,6 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddClient.Designer.cs">
+      <DependentUpon>AddClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="Customers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddClient.resx">
+      <DependentUpon>AddClient.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Customers.resx">
       <DependentUpon>Customers.cs</DependentUpon>
     </EmbeddedResource>
