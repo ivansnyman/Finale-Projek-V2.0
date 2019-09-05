@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Finale_Projek_V2._0
 {
-    public partial class Login : Form
+    public partial class Suppliers : Form
     {
-        public Login()
+        public Suppliers()
         {
             InitializeComponent();
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

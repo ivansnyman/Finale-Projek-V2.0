@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace Finale_Projek_V2._0
 {
-    public partial class Login : Form
+    public partial class Sales : Form
     {
-        public Login()
+        public Sales()
         {
             InitializeComponent();
         }
 
-        private void Login_Load(object sender, EventArgs e)
+        private void NumericUpDown1_ValueChanged(object sender, EventArgs e)
         {
 
         }
