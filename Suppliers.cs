@@ -16,5 +16,12 @@ namespace Finale_Projek_V2._0
         {
             InitializeComponent();
         }
+
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            Add_Supplier supp1 = new Add_Supplier();
+            supp1.MdiParent = this;
+            supp1.Show();
+        }
     }
 }
