@@ -11,10 +11,15 @@ using System.Windows.Forms;
 namespace Finale_Projek_V2._0
 {
     public partial class Add_Product : Form
-    {
+    { 
         public Add_Product()
         {
             InitializeComponent();
+        }
+
+        private void Add_Product_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

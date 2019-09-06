@@ -224,6 +224,7 @@
             this.Controls.Add(this.textBox1);
             this.Name = "Add_Product";
             this.Text = "Add_Product";
+            this.Load += new System.EventHandler(this.Add_Product_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
