@@ -10,11 +10,22 @@ using System.Windows.Forms;
 
 namespace Finale_Projek_V2._0
 {
-    public partial class Navigation : Form
+    public partial class MainScreen : Form
     {
-        public Navigation()
+        public MainScreen()
         {
             InitializeComponent();
+        }
+
+        private void Label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            Sales mySales = new Sales();
+            mySales.ShowDialog();
         }
     }
 }
