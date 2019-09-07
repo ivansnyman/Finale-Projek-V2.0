@@ -79,6 +79,62 @@ namespace Finale_Projek_V2._0
             DataSet ds = new DataSet();
             adapter.Fill(ds, "Products");
             dataGridView1.DataSource = ds;
-            dataGridView1.DataMember = "Products";            con.Close();        }
+            dataGridView1.DataMember = "Products";
+            con.Close();
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            int index = comboBox1.SelectedIndex;
+            string property;
+            string id = dataGridView1.SelectedCells[0].Value.ToString();
+            string insertQuery;
+
+            if (index == 0)
+            {
+                insertQuery = @"UPDATE Products SET Product_Name = '" + Valuetxt.Text + "' WHERE Product_ID = '" + id + "'";
+            }
+            else if (index == 1)
+            {
+                insertQuery = @"UPDATE Products SET Manufacturer_Name = '" + Valuetxt.Text + "' WHERE Product_ID = '" + id + "'";
+            }
+            else if (index == 2)
+            {
+                insertQuery = @"UPDATE Products SET Price_Paid = '" + int.Parse(Valuetxt.Text) + "' WHERE Product_ID = '" + id + "'";
+            }
+            else if (index == 3)
+            {
+                insertQuery = @"UPDATE Products SET Price_Sold = '" + int.Parse(Valuetxt.Text) + "' WHERE Product_ID = '" + id + "'";
+            }
+            else if (index == 4)
+            {
+                insertQuery = @"UPDATE Products SET Stock = '" + int.Parse(Valuetxt.Text) + "' WHERE Product_ID = '" + id + "'";
+            }
+            else if (index == 5)
+            {
+                insertQuery = @"UPDATE Products SET Supplier_ID = '" + int.Parse(Valuetxt.Text) + "' WHERE Product_ID = '" + id + "'";
+            }
+            else
+            {
+                insertQuery = @"UPDATE Products SET Stock = '" + int.Parse(Valuetxt.Text) + "' WHERE Product_ID = '" + id + "'";
+            }
+
+            con.Open();
+
+
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            SqlCommand cmd = new SqlCommand(insertQuery, con);
+            cmd.CommandText = insertQuery;
+
+            cmd.ExecuteNonQuery();
+            display();
+
+            con.Close();
+
+        }
+
+        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+        }
     }
 }

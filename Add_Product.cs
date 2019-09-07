@@ -28,6 +28,11 @@ namespace Finale_Projek_V2._0
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
             con.Open();
             int sellPrice, paidPrice, supplierID, quintity;
             string productName, manufacturer, dateReceived;
@@ -41,20 +46,15 @@ namespace Finale_Projek_V2._0
             supplierID = int.Parse(txtSupplierId.Text);
             quintity = int.Parse(txtQuantity.Text);
 
-            String insertQuery = "INSERT INTO  Products VALUES('" + manufacturer+ "','" + productName + "','" + sellPrice + "','" + paidPrice + "','" + supplierID + "','" + quintity + "')";
+            String insertQuery = "INSERT INTO  Products VALUES('" + manufacturer + "','" + productName + "','" + sellPrice + "','" + paidPrice + "','" + supplierID + "','" + quintity + "')";
 
             SqlDataAdapter adapter = new SqlDataAdapter();
-            SqlCommand cmd = new SqlCommand(insertQuery,con);
+            SqlCommand cmd = new SqlCommand(insertQuery, con);
             cmd.ExecuteNonQuery();
 
             con.Close();
 
             MessageBox.Show("Successfully added product");
-
-        }
-
-        private void BtnAdd_Click(object sender, EventArgs e)
-        {
 
         }
     }
