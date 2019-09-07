@@ -22,7 +22,7 @@ namespace Finale_Projek_V2._0
 
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        private void btnSales_Click(object sender, EventArgs e)
         {
             Sales mySales = new Sales();
             mySales.ShowDialog();
