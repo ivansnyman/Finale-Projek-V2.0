@@ -5,7 +5,8 @@ CREATE TABLE [dbo].[Employees]
     [First_Name] NVARCHAR(50) NULL, 
     [Last_Name] NVARCHAR(50) NULL, 
     [Phone_Number] CHAR(10) NULL, 
-    [Email] NVARCHAR(50) NULL
+    [Email] NVARCHAR(50) NULL,
+	[Password] NVARCHAR(20)NOT NULL
 )
 CREATE TABLE [dbo].[Customers]
 (
