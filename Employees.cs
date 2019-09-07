@@ -56,7 +56,88 @@ namespace Finale_Projek_V2._0
             {
                 MessageBox.Show(error.Message);
             }
+           
+        }
 
+        private void BtnRefresh_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            display();
+            con.Close();
+        }
+        private void display()
+        {
+            string selectquery = "SELECT * FROM Products";
+            SqlCommand cmd = new SqlCommand(selectquery, con);
+            DataSet ds = new DataSet();
+            SqlDataAdapter adap = new SqlDataAdapter();
+            adap.SelectCommand = cmd;
+            adap.Fill(ds, "Products");
+            dataGridView1.DataSource = ds;
+            dataGridView1.DataMember = "Products";
+            cmd.ExecuteNonQuery();
+        }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            string sql = @"DELETE FROM Employees WHERE Employee_ID = '" + textBox2.Text + "'";
+            SqlDataAdapter adap = new SqlDataAdapter();
+            SqlCommand cmd = new SqlCommand(sql, con);
+            DataSet ds = new DataSet();
+            adap.DeleteCommand = cmd;
+            adap.DeleteCommand.ExecuteNonQuery();
+
+            display();
+
+            con.Close();
+        }
+
+        private void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+            con.Open();
+            string query = @"SELECT * from Employees WHERE First_Name LIKE '%" + textBox1.Text + "%' OR Last_Name LIKE '%" + textBox1.Text + "%'";
+            SqlDataAdapter adap = new SqlDataAdapter(query, con);
+            DataSet ds = new DataSet();
+            adap.Fill(ds, "Employees");
+            dataGridView1.DataSource = ds;
+            dataGridView1.DataMember = "Employees";
+            con.Close();
+        }
+
+        private void TextBox2_TextChanged(object sender, EventArgs e)
+        {
+            con.Open();
+            string query = @"SELECT * from Employees WHERE First_Name LIKE '%" + textBox2.Text + "%'";
+            SqlDataAdapter adap = new SqlDataAdapter(query, con);
+            DataSet ds = new DataSet();
+            adap.Fill(ds, "Employees");
+            dataGridView1.DataSource = ds;
+            dataGridView1.DataMember = "Employees";
+            con.Close();
+        }
+
+        private void BtnChange_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TextBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Employees_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Button1_Click_1(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedItem.ToString() == "Employee_ID")
+            {
+
+            }
         }
     }
 }
