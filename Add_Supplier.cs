@@ -12,23 +12,16 @@ using System.Data.SqlClient;
 
 namespace Finale_Projek_V2._0
 {
-    public partial class Products : Form
+    public partial class Add_Supplier : Form
     {
-        public Products()
+        public Add_Supplier()
         {
             InitializeComponent();
         }
 
-        private void Products_Load(object sender, EventArgs e)
+        private void Add_Supplier_Load(object sender, EventArgs e)
         {
 
-        }
-
-        private void BtnAdd_Click(object sender, EventArgs e)
-        {
-            Add_Product prod1 = new Add_Product();
-            prod1.MdiParent = this;
-            prod1.Show();
         }
     }
 }

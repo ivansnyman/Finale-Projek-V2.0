@@ -160,6 +160,7 @@
             this.btnAdd.TabIndex = 7;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // Products
             // 
@@ -172,8 +173,10 @@
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnChange);
             this.Controls.Add(this.btnAdd);
+            this.IsMdiContainer = true;
             this.Name = "Products";
             this.Text = "Products";
+            this.Load += new System.EventHandler(this.Products_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

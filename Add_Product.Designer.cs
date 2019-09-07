@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.txtQuantity = new System.Windows.Forms.TextBox();
+            this.txtSupplierId = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -39,39 +39,39 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtSellPrice = new System.Windows.Forms.TextBox();
+            this.txtPricePaid = new System.Windows.Forms.TextBox();
+            this.txtDate = new System.Windows.Forms.TextBox();
+            this.txtManufacturer = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // button1
+            // btnAdd
             // 
-            this.button1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(81, 255);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(202, 28);
-            this.button1.TabIndex = 32;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAdd.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Location = new System.Drawing.Point(81, 255);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(202, 28);
+            this.btnAdd.TabIndex = 32;
+            this.btnAdd.Text = "Add";
+            this.btnAdd.UseVisualStyleBackColor = true;
             // 
-            // textBox7
+            // txtQuantity
             // 
-            this.textBox7.Location = new System.Drawing.Point(180, 221);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(164, 20);
-            this.textBox7.TabIndex = 31;
+            this.txtQuantity.Location = new System.Drawing.Point(180, 221);
+            this.txtQuantity.Margin = new System.Windows.Forms.Padding(2);
+            this.txtQuantity.Name = "txtQuantity";
+            this.txtQuantity.Size = new System.Drawing.Size(164, 20);
+            this.txtQuantity.TabIndex = 31;
             // 
-            // textBox6
+            // txtSupplierId
             // 
-            this.textBox6.Location = new System.Drawing.Point(180, 198);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(164, 20);
-            this.textBox6.TabIndex = 30;
+            this.txtSupplierId.Location = new System.Drawing.Point(180, 198);
+            this.txtSupplierId.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSupplierId.Name = "txtSupplierId";
+            this.txtSupplierId.Size = new System.Drawing.Size(164, 20);
+            this.txtSupplierId.TabIndex = 30;
             // 
             // label9
             // 
@@ -161,54 +161,54 @@
             this.label1.TabIndex = 22;
             this.label1.Text = "Product Name";
             // 
-            // textBox5
+            // txtSellPrice
             // 
-            this.textBox5.Location = new System.Drawing.Point(180, 127);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(164, 20);
-            this.textBox5.TabIndex = 21;
+            this.txtSellPrice.Location = new System.Drawing.Point(180, 127);
+            this.txtSellPrice.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSellPrice.Name = "txtSellPrice";
+            this.txtSellPrice.Size = new System.Drawing.Size(164, 20);
+            this.txtSellPrice.TabIndex = 21;
             // 
-            // textBox4
+            // txtPricePaid
             // 
-            this.textBox4.Location = new System.Drawing.Point(180, 152);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(164, 20);
-            this.textBox4.TabIndex = 20;
+            this.txtPricePaid.Location = new System.Drawing.Point(180, 152);
+            this.txtPricePaid.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPricePaid.Name = "txtPricePaid";
+            this.txtPricePaid.Size = new System.Drawing.Size(164, 20);
+            this.txtPricePaid.TabIndex = 20;
             // 
-            // textBox3
+            // txtDate
             // 
-            this.textBox3.Location = new System.Drawing.Point(180, 175);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(164, 20);
-            this.textBox3.TabIndex = 19;
+            this.txtDate.Location = new System.Drawing.Point(180, 175);
+            this.txtDate.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDate.Name = "txtDate";
+            this.txtDate.Size = new System.Drawing.Size(164, 20);
+            this.txtDate.TabIndex = 19;
             // 
-            // textBox2
+            // txtManufacturer
             // 
-            this.textBox2.Location = new System.Drawing.Point(180, 104);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(164, 20);
-            this.textBox2.TabIndex = 18;
+            this.txtManufacturer.Location = new System.Drawing.Point(180, 104);
+            this.txtManufacturer.Margin = new System.Windows.Forms.Padding(2);
+            this.txtManufacturer.Name = "txtManufacturer";
+            this.txtManufacturer.Size = new System.Drawing.Size(164, 20);
+            this.txtManufacturer.TabIndex = 18;
             // 
-            // textBox1
+            // txtName
             // 
-            this.textBox1.Location = new System.Drawing.Point(180, 82);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(164, 20);
-            this.textBox1.TabIndex = 17;
+            this.txtName.Location = new System.Drawing.Point(180, 82);
+            this.txtName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(164, 20);
+            this.txtName.TabIndex = 17;
             // 
             // Add_Product
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(371, 305);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.txtQuantity);
+            this.Controls.Add(this.txtSupplierId);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -217,13 +217,14 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtSellPrice);
+            this.Controls.Add(this.txtPricePaid);
+            this.Controls.Add(this.txtDate);
+            this.Controls.Add(this.txtManufacturer);
+            this.Controls.Add(this.txtName);
             this.Name = "Add_Product";
             this.Text = "Add_Product";
+            this.Load += new System.EventHandler(this.Add_Product_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,9 +232,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.TextBox txtQuantity;
+        private System.Windows.Forms.TextBox txtSupplierId;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
@@ -242,10 +243,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtSellPrice;
+        private System.Windows.Forms.TextBox txtPricePaid;
+        private System.Windows.Forms.TextBox txtDate;
+        private System.Windows.Forms.TextBox txtManufacturer;
+        private System.Windows.Forms.TextBox txtName;
     }
 }
