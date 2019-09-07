@@ -49,38 +49,38 @@
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(81, 255);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAdd.Location = new System.Drawing.Point(108, 314);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(202, 28);
+            this.btnAdd.Size = new System.Drawing.Size(269, 34);
             this.btnAdd.TabIndex = 32;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // txtQuantity
             // 
-            this.txtQuantity.Location = new System.Drawing.Point(180, 221);
-            this.txtQuantity.Margin = new System.Windows.Forms.Padding(2);
+            this.txtQuantity.Location = new System.Drawing.Point(240, 272);
+            this.txtQuantity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Size = new System.Drawing.Size(164, 20);
+            this.txtQuantity.Size = new System.Drawing.Size(217, 22);
             this.txtQuantity.TabIndex = 31;
             // 
             // txtSupplierId
             // 
-            this.txtSupplierId.Location = new System.Drawing.Point(180, 198);
-            this.txtSupplierId.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSupplierId.Location = new System.Drawing.Point(240, 244);
+            this.txtSupplierId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSupplierId.Name = "txtSupplierId";
-            this.txtSupplierId.Size = new System.Drawing.Size(164, 20);
+            this.txtSupplierId.Size = new System.Drawing.Size(217, 22);
             this.txtSupplierId.TabIndex = 30;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(26, 175);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Location = new System.Drawing.Point(35, 215);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(112, 18);
+            this.label9.Size = new System.Drawing.Size(139, 23);
             this.label9.TabIndex = 29;
             this.label9.Text = "Date Received";
             // 
@@ -88,10 +88,9 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(26, 198);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Location = new System.Drawing.Point(35, 244);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(85, 18);
+            this.label8.Size = new System.Drawing.Size(107, 23);
             this.label8.TabIndex = 28;
             this.label8.Text = "Supplier ID";
             // 
@@ -99,10 +98,9 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(26, 221);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Location = new System.Drawing.Point(35, 272);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(64, 18);
+            this.label7.Size = new System.Drawing.Size(83, 23);
             this.label7.TabIndex = 27;
             this.label7.Text = "Quantity";
             // 
@@ -110,10 +108,9 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 22.2F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(75, 9);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(100, 11);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(179, 35);
+            this.label6.Size = new System.Drawing.Size(228, 43);
             this.label6.TabIndex = 26;
             this.label6.Text = "Add Product";
             // 
@@ -121,10 +118,9 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(26, 152);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(35, 187);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(82, 18);
+            this.label5.Size = new System.Drawing.Size(100, 23);
             this.label5.TabIndex = 25;
             this.label5.Text = "Price Paid";
             // 
@@ -132,10 +128,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(26, 130);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(35, 160);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(96, 18);
+            this.label4.Size = new System.Drawing.Size(118, 23);
             this.label4.TabIndex = 24;
             this.label4.Text = "Selling Price";
             // 
@@ -143,10 +138,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(26, 104);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(35, 128);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 18);
+            this.label2.Size = new System.Drawing.Size(126, 23);
             this.label2.TabIndex = 23;
             this.label2.Text = "Manufacturer";
             // 
@@ -154,58 +148,57 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(26, 82);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(35, 101);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 18);
+            this.label1.Size = new System.Drawing.Size(135, 23);
             this.label1.TabIndex = 22;
             this.label1.Text = "Product Name";
             // 
             // txtSellPrice
             // 
-            this.txtSellPrice.Location = new System.Drawing.Point(180, 127);
-            this.txtSellPrice.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSellPrice.Location = new System.Drawing.Point(240, 156);
+            this.txtSellPrice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSellPrice.Name = "txtSellPrice";
-            this.txtSellPrice.Size = new System.Drawing.Size(164, 20);
+            this.txtSellPrice.Size = new System.Drawing.Size(217, 22);
             this.txtSellPrice.TabIndex = 21;
             // 
             // txtPricePaid
             // 
-            this.txtPricePaid.Location = new System.Drawing.Point(180, 152);
-            this.txtPricePaid.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPricePaid.Location = new System.Drawing.Point(240, 187);
+            this.txtPricePaid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPricePaid.Name = "txtPricePaid";
-            this.txtPricePaid.Size = new System.Drawing.Size(164, 20);
+            this.txtPricePaid.Size = new System.Drawing.Size(217, 22);
             this.txtPricePaid.TabIndex = 20;
             // 
             // txtDate
             // 
-            this.txtDate.Location = new System.Drawing.Point(180, 175);
-            this.txtDate.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDate.Location = new System.Drawing.Point(240, 215);
+            this.txtDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDate.Name = "txtDate";
-            this.txtDate.Size = new System.Drawing.Size(164, 20);
+            this.txtDate.Size = new System.Drawing.Size(217, 22);
             this.txtDate.TabIndex = 19;
             // 
             // txtManufacturer
             // 
-            this.txtManufacturer.Location = new System.Drawing.Point(180, 104);
-            this.txtManufacturer.Margin = new System.Windows.Forms.Padding(2);
+            this.txtManufacturer.Location = new System.Drawing.Point(240, 128);
+            this.txtManufacturer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtManufacturer.Name = "txtManufacturer";
-            this.txtManufacturer.Size = new System.Drawing.Size(164, 20);
+            this.txtManufacturer.Size = new System.Drawing.Size(217, 22);
             this.txtManufacturer.TabIndex = 18;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(180, 82);
-            this.txtName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtName.Location = new System.Drawing.Point(240, 101);
+            this.txtName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(164, 20);
+            this.txtName.Size = new System.Drawing.Size(217, 22);
             this.txtName.TabIndex = 17;
             // 
             // Add_Product
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(371, 305);
+            this.ClientSize = new System.Drawing.Size(495, 375);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.txtQuantity);
             this.Controls.Add(this.txtSupplierId);
@@ -222,6 +215,7 @@
             this.Controls.Add(this.txtDate);
             this.Controls.Add(this.txtManufacturer);
             this.Controls.Add(this.txtName);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Add_Product";
             this.Text = "Add_Product";
             this.Load += new System.EventHandler(this.Add_Product_Load);
