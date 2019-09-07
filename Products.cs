@@ -52,7 +52,6 @@ namespace Finale_Projek_V2._0
             dataGridView1.DataSource = ds;
             dataGridView1.DataMember = "Products";
 
-
             reader = command.ExecuteReader();
 
             con.Close();
