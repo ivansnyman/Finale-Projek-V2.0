@@ -79,6 +79,18 @@ namespace Finale_Projek_V2._0
             DataSet ds = new DataSet();
             adapter.Fill(ds, "Products");
             dataGridView1.DataSource = ds;
-            dataGridView1.DataMember = "Products";            con.Close();        }
+            dataGridView1.DataMember = "Products";
+            con.Close();
+        }
+
+        private void BtnChange_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TextBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
