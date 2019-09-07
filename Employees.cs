@@ -116,5 +116,28 @@ namespace Finale_Projek_V2._0
             dataGridView1.DataMember = "Employees";
             con.Close();
         }
+
+        private void BtnChange_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TextBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Employees_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Button1_Click_1(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedItem.ToString() == "Employee_ID")
+            {
+
+            }
+        }
     }
 }
