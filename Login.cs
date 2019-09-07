@@ -14,10 +14,7 @@ namespace Finale_Projek_V2._0
 {
     public partial class Login : Form
     {
-        public String constr = @"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Gerhard\\Source\\Repos\\ivansnyman\\Finale-Projek-V2.0\\Supplement_Database.mdf;Integrated Security=True";
         SqlConnection con;
-        SqlCommand cmd;
-        SqlDataReader dataReader;
         public Login()
         {
             InitializeComponent();
@@ -25,17 +22,19 @@ namespace Finale_Projek_V2._0
 
         private void Login_Load(object sender, EventArgs e)
         {
-            
+            String cnn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\baren\Source\Repos\ivansnyman\Finale-Projek-V2.0\Supplement_Database.mdf;Integrated Security=True";
+            con = new SqlConnection(cnn);
         }
 
         private void Button1_Click(object sender, EventArgs e)
         {
+            SqlCommand cmd;
             int empID = Convert.ToInt32(tbxID.Text);
             string password = tbxPass.Text;
             MainScreen mainScreen = new MainScreen();
-            con = new SqlConnection(constr);
+            SqlDataReader dataReader;
             con.Open();
-            cmd = new SqlCommand("Select Employee_ID, Password",con);
+            cmd = new SqlCommand("Select Employee_ID, Password FROM Employees",con);
             dataReader = cmd.ExecuteReader();
             while (dataReader.Read())
             {
