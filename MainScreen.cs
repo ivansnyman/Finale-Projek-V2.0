@@ -24,8 +24,32 @@ namespace Finale_Projek_V2._0
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            Sales mySales = new Sales();
-            mySales.ShowDialog();
+            Sales frmSales = new Sales();
+            frmSales.ShowDialog();
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            Customers frmCustomers = new Customers();
+            frmCustomers.ShowDialog();
+        }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            Products frmProducts = new Products();
+            frmProducts.ShowDialog();
+        }
+
+        private void Button4_Click(object sender, EventArgs e)
+        {
+            Order frmOrders = new Order();
+            frmOrders.ShowDialog();
+        }
+
+        private void Button5_Click(object sender, EventArgs e)
+        {
+            Suppliers frmSuppliers = new Suppliers();
+            frmSuppliers.ShowDialog();
         }
     }
 }
