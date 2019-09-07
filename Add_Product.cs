@@ -41,7 +41,7 @@ namespace Finale_Projek_V2._0
             supplierID = int.Parse(txtSupplierId.Text);
             quintity = int.Parse(txtQuantity.Text);
 
-            String insertQuery = "INSERT INTO  Products VALUES('" + sellPrice + "','" + manufacturer+ "','" + productName + "','" + sellPrice + "','" + paidPrice + "','" + supplierID + "','" + quintity + "')";
+            String insertQuery = "INSERT INTO  Products VALUES('" + manufacturer+ "','" + productName + "','" + sellPrice + "','" + paidPrice + "','" + supplierID + "','" + quintity + "')";
 
             SqlDataAdapter adapter = new SqlDataAdapter();
             SqlCommand cmd = new SqlCommand(insertQuery,con);
@@ -50,6 +50,7 @@ namespace Finale_Projek_V2._0
             con.Close();
 
             MessageBox.Show("Successfully added product");
+
         }
     }
 }
