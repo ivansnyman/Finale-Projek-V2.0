@@ -33,22 +33,28 @@ namespace Finale_Projek_V2._0
 
         private void BtnRefresh_Click(object sender, EventArgs e)
         {
+            con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Gerhard\\Source\\Repos\\ivansnyman\\Finale-Projek-V2.0\\Supplement_Database.mdf;Integrated Security=True");
+
             con.Open();
-            display();
-            con.Close();
-        }
-        private void display()
-        {
-            string selectquery = "SELECT * FROM Employees";
-            cmd = new SqlCommand(selectquery, con);
+            String sql;
+            sql = "Select * From Employees";
+            SqlCommand command;
+            SqlDataReader reader;
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            command = new SqlCommand(sql, con);
+            adapter.SelectCommand = command;
+
             DataSet ds = new DataSet();
-            adap = new SqlDataAdapter();
-            adap.SelectCommand = cmd;
-            adap.Fill(ds, "Employees");
+            adapter.Fill(ds, "Employees");
+
             dataGridView1.DataSource = ds;
             dataGridView1.DataMember = "Employees";
-            cmd.ExecuteNonQuery();
+
+            reader = command.ExecuteReader();
+
+            con.Close();
         }
+      
 
         private void BtnDelete_Click(object sender, EventArgs e)
         {
@@ -143,6 +149,18 @@ namespace Finale_Projek_V2._0
             display();
 
             con.Close();
+        }
+        private void display()
+        {
+            string selectquery = "SELECT * FROM Employees";
+            cmd = new SqlCommand(selectquery, con);
+            DataSet ds = new DataSet();
+            adap = new SqlDataAdapter();
+            adap.SelectCommand = cmd;
+            adap.Fill(ds, "Employees");
+            dataGridView1.DataSource = ds;
+            dataGridView1.DataMember = "Employees";
+            cmd.ExecuteNonQuery();
         }
     }
 }
