@@ -102,19 +102,19 @@ namespace Finale_Projek_V2._0
 
             if (index == 0)
             {
-                insertQuery = @"UPDATE Suppliers SET Phone_Number = '" + textBox1.Text + "' WHERE Supplier_ID = '" + id + "'";
+                insertQuery = @"UPDATE Suppliers SET Phone_Number = '" + textBox7.Text + "' WHERE Supplier_ID = '" + id + "'";
             }
             else if (index == 1)
             {
-                insertQuery = @"UPDATE Suppliers SET Email = '" + textBox1.Text + "' WHERE Supplier_ID = '" + id + "'";
+                insertQuery = @"UPDATE Suppliers SET Email = '" + textBox7.Text + "' WHERE Supplier_ID = '" + id + "'";
             }
             else if (index == 2)
             {
-                insertQuery = @"UPDATE Suppliers SET Website = '" + textBox1.Text + "' WHERE Supplier_ID = '" + id + "'";
+                insertQuery = @"UPDATE Suppliers SET Website = '" + textBox7.Text + "' WHERE Supplier_ID = '" + id + "'";
             }
             else
             {
-                insertQuery = @"UPDATE Supliers SET Supplier_Name = '" + textBox1.Text + "' WHERE Supplier_ID = '" + id + "'";
+                insertQuery = @"UPDATE Suppliers SET Supplier_Name = '" + textBox7.Text + "' WHERE Supplier_ID = '" + id + "'";
             }
 
             con.Open();
