@@ -19,6 +19,7 @@ namespace Finale_Projek_V2._0
         SqlDataAdapter adap;
         SqlDataReader reader;
         
+        
         public Employees()
         {
             InitializeComponent();
@@ -48,7 +49,7 @@ namespace Finale_Projek_V2._0
                 adap = new SqlDataAdapter();
                 adap.InsertCommand = cmd;
                 adap.InsertCommand.ExecuteNonQuery();
-                MessageBox.Show("Message inserted successfully");
+                MessageBox.Show("Record inserted successfully");
                 con.Close();
                 
             }
@@ -129,7 +130,7 @@ namespace Finale_Projek_V2._0
 
         private void Employees_Load(object sender, EventArgs e)
         {
-            
+            display();
         }
 
         private void Button1_Click_1(object sender, EventArgs e)

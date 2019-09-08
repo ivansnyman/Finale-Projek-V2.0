@@ -16,6 +16,10 @@ namespace Finale_Projek_V2._0
     {
 
         SqlConnection con;
+        public String constr = @"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\baren\\Source\\Repos\\ivansnyman\\Finale-Projek-V2.0\\Supplement_Database.mdf;Integrated Security=True";
+        SqlCommand cmd;
+        SqlDataAdapter adap;
+        SqlDataReader reader;
         public Suppliers()
         {
             InitializeComponent();
@@ -23,9 +27,35 @@ namespace Finale_Projek_V2._0
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
-            Add_Supplier supp1 = new Add_Supplier();
-            supp1.MdiParent = this;
-            supp1.Show();
+            Add_Supplier frmAddSupplier = new Add_Supplier();
+            frmAddSupplier.ShowDialog();
+            string phone = frmAddSupplier.phone;
+            string email = frmAddSupplier.email;
+            string webiste = frmAddSupplier.website;
+            string name = frmAddSupplier.name;
+            int suppID = 0;
+            SqlCommand getID = new SqlCommand("Select Supplier_ID FROM Suppliers");
+            reader = getID.ExecuteReader();
+            while (reader.Read())
+            {
+                suppID += 1;
+            }
+
+            try
+            {
+                con.Open();
+                cmd = new SqlCommand(@"INSERT INTO Suppliers Values('" + suppID + "'," + phone + "'," + email + "'," + webiste + "'," + name + "')", con);
+                adap = new SqlDataAdapter();
+                adap.InsertCommand = cmd;
+                adap.InsertCommand.ExecuteNonQuery();
+                MessageBox.Show("Record inserted successfully");
+                con.Close();
+
+            }
+            catch (SqlException error)
+            {
+                MessageBox.Show(error.Message);
+            }
         }
 
         private void BtnRefresh_Click(object sender, EventArgs e)

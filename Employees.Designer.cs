@@ -175,7 +175,7 @@
             this.groupBox2.Size = new System.Drawing.Size(221, 140);
             this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Update Employee";
+            this.groupBox2.Text = "Update ";
             // 
             // comboBox1
             // 
@@ -205,9 +205,9 @@
             this.label4.Location = new System.Drawing.Point(1, 59);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 13);
+            this.label4.Size = new System.Drawing.Size(62, 13);
             this.label4.TabIndex = 4;
-            this.label4.Text = "New value:";
+            this.label4.Text = "New Value:";
             // 
             // label5
             // 
