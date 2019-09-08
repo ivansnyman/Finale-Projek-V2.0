@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Finale_Projek_V2._0
+namespace Finale_Projek_V2._0.Properties
 {
-    public partial class AddClient : Form
+    public partial class Reporting : Form
     {
-        public AddClient()
+        public Reporting()
         {
             InitializeComponent();
-        }
-
-        private void AddClient_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
