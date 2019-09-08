@@ -163,6 +163,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Add_Employee";
             this.Text = "Add Employee ";
+            this.Load += new System.EventHandler(this.Add_Employee_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

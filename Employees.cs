@@ -14,10 +14,10 @@ namespace Finale_Projek_V2._0
     public partial class Employees : Form
     {
         SqlConnection con;
-        public String constr = @"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\baren\\Source\\Repos\\ivansnyman\\Finale-Projek-V2.0\\Supplement_Database.mdf;Integrated Security=True";
+        public String constr = @"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Gerhard\\Source\\Repos\\ivansnyman\\Finale-Projek-V2.0\\Supplement_Database.mdf;Integrated Security=True";
         SqlCommand cmd;
         SqlDataAdapter adap;
-        SqlDataReader reader;
+      
         
         
         public Employees()
@@ -28,36 +28,7 @@ namespace Finale_Projek_V2._0
         private void Button1_Click(object sender, EventArgs e)
         {
             Add_Employee frmAddEmployee = new Add_Employee();
-            frmAddEmployee.ShowDialog();
-            string first = frmAddEmployee.fName;
-            string last = frmAddEmployee.lName;
-            string phone = frmAddEmployee.phoneNumber;
-            string email = frmAddEmployee.email;
-            string password = frmAddEmployee.password;
-            int empID = 0;
-            SqlCommand getID = new SqlCommand("Select Employee_ID FROM Employees");
-            reader = getID.ExecuteReader();
-            while (reader.Read())
-            {
-                empID += 1;
-            }
-
-                try
-            {
-                con.Open();
-                cmd = new SqlCommand(@"INSERT INTO Employees Values('" + empID + "'," + first + "'," + last + "'," + phone + "'," + email + "'," + password +"')",con);
-                adap = new SqlDataAdapter();
-                adap.InsertCommand = cmd;
-                adap.InsertCommand.ExecuteNonQuery();
-                MessageBox.Show("Record inserted successfully");
-                con.Close();
-                
-            }
-            catch(SqlException error)
-            {
-                MessageBox.Show(error.Message);
-            }
-           
+            frmAddEmployee.ShowDialog();          
         }
 
         private void BtnRefresh_Click(object sender, EventArgs e)
