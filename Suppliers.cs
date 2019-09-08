@@ -81,5 +81,33 @@ namespace Finale_Projek_V2._0
 
             con.Close();
         }
+
+        private void display()
+        {
+            string selectquery = "SELECT * FROM Suppliers";
+            SqlCommand cmd = new SqlCommand(selectquery, con);
+            DataSet ds = new DataSet();
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.SelectCommand = cmd;
+            adapter.Fill(ds, "Suppliers");
+            dataGridView1.DataSource = ds;
+            dataGridView1.DataMember = "Suppliers";
+            cmd.ExecuteNonQuery();
+        }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            string sql = @"DELETE FROM Products WHERE Supplier_ID = '" + textBox2.Text + "'";
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            SqlCommand cmd = new SqlCommand(sql, con);
+            DataSet ds = new DataSet();
+            adapter.DeleteCommand = cmd;
+            adapter.DeleteCommand.ExecuteNonQuery();
+
+            display();
+
+            con.Close();
+        }
     }
 }
