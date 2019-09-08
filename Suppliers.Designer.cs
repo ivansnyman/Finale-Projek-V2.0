@@ -143,6 +143,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(115, 20);
             this.textBox1.TabIndex = 7;
+            this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
             // textBox2
             // 
@@ -249,14 +250,19 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(84, 41);
+            this.comboBox1.Items.AddRange(new object[] {
+            "Phone_Number",
+            "Email",
+            "Website",
+            "Supplier_Name"});
+            this.comboBox1.Location = new System.Drawing.Point(86, 13);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 26;
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(84, 16);
+            this.textBox7.Location = new System.Drawing.Point(86, 43);
             this.textBox7.Margin = new System.Windows.Forms.Padding(2);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(121, 20);
@@ -292,6 +298,7 @@
             this.button3.TabIndex = 2;
             this.button3.Text = "Update Supplier";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.Button3_Click);
             // 
             // Suppliers
             // 

@@ -109,5 +109,53 @@ namespace Finale_Projek_V2._0
 
             con.Close();
         }
+
+        private void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+            con.Open();
+            string query = @"SELECT * from Suppliers WHERE Supplier_Name LIKE '%" + textBox1.Text + "%'";
+            SqlDataAdapter adapter = new SqlDataAdapter(query, con);
+            DataSet ds = new DataSet();
+            adapter.Fill(ds, "Suppliers");
+            dataGridView1.DataSource = ds;
+            dataGridView1.DataMember = "Suppliers";
+            con.Close();
+        }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            int index = comboBox1.SelectedIndex;
+            string id = dataGridView1.SelectedCells[0].Value.ToString();
+            string insertQuery;
+
+            if (index == 0)
+            {
+                insertQuery = @"UPDATE Suppliers SET Phone_Number = '" + textBox1.Text + "' WHERE Supplier_ID = '" + id + "'";
+            }
+            else if (index == 1)
+            {
+                insertQuery = @"UPDATE Suppliers SET Email = '" + textBox1.Text + "' WHERE Supplier_ID = '" + id + "'";
+            }
+            else if (index == 2)
+            {
+                insertQuery = @"UPDATE Suppliers SET Website = '" + textBox1.Text + "' WHERE Supplier_ID = '" + id + "'";
+            }
+            else
+            {
+                insertQuery = @"UPDATE Supliers SET Supplier_Name = '" + textBox1.Text + "' WHERE Supplier_ID = '" + id + "'";
+            }
+
+            con.Open();
+
+
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            SqlCommand cmd = new SqlCommand(insertQuery, con);
+            cmd.CommandText = insertQuery;
+
+            cmd.ExecuteNonQuery();
+            display();
+
+            con.Close();
+        }
     }
 }
