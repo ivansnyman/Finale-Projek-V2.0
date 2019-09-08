@@ -19,7 +19,6 @@ namespace Finale_Projek_V2._0
         public String constr = @"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Gerhard\\Source\\Repos\\ivansnyman\\Finale-Projek-V2.0\\Supplement_Database.mdf;Integrated Security=True";
         SqlCommand cmd;
         SqlDataAdapter adap;
-        SqlDataReader reader;
         public Suppliers()
         {
             InitializeComponent();
@@ -29,33 +28,6 @@ namespace Finale_Projek_V2._0
         {
             Add_Supplier frmAddSupplier = new Add_Supplier();
             frmAddSupplier.ShowDialog();
-            string phone = frmAddSupplier.phone;
-            string email = frmAddSupplier.email;
-            string webiste = frmAddSupplier.website;
-            string name = frmAddSupplier.name;
-            int suppID = 0;
-            SqlCommand getID = new SqlCommand("Select Supplier_ID FROM Suppliers");
-            reader = getID.ExecuteReader();
-            while (reader.Read())
-            {
-                suppID += 1;
-            }
-
-            try
-            {
-                con.Open();
-                cmd = new SqlCommand(@"INSERT INTO Suppliers Values('" + suppID + "'," + phone + "'," + email + "'," + webiste + "'," + name + "')", con);
-                adap = new SqlDataAdapter();
-                adap.InsertCommand = cmd;
-                adap.InsertCommand.ExecuteNonQuery();
-                MessageBox.Show("Record inserted successfully");
-                con.Close();
-
-            }
-            catch (SqlException error)
-            {
-                MessageBox.Show(error.Message);
-            }
         }
 
         private void BtnRefresh_Click(object sender, EventArgs e)
@@ -98,7 +70,7 @@ namespace Finale_Projek_V2._0
         private void BtnDelete_Click(object sender, EventArgs e)
         {
             con.Open();
-            string sql = @"DELETE FROM Products WHERE Supplier_ID = '" + textBox2.Text + "'";
+            string sql = @"DELETE FROM Suppliers WHERE Supplier_ID = '" + textBox2.Text + "'";
             SqlDataAdapter adapter = new SqlDataAdapter();
             SqlCommand cmd = new SqlCommand(sql, con);
             DataSet ds = new DataSet();
