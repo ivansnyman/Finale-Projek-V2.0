@@ -34,7 +34,7 @@ namespace Finale_Projek_V2._0
             string email = frmAddEmployee.email;
             string password = frmAddEmployee.password;
             int empID = 0;
-            SqlCommand getID = new SqlCommand("Select Employee_ID from Supplment_Database");
+            SqlCommand getID = new SqlCommand("Select Employee_ID FROM Employees");
             reader = getID.ExecuteReader();
             while (reader.Read())
             {
@@ -44,7 +44,7 @@ namespace Finale_Projek_V2._0
                 try
             {
                 con.Open();
-                cmd = new SqlCommand(@"INSERT INTO Supplement_Database Values('" + empID + "'," + first + "'," + last + "'," + phone + "'," + email + "'," + password +"')",con);
+                cmd = new SqlCommand(@"INSERT INTO Employees Values('" + empID + "'," + first + "'," + last + "'," + phone + "'," + email + "'," + password +"')",con);
                 adap = new SqlDataAdapter();
                 adap.InsertCommand = cmd;
                 adap.InsertCommand.ExecuteNonQuery();
@@ -67,14 +67,14 @@ namespace Finale_Projek_V2._0
         }
         private void display()
         {
-            string selectquery = "SELECT * FROM Products";
-            SqlCommand cmd = new SqlCommand(selectquery, con);
+            string selectquery = "SELECT * FROM Employees";
+            cmd = new SqlCommand(selectquery, con);
             DataSet ds = new DataSet();
-            SqlDataAdapter adap = new SqlDataAdapter();
+            adap = new SqlDataAdapter();
             adap.SelectCommand = cmd;
-            adap.Fill(ds, "Products");
+            adap.Fill(ds, "Employees");
             dataGridView1.DataSource = ds;
-            dataGridView1.DataMember = "Products";
+            dataGridView1.DataMember = "Employees";
             cmd.ExecuteNonQuery();
         }
 
@@ -134,10 +134,43 @@ namespace Finale_Projek_V2._0
 
         private void Button1_Click_1(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedItem.ToString() == "Employee_ID")
-            {
+            int index = comboBox1.SelectedIndex;
+            string id = dataGridView1.SelectedCells[0].Value.ToString();
+            string insertQuery;
 
+            if (index == 0)
+            {
+                insertQuery = @"UPDATE Employees SET First_Name = '" + tbxValue.Text + "' WHERE Employee_ID = '" + id + "'";
             }
+            else if (index == 1)
+            {
+                insertQuery = @"UPDATE Employees SET Last_Name = '" + tbxValue.Text + "' WHERE Employee_ID = '" + id + "'";
+            }
+            else if (index == 2)
+            {
+                insertQuery = @"UPDATE Employees SET Phone_Number = '" + int.Parse(tbxValue.Text) + "' WHERE Employee_ID = '" + id + "'";
+            }
+            else if (index == 3)
+            {
+                insertQuery = @"UPDATE Employees SET Email = '" + int.Parse(tbxValue.Text) + "' WHERE Employee_ID = '" + id + "'";
+            }
+            else
+            {
+                insertQuery = @"UPDATE Employees SET Password = '" + int.Parse(tbxValue.Text) + "' WHERE Employee_ID = '" + id + "'";
+            }
+            
+
+            con.Open();
+
+
+            adap = new SqlDataAdapter();
+            cmd = new SqlCommand(insertQuery, con);
+            cmd.CommandText = insertQuery;
+
+            cmd.ExecuteNonQuery();
+            display();
+
+            con.Close();
         }
     }
 }

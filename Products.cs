@@ -86,7 +86,6 @@ namespace Finale_Projek_V2._0
         private void Button1_Click(object sender, EventArgs e)
         {
             int index = comboBox1.SelectedIndex;
-            string property;
             string id = dataGridView1.SelectedCells[0].Value.ToString();
             string insertQuery;
 
