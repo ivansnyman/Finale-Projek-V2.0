@@ -16,5 +16,10 @@ namespace Finale_Projek_V2._0
         {
             InitializeComponent();
         }
+
+        private void AddClient_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
