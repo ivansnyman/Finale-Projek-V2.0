@@ -135,5 +135,10 @@ namespace Finale_Projek_V2._0
         private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
         }
+
+        private void TextBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
