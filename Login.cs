@@ -18,8 +18,8 @@ namespace Finale_Projek_V2._0
         public Login()
         {
             InitializeComponent();
-        }
 
+        }
         private void Login_Load(object sender, EventArgs e)
         {
             String cnn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Gerhard\Source\Repos\ivansnyman\Finale-Projek-V2.0\Supplement_Database.mdf;Integrated Security=True";
@@ -28,25 +28,37 @@ namespace Finale_Projek_V2._0
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            SqlCommand cmd;
-            int empID = Convert.ToInt32(tbxID.Text);
-            string password = tbxPass.Text;
-            MainScreen mainScreen = new MainScreen();
-            SqlDataReader dataReader;
-            con.Open();
-            cmd = new SqlCommand("Select Employee_ID, Password FROM Employees",con);
-            dataReader = cmd.ExecuteReader();
-            while (dataReader.Read())
+            if (tbxID.Text == "")
             {
-                int currID = Convert.ToInt32(dataReader.GetValue(0));
-                string currPass = Convert.ToString(dataReader.GetValue(1));
-                if ((empID == currID) && (password == currPass))
-                {
-                    mainScreen.ShowDialog();
-                }
+                MessageBox.Show("Please enter employee ID");
             }
-            con.Close();
-            MessageBox.Show("Incorrect Employee ID OR Password, please try again");
+            else if(tbxPass.Text == "")
+            {
+                MessageBox.Show("Please enter employee Password");
+            }
+            else
+            {
+                SqlCommand cmd;
+                int empID = Convert.ToInt32(tbxID.Text);
+                string password = tbxPass.Text;
+                MainScreen mainScreen = new MainScreen();
+                SqlDataReader dataReader;
+                con.Open();
+                cmd = new SqlCommand("Select Employee_ID, Password FROM Employees", con);
+                dataReader = cmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    int currID = Convert.ToInt32(dataReader.GetValue(0));
+                    string currPass = Convert.ToString(dataReader.GetValue(1));
+                    if ((empID == currID) && (password == currPass))
+                    {
+                        mainScreen.ShowDialog();
+                    }
+                }
+                con.Close();
+                MessageBox.Show("Incorrect Employee ID OR Password, please try again");
+            }
+
         }
     }
 }
