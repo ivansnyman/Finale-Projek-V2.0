@@ -14,11 +14,11 @@ namespace Finale_Projek_V2._0
     public partial class Sales : Form
     {
         SqlConnection con;
-        public String constr = @"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Gerhard\\Source\\Repos\\ivansnyman\\Finale-Projek-V2.0\\Supplement_Database.mdf;Integrated Security=True";
+        public String constr = @"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\baren\\Source\\Repos\\ivansnyman\\Finale-Projek-V2.0\\Supplement_Database.mdf;Integrated Security=True";
         SqlCommand cmd;
         SqlDataReader reader;
         SqlDataAdapter adap;
-        public string name;
+        public string id;
         public bool flag = false;
         public Sales()
         {
@@ -33,6 +33,8 @@ namespace Finale_Projek_V2._0
         private void Sales_Load(object sender, EventArgs e)
         {
             listBox3.Items.Add("First Name:\t\t Last Name:\t\t Address:");
+            listBox2.Items.Add("Product Name:\t\t Quantity:\t\t Price: ");
+            listBox2.Items.Add("-----------------------------------------");
         }
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
@@ -78,6 +80,7 @@ namespace Finale_Projek_V2._0
         private void BtnCustomer_Click(object sender, EventArgs e)
         {
             
+            
 
         }
 
@@ -86,19 +89,34 @@ namespace Finale_Projek_V2._0
             try
             {
                 con.Open();
+                listBox3.Items.Clear();
+                listBox3.Items.Add("First Name:\t\t Last Name:\t\t Address:");
                 string search = textBox3.Text;
                 cmd = new SqlCommand("SELECT * FROM Customers WHERE First_Name LIKE '%" + textBox3.Text + "%' OR Last_Name LIKE '%" + textBox3.Text + "%' OR Phone_Number LIKE '%" + textBox3.Text + "%'",con);
                 reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
                     listBox3.Items.Add(reader.GetValue(1) + "\t\t " + reader.GetValue(2) + "\t\t " + reader.GetValue(3));
-                    
+                    id =  Convert.ToString(reader.GetValue(0));
                 }
+                con.Close();
             }
-            catch (Exception)
+            catch (SqlException error)
             {
+                MessageBox.Show(error.Message);
+            }
+        }
 
-                
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            int index = listBox3.SelectedIndex;
+            if (index >= 0)
+            {
+                MessageBox.Show("Customer Confirmed");
+            }
+            else
+            {
+                MessageBox.Show("Please enter valid customer information");
             }
         }
     }
