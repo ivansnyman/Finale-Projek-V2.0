@@ -5,6 +5,7 @@
     [Last_Name] NVARCHAR(50) NULL, 
     [Phone_Number] CHAR(10) NULL, 
     [Email] NVARCHAR(50) NULL,
+	[Username] NVARCHAR(20) NULL,
 	[Password] NVARCHAR(20) NOT NULL
 )
  DROP TABLE Customers CREATE TABLE [dbo].[Customers]
@@ -15,13 +16,13 @@
     [Phone_Number] CHAR(10) NULL, 
     [Email] NVARCHAR(50) NULL, 
     [Gender] NVARCHAR(6) NULL, 
-    [Date_of_Birth] DATE NULL
+    [Date_of_Birth] NVARCHAR(20) NULL
 )
 DROP TABLE Transactions CREATE TABLE [dbo].[Transactions]
 (
     [Transaction_ID] INT NOT NULL PRIMARY KEY, 
     [Amount] MONEY NULL, 
-    [Date_of_Transaction] DATE NULL, 
+    [Date_of_Transaction] NVARCHAR(20) NULL, 
     [Customer_ID] INT NULL, 
     [Employee_ID] INT NULL
 )
@@ -38,7 +39,8 @@ DROP TABLE Products CREATE TABLE [dbo].[Products]
 DROP TABLE Poduct_Transaction CREATE TABLE [dbo].[Product_Transaction]
 (
     [Product_ID] INT NOT NULL PRIMARY KEY, 
-    [Transaction_ID] INT NOT NULL
+    [Transaction_ID] INT NOT NULL,
+	[Quantity] INT NULL
 )
 DROP TABLE Suppliers CREATE TABLE [dbo].[Suppliers]
 (
