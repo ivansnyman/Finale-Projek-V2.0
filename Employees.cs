@@ -108,6 +108,7 @@ namespace Finale_Projek_V2._0
         private void Employees_Load(object sender, EventArgs e)
         {
             display();
+            con = new SqlConnection(constr);
         }
 
         private void Button1_Click_1(object sender, EventArgs e)
@@ -152,6 +153,7 @@ namespace Finale_Projek_V2._0
         }
         private void display()
         {
+            con.Open();
             string selectquery = "SELECT * FROM Employees";
             cmd = new SqlCommand(selectquery, con);
             DataSet ds = new DataSet();
@@ -161,6 +163,7 @@ namespace Finale_Projek_V2._0
             dataGridView1.DataSource = ds;
             dataGridView1.DataMember = "Employees";
             cmd.ExecuteNonQuery();
+            con.Close();
         }
     }
 }

@@ -44,6 +44,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.Valuetxt = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -56,10 +58,10 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.btnDelete);
-            this.groupBox1.Location = new System.Drawing.Point(733, 98);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Location = new System.Drawing.Point(733, 133);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(225, 110);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
@@ -68,7 +70,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(97, 16);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(124, 20);
             this.textBox1.TabIndex = 7;
@@ -77,7 +79,7 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(97, 39);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(124, 20);
             this.textBox2.TabIndex = 8;
@@ -107,7 +109,7 @@
             // 
             this.btnDelete.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.Location = new System.Drawing.Point(4, 62);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(217, 39);
             this.btnDelete.TabIndex = 2;
@@ -118,8 +120,8 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(11, 49);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Location = new System.Drawing.Point(11, 84);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -141,8 +143,8 @@
             // btnRefresh
             // 
             this.btnRefresh.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh.Location = new System.Drawing.Point(737, 325);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRefresh.Location = new System.Drawing.Point(737, 360);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(225, 39);
             this.btnRefresh.TabIndex = 9;
@@ -153,8 +155,8 @@
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(733, 49);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAdd.Location = new System.Drawing.Point(733, 84);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(225, 39);
             this.btnAdd.TabIndex = 7;
@@ -169,10 +171,10 @@
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.Valuetxt);
             this.groupBox2.Controls.Add(this.comboBox1);
-            this.groupBox2.Location = new System.Drawing.Point(737, 211);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Location = new System.Drawing.Point(737, 246);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(225, 110);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
@@ -202,7 +204,7 @@
             // 
             this.button1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(4, 63);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(216, 39);
             this.button1.TabIndex = 53;
@@ -213,7 +215,7 @@
             // Valuetxt
             // 
             this.Valuetxt.Location = new System.Drawing.Point(97, 41);
-            this.Valuetxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Valuetxt.Margin = new System.Windows.Forms.Padding(2);
             this.Valuetxt.Name = "Valuetxt";
             this.Valuetxt.Size = new System.Drawing.Size(124, 20);
             this.Valuetxt.TabIndex = 50;
@@ -229,16 +231,34 @@
             "Stock quintity",
             "Supplier ID"});
             this.comboBox1.Location = new System.Drawing.Point(97, 15);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(124, 21);
             this.comboBox1.TabIndex = 49;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 60);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(84, 13);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Search Product:";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(102, 57);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 20);
+            this.textBox3.TabIndex = 15;
             // 
             // Products
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(973, 384);
+            this.ClientSize = new System.Drawing.Size(973, 410);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
@@ -276,5 +296,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox Valuetxt;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }
