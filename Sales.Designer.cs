@@ -33,11 +33,11 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnAddSale = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnAddSale = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -45,7 +45,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.listBox3 = new System.Windows.Forms.ListBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnCustomer = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -110,17 +109,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(393, 198);
             this.dataGridView1.TabIndex = 15;
             // 
-            // btnAddSale
-            // 
-            this.btnAddSale.Location = new System.Drawing.Point(11, 639);
-            this.btnAddSale.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAddSale.Name = "btnAddSale";
-            this.btnAddSale.Size = new System.Drawing.Size(139, 28);
-            this.btnAddSale.TabIndex = 14;
-            this.btnAddSale.Text = "Add to Cart";
-            this.btnAddSale.UseVisualStyleBackColor = true;
-            this.btnAddSale.Click += new System.EventHandler(this.Button2_Click);
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -160,6 +148,17 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Quantity:";
             // 
+            // btnAddSale
+            // 
+            this.btnAddSale.Location = new System.Drawing.Point(11, 639);
+            this.btnAddSale.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAddSale.Name = "btnAddSale";
+            this.btnAddSale.Size = new System.Drawing.Size(139, 28);
+            this.btnAddSale.TabIndex = 14;
+            this.btnAddSale.Text = "Add to Cart";
+            this.btnAddSale.UseVisualStyleBackColor = true;
+            this.btnAddSale.Click += new System.EventHandler(this.Button2_Click);
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.listBox2);
@@ -193,6 +192,7 @@
             this.button1.TabIndex = 13;
             this.button1.Text = "Confirm Sale";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // textBox3
             // 
@@ -220,12 +220,11 @@
             this.listBox3.Location = new System.Drawing.Point(4, 53);
             this.listBox3.Margin = new System.Windows.Forms.Padding(2);
             this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(388, 76);
+            this.listBox3.Size = new System.Drawing.Size(388, 148);
             this.listBox3.TabIndex = 9;
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.btnCustomer);
             this.groupBox3.Controls.Add(this.listBox3);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.textBox3);
@@ -234,21 +233,10 @@
             this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox3.Size = new System.Drawing.Size(412, 199);
+            this.groupBox3.Size = new System.Drawing.Size(412, 203);
             this.groupBox3.TabIndex = 14;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Select Customer:";
-            // 
-            // btnCustomer
-            // 
-            this.btnCustomer.Location = new System.Drawing.Point(4, 152);
-            this.btnCustomer.Margin = new System.Windows.Forms.Padding(2);
-            this.btnCustomer.Name = "btnCustomer";
-            this.btnCustomer.Size = new System.Drawing.Size(173, 28);
-            this.btnCustomer.TabIndex = 15;
-            this.btnCustomer.Text = "Confirm Customer";
-            this.btnCustomer.UseVisualStyleBackColor = true;
-            this.btnCustomer.Click += new System.EventHandler(this.BtnCustomer_Click);
             // 
             // Sales
             // 
@@ -295,6 +283,5 @@
         private System.Windows.Forms.ListBox listBox3;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button btnCustomer;
     }
 }
