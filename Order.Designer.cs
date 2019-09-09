@@ -191,7 +191,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 22.2F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(394, 7);
+            this.label5.Location = new System.Drawing.Point(576, 9);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(91, 35);
@@ -245,7 +245,7 @@
             this.groupBox4.Controls.Add(this.listBox3);
             this.groupBox4.Location = new System.Drawing.Point(852, 65);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(462, 352);
+            this.groupBox4.Size = new System.Drawing.Size(338, 352);
             this.groupBox4.TabIndex = 19;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Orders not yet received:";
@@ -255,7 +255,7 @@
             this.listBox3.FormattingEnabled = true;
             this.listBox3.Location = new System.Drawing.Point(6, 19);
             this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(450, 264);
+            this.listBox3.Size = new System.Drawing.Size(315, 264);
             this.listBox3.TabIndex = 0;
             // 
             // button3
@@ -270,7 +270,7 @@
             // 
             // txtDateFilter
             // 
-            this.txtDateFilter.Location = new System.Drawing.Point(334, 312);
+            this.txtDateFilter.Location = new System.Drawing.Point(199, 323);
             this.txtDateFilter.Name = "txtDateFilter";
             this.txtDateFilter.Size = new System.Drawing.Size(122, 20);
             this.txtDateFilter.TabIndex = 21;
@@ -278,17 +278,17 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(216, 315);
+            this.label3.Location = new System.Drawing.Point(199, 295);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 13);
+            this.label3.Size = new System.Drawing.Size(74, 13);
             this.label3.TabIndex = 22;
-            this.label3.Text = "Date Received:";
+            this.label3.Text = "Date Ordered:";
             // 
             // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1326, 625);
+            this.ClientSize = new System.Drawing.Size(1194, 625);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.button1);
