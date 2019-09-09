@@ -79,8 +79,8 @@ namespace Finale_Projek_V2._0
                 {
                     if (Convert.ToString(reader.GetValue(0)) == selectedProductID)
                     {
-                        cartName = Convert.ToString(reader.GetValue(1));
-                        cartPrice = Convert.ToDouble(reader.GetValue(3));
+                        cartName = Convert.ToString(reader.GetValue(0));
+                        cartPrice = Convert.ToDouble(reader.GetValue(1));
                     }
                 }
                 con.Close();
