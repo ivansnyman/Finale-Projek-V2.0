@@ -129,6 +129,7 @@
             this.btnAdd.TabIndex = 14;
             this.btnAdd.Text = "Add Product";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // label6
             // 
@@ -164,9 +165,9 @@
             this.label1.Location = new System.Drawing.Point(4, 267);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 18);
+            this.label1.Size = new System.Drawing.Size(68, 18);
             this.label1.TabIndex = 11;
-            this.label1.Text = "Quintity:";
+            this.label1.Text = "Quantity:";
             // 
             // label4
             // 

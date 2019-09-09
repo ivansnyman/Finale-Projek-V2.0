@@ -20,6 +20,8 @@ namespace Finale_Projek_V2._0
         SqlDataAdapter adap;
         SqlDataReader reader;
         public string name;
+        public string custID, prodID, cartName, manuName;
+        double cartPrice, totalPrice;
         public bool flag = false;
         public Order()
         {
@@ -77,6 +79,35 @@ namespace Finale_Projek_V2._0
             {
                 MessageBox.Show(error.Message);
 
+            }
+        }
+
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            string selectedProductID = dataGridView1.SelectedCells[0].Value.ToString();
+            if ((numericUpDown1.Value == 0) || (numericUpDown1.Value < 0) || (selectedProductID == ""))
+            {
+                MessageBox.Show("Please make sure you selected a product and entered a quantity");
+            }
+            else
+            {
+                int quantity = Convert.ToInt32(numericUpDown1.Value);
+                con.Open();
+                cmd = new SqlCommand("SELECT Product_ID, Product_Name, Price_Sold, Manufacturer_Name FROM Products", con);
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    if (Convert.ToString(reader.GetValue(0)) == selectedProductID)
+                    {
+                        cartName = Convert.ToString(reader.GetValue(1));
+                        cartPrice = Convert.ToDouble(reader.GetValue(2));
+                        manuName = Convert.ToString(reader.GetValue(3));
+                    }
+                }
+                con.Close();
+                listBox2.Items.Add(cartName + "\t" + Convert.ToString(quantity) + "\t" + "R" + Convert.ToString(cartPrice * quantity));
+                totalPrice += cartPrice * quantity;
+                listBox2.Items.Add("Total Due:\t\t" + "R" + Convert.ToString(totalPrice));
             }
         }
     }
