@@ -14,7 +14,7 @@ namespace Finale_Projek_V2._0
     public partial class Employees : Form
     {
         SqlConnection con;
-        public String constr = @"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Gerhard\\Source\\Repos\\ivansnyman\\Finale-Projek-V2.0\\Supplement_Database.mdf;Integrated Security=True";
+        public String constr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Gerhard\Source\Repos\ivansnyman\Finale-Projek-V2.0\Supplement_Database.mdf;Integrated Security=True";
         SqlCommand cmd;
         SqlDataAdapter adap;
       
@@ -106,8 +106,9 @@ namespace Finale_Projek_V2._0
 
         private void Employees_Load(object sender, EventArgs e)
         {
-            display();
             con = new SqlConnection(constr);
+            display();
+
         }
 
         private void Button1_Click_1(object sender, EventArgs e)
