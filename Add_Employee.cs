@@ -37,7 +37,7 @@ namespace Finale_Projek_V2._0
             string phoneNumber = tbxPhone.Text;
             string email = tbxEmail.Text;
             string password = tbxPassword.Text;
-            cmd = new SqlCommand(@"INSERT INTO Employees Values('" + fName + "'," + lName + "'," + phoneNumber + "'," + email + "'," + password + "')", con);
+            cmd = new SqlCommand(@"INSERT INTO Employees Values('" + fName + "','" + lName + "','" + phoneNumber + "','" + email + "','" + password + "')", con);
             cmd.ExecuteNonQuery();
 
             con.Close();
