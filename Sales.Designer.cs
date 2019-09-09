@@ -45,6 +45,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.listBox3 = new System.Windows.Forms.ListBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -238,11 +239,21 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Select Customer:";
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(167, 640);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(135, 27);
+            this.btnDelete.TabIndex = 15;
+            this.btnDelete.Text = "Delete from cart";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            // 
             // Sales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(848, 678);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnAddSale);
             this.Controls.Add(this.button1);
@@ -283,5 +294,6 @@
         private System.Windows.Forms.ListBox listBox3;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnDelete;
     }
 }
