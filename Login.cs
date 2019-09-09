@@ -15,6 +15,7 @@ namespace Finale_Projek_V2._0
     public partial class Login : Form
     {
         SqlConnection con;
+        
         public Login()
         {
             InitializeComponent();
@@ -28,10 +29,11 @@ namespace Finale_Projek_V2._0
 
         private void Button1_Click(object sender, EventArgs e)
         {
+            
             SqlCommand cmd;
             int empID = Convert.ToInt32(tbxID.Text);
             string password = tbxPass.Text;
-            MainScreen mainScreen = new MainScreen();
+            MainScreen mainScreen = new MainScreen(tbxID.Text);
             SqlDataReader dataReader;
             con.Open();
             cmd = new SqlCommand("Select Employee_ID, Password FROM Employees",con);

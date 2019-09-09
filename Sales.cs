@@ -125,13 +125,17 @@ namespace Finale_Projek_V2._0
         private void Button1_Click(object sender, EventArgs e)
         {
             int index = listBox3.SelectedIndex;
-            if (index >= 0)
+            if (index >= 0 || listBox2.Items.Count < 2)
             {
-                MessageBox.Show("Customer Confirmed");
+                double amount;
+                string date;
+                int employeeid = 
+                con.Open();
+
             }
             else
             {
-                MessageBox.Show("Please enter valid customer information");
+                MessageBox.Show("Please enter valid customer information and check if cart is empty");
             }
         }
     }

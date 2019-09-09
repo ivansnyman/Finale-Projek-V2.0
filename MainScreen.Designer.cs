@@ -35,6 +35,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.tbxEmployee = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -121,11 +122,19 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.Button6_Click);
             // 
+            // tbxEmployee
+            // 
+            this.tbxEmployee.Location = new System.Drawing.Point(302, 67);
+            this.tbxEmployee.Name = "tbxEmployee";
+            this.tbxEmployee.Size = new System.Drawing.Size(100, 20);
+            this.tbxEmployee.TabIndex = 7;
+            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(244, 397);
+            this.ClientSize = new System.Drawing.Size(427, 397);
+            this.Controls.Add(this.tbxEmployee);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -150,5 +159,6 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.TextBox tbxEmployee;
     }
 }
