@@ -15,7 +15,7 @@ namespace Finale_Projek_V2._0
     public partial class Order : Form
     {
         SqlConnection con;
-        public String constr = @"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Gerhard\\Source\\Repos\\ivansnyman\\Finale-Projek-V2.0\\Supplement_Database.mdf;Integrated Security=True";
+        public String constr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Gerhard\Source\Repos\ivansnyman\Finale-Projek-V2.0\Supplement_Database.mdf;Integrated Security=True";
         SqlCommand cmd;
         SqlDataAdapter adap;
         SqlDataReader reader;
@@ -53,6 +53,7 @@ namespace Finale_Projek_V2._0
         private void Order_Load(object sender, EventArgs e)
         {
             listBox1.Items.Add("Supplier Name:\t\t Phone Number:\t\t Email:");
+            con = new SqlConnection(constr);
         }
 
         private void TextBox2_TextChanged(object sender, EventArgs e)
@@ -65,9 +66,11 @@ namespace Finale_Projek_V2._0
                 reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
+                    listBox1.Items.Clear();
                     listBox1.Items.Add(reader.GetValue(1) + "\t\t " + reader.GetValue(2) + "\t\t " + reader.GetValue(3));
 
                 }
+                con.Close();
             }
             catch (SqlException error)
             {
