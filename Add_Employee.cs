@@ -42,7 +42,7 @@ namespace Finale_Projek_V2._0
 
             con.Close();
 
-            MessageBox.Show("Successfully added product");
+            MessageBox.Show("Successfully added employee");
         }
     }
 }
