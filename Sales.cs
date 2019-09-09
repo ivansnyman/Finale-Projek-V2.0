@@ -18,8 +18,8 @@ namespace Finale_Projek_V2._0
         SqlCommand cmd;
         SqlDataReader reader;
         SqlDataAdapter adap;
-        public string id;
-        public bool flag = false;
+        public string custID, prodID, cartName;
+        double cartPrice, totalPrice;
         public Sales()
         {
             InitializeComponent();
@@ -32,9 +32,10 @@ namespace Finale_Projek_V2._0
 
         private void Sales_Load(object sender, EventArgs e)
         {
-            listBox3.Items.Add("First Name:\t\t Last Name:\t\t Address:");
-            listBox2.Items.Add("Product Name:\t\t Quantity:\t\t Price: ");
-            listBox2.Items.Add("-----------------------------------------");
+            listBox3.Items.Add("First Name:\t Last Name:\t Address:");
+            listBox2.Items.Add("Product Name:\t Quantity:\t Price: ");
+            listBox2.Items.Add("---------------------------------------------------------------------------------------");
+            con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Gerhard\Source\Repos\ivansnyman\Finale-Projek-V2.0\Supplement_Database.mdf;Integrated Security=True");
         }
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
@@ -63,18 +64,32 @@ namespace Finale_Projek_V2._0
 
         private void Button2_Click(object sender, EventArgs e)
         {
-           
-            string product = "";
-            int quantity = 0;
-            if (flag == false)
+            string selectedProductID = dataGridView1.SelectedCells[0].Value.ToString();
+            if ((numericUpDown1.Value == 0) || (numericUpDown1.Value < 0) || (selectedProductID == ""))
             {
-                MessageBox.Show("Please enter customer information");
+                MessageBox.Show("Please make sure you selected a product and entered a quantity");
             }
             else
             {
-                flag = true;
-
+                int quantity = Convert.ToInt32(numericUpDown1.Value);
+                con.Open();
+                cmd = new SqlCommand("SELECT Product_Name, Price_Sold FROM Products");
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    if (Convert.ToString(reader.GetValue(0)) == selectedProductID)
+                    {
+                        cartName = Convert.ToString(reader.GetValue(1));
+                        cartPrice = Convert.ToDouble(reader.GetValue(3));
+                    }
+                }
+                con.Close();
+                listBox2.Items.Add(cartName + "\t" + Convert.ToString(quantity) + "\t" + "R" + Convert.ToString(cartPrice * quantity));
+                totalPrice += cartPrice * quantity;
+                listBox2.Items.Add("Total Due:\t\t" + "R" + Convert.ToString(totalPrice));
             }
+            
+            
         }
 
         private void BtnCustomer_Click(object sender, EventArgs e)
@@ -97,7 +112,7 @@ namespace Finale_Projek_V2._0
                 while (reader.Read())
                 {
                     listBox3.Items.Add(reader.GetValue(1) + "\t\t " + reader.GetValue(2) + "\t\t " + reader.GetValue(3));
-                    id =  Convert.ToString(reader.GetValue(0));
+                    custID =  Convert.ToString(reader.GetValue(0));
                 }
                 con.Close();
             }

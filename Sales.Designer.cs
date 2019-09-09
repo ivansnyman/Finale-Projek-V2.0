@@ -66,7 +66,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 22.2F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(392, 9);
+            this.label5.Location = new System.Drawing.Point(506, 9);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(89, 35);
@@ -167,7 +167,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(402, 344);
+            this.groupBox2.Size = new System.Drawing.Size(628, 403);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Cart:";
@@ -176,10 +176,11 @@
             // 
             this.listBox2.FormattingEnabled = true;
             this.listBox2.ItemHeight = 18;
-            this.listBox2.Location = new System.Drawing.Point(2, 24);
+            this.listBox2.Location = new System.Drawing.Point(4, 23);
             this.listBox2.Margin = new System.Windows.Forms.Padding(2);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(396, 310);
+            this.listBox2.ScrollAlwaysVisible = true;
+            this.listBox2.Size = new System.Drawing.Size(620, 364);
             this.listBox2.TabIndex = 0;
             // 
             // button1
@@ -215,12 +216,13 @@
             // 
             // listBox3
             // 
+            this.listBox3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox3.FormattingEnabled = true;
-            this.listBox3.ItemHeight = 18;
+            this.listBox3.ItemHeight = 15;
             this.listBox3.Location = new System.Drawing.Point(4, 53);
             this.listBox3.Margin = new System.Windows.Forms.Padding(2);
             this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(388, 148);
+            this.listBox3.Size = new System.Drawing.Size(388, 139);
             this.listBox3.TabIndex = 9;
             // 
             // groupBox3
@@ -242,7 +244,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(848, 678);
+            this.ClientSize = new System.Drawing.Size(1117, 678);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnAddSale);
             this.Controls.Add(this.button1);
