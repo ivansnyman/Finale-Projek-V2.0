@@ -50,7 +50,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(197, 80);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(164, 20);
             this.textBox1.TabIndex = 0;
@@ -58,7 +58,7 @@
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(197, 102);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(164, 20);
             this.textBox2.TabIndex = 1;
@@ -66,7 +66,7 @@
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(197, 173);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(164, 20);
             this.textBox3.TabIndex = 2;
@@ -74,7 +74,7 @@
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(197, 150);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(164, 20);
             this.textBox4.TabIndex = 3;
@@ -82,7 +82,7 @@
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(197, 125);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(2);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(164, 20);
             this.textBox5.TabIndex = 4;
@@ -147,9 +147,9 @@
             this.label6.Location = new System.Drawing.Point(92, 7);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(208, 35);
+            this.label6.Size = new System.Drawing.Size(205, 35);
             this.label6.TabIndex = 10;
-            this.label6.Text = "Add Employee";
+            this.label6.Text = "Add Customer";
             // 
             // label7
             // 
@@ -187,7 +187,7 @@
             // textBox6
             // 
             this.textBox6.Location = new System.Drawing.Point(197, 196);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(2);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(164, 20);
             this.textBox6.TabIndex = 14;
@@ -195,7 +195,7 @@
             // textBox7
             // 
             this.textBox7.Location = new System.Drawing.Point(197, 219);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox7.Margin = new System.Windows.Forms.Padding(2);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(164, 20);
             this.textBox7.TabIndex = 15;
@@ -204,7 +204,7 @@
             // 
             this.button1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(98, 253);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(202, 28);
             this.button1.TabIndex = 16;
@@ -233,7 +233,7 @@
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AddClient";
             this.Text = "AddClient";
             this.Load += new System.EventHandler(this.AddClient_Load);
