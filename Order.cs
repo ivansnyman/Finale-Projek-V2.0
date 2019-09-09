@@ -53,6 +53,7 @@ namespace Finale_Projek_V2._0
         private void Order_Load(object sender, EventArgs e)
         {
             listBox1.Items.Add("Supplier Name:\t\t Phone Number:\t\t Email:");
+            listBox1.Items.Add("Product Name:\t\t Quantity:\t\t Price:\t\t Supplier Name");
             con = new SqlConnection(constr);
         }
 
