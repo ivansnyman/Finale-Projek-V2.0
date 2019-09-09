@@ -45,6 +45,7 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnConfirmSup = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -55,10 +56,10 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Arial", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(461, 421);
+            this.button1.Location = new System.Drawing.Point(458, 469);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(344, 59);
+            this.button1.Size = new System.Drawing.Size(344, 111);
             this.button1.TabIndex = 17;
             this.button1.Text = "Confirm Order";
             this.button1.UseVisualStyleBackColor = true;
@@ -97,7 +98,7 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(17, 56);
+            this.groupBox1.Location = new System.Drawing.Point(11, 295);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
@@ -194,13 +195,14 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnConfirmSup);
             this.groupBox3.Controls.Add(this.listBox1);
             this.groupBox3.Controls.Add(this.textBox2);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(22, 402);
+            this.groupBox3.Location = new System.Drawing.Point(18, 56);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(397, 180);
+            this.groupBox3.Size = new System.Drawing.Size(397, 234);
             this.groupBox3.TabIndex = 18;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Select Supplier";
@@ -230,11 +232,20 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Filter by name:";
             // 
+            // btnConfirmSup
+            // 
+            this.btnConfirmSup.Location = new System.Drawing.Point(12, 189);
+            this.btnConfirmSup.Name = "btnConfirmSup";
+            this.btnConfirmSup.Size = new System.Drawing.Size(187, 39);
+            this.btnConfirmSup.TabIndex = 3;
+            this.btnConfirmSup.Text = "Confirm Supplier";
+            this.btnConfirmSup.UseVisualStyleBackColor = true;
+            // 
             // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(854, 604);
+            this.ClientSize = new System.Drawing.Size(854, 659);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox2);
@@ -274,5 +285,6 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button btnConfirmSup;
     }
 }
