@@ -73,7 +73,7 @@ namespace Finale_Projek_V2._0
             {
                 int quantity = Convert.ToInt32(numericUpDown1.Value);
                 con.Open();
-                cmd = new SqlCommand("SELECT Product_Name, Price_Sold FROM Products");
+                cmd = new SqlCommand("SELECT Product_Name, Price_Sold FROM Products",con);
                 reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
