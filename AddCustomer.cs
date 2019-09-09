@@ -28,7 +28,7 @@ namespace Finale_Projek_V2._0
             con.Open();
             int phone;
             string fName, Lname, email,gender, dob;
-
+            
             phone = int.Parse(tbxPhone.Text);
             fName = tbxFname.Text;
             Lname = tbxLname.Text;
@@ -51,7 +51,7 @@ namespace Finale_Projek_V2._0
 
             con.Close();
 
-            MessageBox.Show("Successfully added product");
+            MessageBox.Show("Successfully added customer");
 
         }
 

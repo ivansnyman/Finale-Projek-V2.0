@@ -22,7 +22,7 @@ namespace Finale_Projek_V2._0
 
         private void Add_Product_Load(object sender, EventArgs e)
         {
-            String cnn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\baren\Source\Repos\ivansnyman\Finale-Projek-V2.0\Supplement_Database.mdf;Integrated Security=True";
+            String cnn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Gerhard\Source\Repos\ivansnyman\Finale-Projek-V2.0\Supplement_Database.mdf;Integrated Security=True";
             con = new SqlConnection(cnn);
         }
 
@@ -34,15 +34,16 @@ namespace Finale_Projek_V2._0
         private void Button1_Click(object sender, EventArgs e)
         {
             con.Open();
-            int sellPrice, paidPrice, supplierID, quintity;
+            int supplierID, quintity;
             string productName, manufacturer, dateReceived;
+            double sellPrice, paidPrice;
 
             productName = txtName.Text;
             manufacturer = txtManufacturer.Text;
             dateReceived = txtDate.Text;
 
-            sellPrice = int.Parse(txtSellPrice.Text);
-            paidPrice = int.Parse(txtPricePaid.Text);
+            sellPrice = Convert.ToDouble(txtSellPrice.Text);
+            paidPrice = Convert.ToDouble(txtPricePaid.Text);
             supplierID = int.Parse(txtSupplierId.Text);
             quintity = int.Parse(txtQuantity.Text);
 
