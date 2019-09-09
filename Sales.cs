@@ -73,14 +73,14 @@ namespace Finale_Projek_V2._0
             {
                 int quantity = Convert.ToInt32(numericUpDown1.Value);
                 con.Open();
-                cmd = new SqlCommand("SELECT Product_Name, Price_Sold FROM Products",con);
+                cmd = new SqlCommand("SELECT Product_ID, Product_Name, Price_Sold FROM Products",con);
                 reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
                     if (Convert.ToString(reader.GetValue(0)) == selectedProductID)
                     {
-                        cartName = Convert.ToString(reader.GetValue(0));
-                        cartPrice = Convert.ToDouble(reader.GetValue(1));
+                        cartName = Convert.ToString(reader.GetValue(1));
+                        cartPrice = Convert.ToDouble(reader.GetValue(2));
                     }
                 }
                 con.Close();
