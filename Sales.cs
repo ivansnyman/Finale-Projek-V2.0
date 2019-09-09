@@ -14,7 +14,7 @@ namespace Finale_Projek_V2._0
     public partial class Sales : Form
     {
         SqlConnection con;
-        public String constr = @"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\baren\\Source\\Repos\\ivansnyman\\Finale-Projek-V2.0\\Supplement_Database.mdf;Integrated Security=True";
+        public String constr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Gerhard\Source\Repos\ivansnyman\Finale-Projek-V2.0\Supplement_Database.mdf;Integrated Security=True";
         SqlCommand cmd;
         SqlDataReader reader;
         SqlDataAdapter adap;
@@ -35,6 +35,7 @@ namespace Finale_Projek_V2._0
             listBox3.Items.Add("First Name:\t\t Last Name:\t\t Address:");
             listBox2.Items.Add("Product Name:\t\t Quantity:\t\t Price: ");
             listBox2.Items.Add("-----------------------------------------");
+            con = new SqlConnection(constr);
         }
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
