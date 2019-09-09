@@ -15,9 +15,12 @@ namespace Finale_Projek_V2._0
     public partial class Order : Form
     {
         SqlConnection con;
-        public String constr = @"Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Gerhard\\Source\\Repos\\ivansnyman\\Finale-Projek-V2.0\\Supplement_Database.mdf;Integrated Security=True";
+        public String constr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Gerhard\Source\Repos\ivansnyman\Finale-Projek-V2.0\Supplement_Database.mdf;Integrated Security=True";
         SqlCommand cmd;
         SqlDataAdapter adap;
+        SqlDataReader reader;
+        public string name;
+        public bool flag = false;
         public Order()
         {
             InitializeComponent();
@@ -45,6 +48,35 @@ namespace Finale_Projek_V2._0
             dataGridView1.DataSource = ds;
             dataGridView1.DataMember = "Products";
             con.Close();
+        }
+
+        private void Order_Load(object sender, EventArgs e)
+        {
+            listBox1.Items.Add("Supplier Name:\t\t Phone Number:\t\t Email:");
+            con = new SqlConnection(constr);
+        }
+
+        private void TextBox2_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                con.Open();
+                string search = textBox2.Text;
+                cmd = new SqlCommand("SELECT * FROM Suppliers WHERE Supplier_Name LIKE '%" + textBox2.Text + "%' OR Supplier_ID LIKE '%" + textBox2.Text + "%' OR Phone_Number LIKE '%" + textBox2.Text + "%'", con);
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    listBox1.Items.Clear();
+                    listBox1.Items.Add(reader.GetValue(1) + "\t\t " + reader.GetValue(2) + "\t\t " + reader.GetValue(3));
+
+                }
+                con.Close();
+            }
+            catch (SqlException error)
+            {
+                MessageBox.Show(error.Message);
+
+            }
         }
     }
 }
