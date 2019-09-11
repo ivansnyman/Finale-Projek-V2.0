@@ -129,7 +129,7 @@ namespace Finale_Projek_V2._0
             {
                 double amount;
                 string date;
-                int employeeid = 
+                int employeeid=
                 con.Open();
 
             }

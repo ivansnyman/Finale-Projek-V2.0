@@ -46,10 +46,10 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.listBox3 = new System.Windows.Forms.ListBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.txtDateFilter = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.txtDateFilter = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.listBox3 = new System.Windows.Forms.ListBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -251,13 +251,22 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Orders not yet received:";
             // 
-            // listBox3
+            // label3
             // 
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.Location = new System.Drawing.Point(6, 19);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(315, 264);
-            this.listBox3.TabIndex = 0;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(199, 295);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 13);
+            this.label3.TabIndex = 22;
+            this.label3.Text = "Date Ordered:";
+            // 
+            // txtDateFilter
+            // 
+            this.txtDateFilter.Location = new System.Drawing.Point(199, 323);
+            this.txtDateFilter.Name = "txtDateFilter";
+            this.txtDateFilter.Size = new System.Drawing.Size(122, 20);
+            this.txtDateFilter.TabIndex = 21;
+            this.txtDateFilter.TextChanged += new System.EventHandler(this.TxtDateFilter_TextChanged);
             // 
             // button3
             // 
@@ -268,22 +277,15 @@
             this.button3.TabIndex = 20;
             this.button3.Text = "Refresh";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.Button3_Click);
             // 
-            // txtDateFilter
+            // listBox3
             // 
-            this.txtDateFilter.Location = new System.Drawing.Point(199, 323);
-            this.txtDateFilter.Name = "txtDateFilter";
-            this.txtDateFilter.Size = new System.Drawing.Size(122, 20);
-            this.txtDateFilter.TabIndex = 21;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(199, 295);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 13);
-            this.label3.TabIndex = 22;
-            this.label3.Text = "Date Ordered:";
+            this.listBox3.FormattingEnabled = true;
+            this.listBox3.Location = new System.Drawing.Point(6, 19);
+            this.listBox3.Name = "listBox3";
+            this.listBox3.Size = new System.Drawing.Size(315, 264);
+            this.listBox3.TabIndex = 0;
             // 
             // Order
             // 
