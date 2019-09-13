@@ -37,6 +37,7 @@
             this.button6 = new System.Windows.Forms.Button();
             this.tbxEmployee = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.tbxGlobal = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -140,11 +141,21 @@
             this.label2.TabIndex = 8;
             this.label2.Text = "Current employee signed in:";
             // 
+            // tbxGlobal
+            // 
+            this.tbxGlobal.Location = new System.Drawing.Point(370, 121);
+            this.tbxGlobal.Name = "tbxGlobal";
+            this.tbxGlobal.ReadOnly = true;
+            this.tbxGlobal.Size = new System.Drawing.Size(100, 20);
+            this.tbxGlobal.TabIndex = 9;
+            this.tbxGlobal.Visible = false;
+            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(516, 397);
+            this.Controls.Add(this.tbxGlobal);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbxEmployee);
             this.Controls.Add(this.button6);
@@ -174,5 +185,6 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TextBox tbxEmployee;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox tbxGlobal;
     }
 }

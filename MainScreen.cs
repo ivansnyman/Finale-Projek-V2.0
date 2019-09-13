@@ -25,7 +25,9 @@ namespace Finale_Projek_V2._0
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            Sales frmSales = new Sales(tbxEmployee.Text);
+            tbxGlobal.Text = tbxEmployee.Text;
+            Sales frmSales = new Sales(tbxGlobal.Text);
+            
             frmSales.ShowDialog();
         }
 
