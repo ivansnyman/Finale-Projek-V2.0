@@ -47,7 +47,7 @@ namespace Finale_Projek_V2._0
                 con.Open();
                 listBox3.Items.Clear();
                 listBox3.Items.Add("Order ID:\tDate Placed:\tAmount\tSupplier ID:");
-                cmd = new SqlCommand("SELECT * FROM Orders WHERE Date_Order_Received IS NULL");
+                cmd = new SqlCommand("SELECT * FROM Orders WHERE Date_Order_Received IS NULL", con);
                 reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
