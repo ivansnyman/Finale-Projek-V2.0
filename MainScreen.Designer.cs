@@ -36,6 +36,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.tbxEmployee = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -124,16 +125,27 @@
             // 
             // tbxEmployee
             // 
-            this.tbxEmployee.Location = new System.Drawing.Point(302, 67);
+            this.tbxEmployee.Location = new System.Drawing.Point(370, 79);
             this.tbxEmployee.Name = "tbxEmployee";
+            this.tbxEmployee.ReadOnly = true;
             this.tbxEmployee.Size = new System.Drawing.Size(100, 20);
             this.tbxEmployee.TabIndex = 7;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(367, 63);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(137, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Current employee signed in:";
             // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(427, 397);
+            this.ClientSize = new System.Drawing.Size(516, 397);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.tbxEmployee);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
@@ -145,6 +157,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainScreen";
             this.Text = "MainScreen";
+            this.Load += new System.EventHandler(this.MainScreen_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -160,5 +173,6 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TextBox tbxEmployee;
+        private System.Windows.Forms.Label label2;
     }
 }

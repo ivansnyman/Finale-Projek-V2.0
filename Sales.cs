@@ -19,9 +19,10 @@ namespace Finale_Projek_V2._0
         SqlDataReader reader;
         SqlDataAdapter adap;
         public string custID, prodID, cartName;
-        double cartPrice, totalPrice;
-        public Sales()
+        public double cartPrice, totalPrice;
+        public Sales(string employeeID)
         {
+            tbxID.Text = employeeID;
             InitializeComponent();
         }
 
@@ -84,9 +85,12 @@ namespace Finale_Projek_V2._0
                     }
                 }
                 con.Close();
-                listBox2.Items.Add(cartName + "\t" + Convert.ToString(quantity) + "\t" + "R" + Convert.ToString(cartPrice * quantity));
-                totalPrice += cartPrice * quantity;
-                listBox2.Items.Add("Total Due:\t\t" + "R" + Convert.ToString(totalPrice));
+                
+                    listBox2.Items.Add(cartName + "\t" + Convert.ToString(quantity) + "\t" + "R" + Convert.ToString(cartPrice * quantity));
+                    totalPrice += cartPrice * quantity;
+                    listBox2.Items.Add("Total Due:\t\t" + "R" + Convert.ToString(totalPrice));
+                
+                
             }
             
             
@@ -125,11 +129,11 @@ namespace Finale_Projek_V2._0
         private void Button1_Click(object sender, EventArgs e)
         {
             int index = listBox3.SelectedIndex;
-            if (index >= 0 || listBox2.Items.Count < 2)
+            if (index >= 0 || listBox2.Items.Count > 2)
             {
                 double amount;
                 string date;
-                int employeeid = 
+                int Empid = Convert.ToInt32(tbxID.Text);
                 con.Open();
 
             }

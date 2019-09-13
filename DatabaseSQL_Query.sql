@@ -5,7 +5,6 @@
     [Last_Name] NVARCHAR(50) NULL, 
     [Phone_Number] CHAR(10) NULL, 
     [Email] NVARCHAR(50) NULL,
-	[Username] NVARCHAR(20) NULL,
 	[Password] NVARCHAR(20) NOT NULL
 )
  DROP TABLE Customers CREATE TABLE [dbo].[Customers]
@@ -54,7 +53,7 @@ DROP TABLE Orders CREATE TABLE [dbo].[Orders]
 (
     [Order_ID] INT NOT NULL PRIMARY KEY, 
     [Employee_ID] INT NULL, 
-    [Date_Order_Placed] DATE NULL, 
+    [Date_Order_Placed] NVARCHAR(20) NULL, 
     [Amount] NCHAR(10) NULL, 
     [Supplier_ID] INT NULL
 )

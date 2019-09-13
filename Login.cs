@@ -29,26 +29,37 @@ namespace Finale_Projek_V2._0
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            
-            SqlCommand cmd;
-            int empID = Convert.ToInt32(tbxID.Text);
-            string password = tbxPass.Text;
-            MainScreen mainScreen = new MainScreen(tbxID.Text);
-            SqlDataReader dataReader;
-            con.Open();
-            cmd = new SqlCommand("Select Employee_ID, Password FROM Employees",con);
-            dataReader = cmd.ExecuteReader();
-            while (dataReader.Read())
+            if (tbxID.Text == "")
             {
-                int currID = Convert.ToInt32(dataReader.GetValue(0));
-                string currPass = Convert.ToString(dataReader.GetValue(1));
-                if ((empID == currID) && (password == currPass))
-                {
-                    mainScreen.ShowDialog();
-                }
+                MessageBox.Show("Please enter employee ID");
             }
-            con.Close();
-            MessageBox.Show("Incorrect Employee ID OR Password, please try again");
+            else if (tbxPass.Text == "")
+            {
+                MessageBox.Show("Please enter employee Password");
+            }
+            else
+            {
+
+                SqlCommand cmd;
+                int empID = Convert.ToInt32(tbxID.Text);
+                string password = tbxPass.Text;
+                MainScreen mainScreen = new MainScreen(tbxID.Text);
+                SqlDataReader dataReader;
+                con.Open();
+                cmd = new SqlCommand("Select Employee_ID, Password FROM Employees", con);
+                dataReader = cmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    int currID = Convert.ToInt32(dataReader.GetValue(0));
+                    string currPass = Convert.ToString(dataReader.GetValue(1));
+                    if ((empID == currID) && (password == currPass))
+                    {
+                        mainScreen.ShowDialog();
+                    }
+                }
+                con.Close();
+                MessageBox.Show("Incorrect Employee ID OR Password, please try again");
+            }
         }
     }
 }

@@ -25,7 +25,7 @@ namespace Finale_Projek_V2._0
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            Sales frmSales = new Sales();
+            Sales frmSales = new Sales(tbxEmployee.Text);
             frmSales.ShowDialog();
         }
 
@@ -63,6 +63,11 @@ namespace Finale_Projek_V2._0
         {
             
            
+        }
+
+        private void MainScreen_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
