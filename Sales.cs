@@ -134,7 +134,7 @@ namespace Finale_Projek_V2._0
                 double amount;
                 string date;
                 int Empid = Convert.ToInt32(tbxID.Text);
-                con.Open();
+                
 
             }
             else
