@@ -40,6 +40,49 @@ namespace Finale_Projek_V2._0
             con.Close();
         }
 
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                con.Open();
+                listBox3.Items.Clear();
+                listBox3.Items.Add("Order ID:\tDate Placed:\tAmount\tSupplier ID:");
+                cmd = new SqlCommand("SELECT * FROM Orders WHERE Date_Order_Received IS NULL");
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    listBox3.Items.Add(reader.GetValue(0) + "\t " + reader.GetValue(2) + "\t" + reader.GetValue(3)+ "\t" + reader.GetValue(4));
+                }
+                con.Close();
+            }
+            catch(SqlException error)
+            {
+                MessageBox.Show(error.Message);
+            }
+        }
+
+        private void TxtDateFilter_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                con.Open();
+                listBox3.Items.Clear();
+                listBox3.Items.Add("Order ID:\tDate Placed:\tAmount\tSupplier ID:");
+                string search = txtDateFilter.Text;
+                cmd = new SqlCommand("SELECT * FROM Orders WHERE Date_Order_Placed LIKE '%" + txtDateFilter.Text + "%'", con);
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    listBox3.Items.Add(reader.GetValue(0) + "\t " + reader.GetValue(2) + "\t" + reader.GetValue(3) + "\t" + reader.GetValue(4));
+                }
+                con.Close();
+            }
+            catch (SqlException error)
+            {
+                MessageBox.Show(error.Message);
+            }
+        }
+
         private void TextBox5_TextChanged(object sender, EventArgs e)
         {
             con.Open();
