@@ -45,7 +45,7 @@ namespace Finale_Projek_V2._0
 
         private void Button4_Click(object sender, EventArgs e)
         {
-            Order frmOrders = new Order();
+            Order frmOrders = new Order(tbxEmployee.Text);
             frmOrders.ShowDialog();
         }
 

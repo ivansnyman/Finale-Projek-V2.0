@@ -49,13 +49,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtDateFilter = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.listBox3 = new System.Windows.Forms.ListBox();
+            this.txtEmployee = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -240,13 +243,13 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.dataGridView2);
             this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Controls.Add(this.txtDateFilter);
             this.groupBox4.Controls.Add(this.button3);
-            this.groupBox4.Controls.Add(this.listBox3);
             this.groupBox4.Location = new System.Drawing.Point(852, 65);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(338, 352);
+            this.groupBox4.Size = new System.Drawing.Size(338, 419);
             this.groupBox4.TabIndex = 19;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Orders not yet received:";
@@ -279,19 +282,37 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.Button3_Click);
             // 
-            // listBox3
+            // txtEmployee
             // 
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.Location = new System.Drawing.Point(6, 19);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(315, 264);
-            this.listBox3.TabIndex = 0;
+            this.txtEmployee.Location = new System.Drawing.Point(1073, 39);
+            this.txtEmployee.Name = "txtEmployee";
+            this.txtEmployee.Size = new System.Drawing.Size(100, 20);
+            this.txtEmployee.TabIndex = 20;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(908, 42);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(137, 13);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "Current employee signed in:";
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(6, 19);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(326, 269);
+            this.dataGridView2.TabIndex = 23;
             // 
             // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1194, 625);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.txtEmployee);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.button1);
@@ -311,6 +332,7 @@
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -339,6 +361,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtDateFilter;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ListBox listBox3;
+        private System.Windows.Forms.TextBox txtEmployee;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridView dataGridView2;
     }
 }
