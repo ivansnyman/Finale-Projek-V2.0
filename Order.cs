@@ -23,8 +23,9 @@ namespace Finale_Projek_V2._0
         public string custID, prodID, cartName, manuName;
         double cartPrice, totalPrice;
         public bool flag = false;
-        public Order()
+        public Order(string employeeID)
         {
+            txtEmployee.Text = employeeID;
             InitializeComponent();
         }
 
@@ -45,14 +46,12 @@ namespace Finale_Projek_V2._0
             try
             {
                 con.Open();
-                listBox3.Items.Clear();
-                listBox3.Items.Add("Order ID:\tDate Placed:\tAmount\tSupplier ID:");
-                cmd = new SqlCommand("SELECT * FROM Orders WHERE Date_Order_Received IS NULL", con);
-                reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    listBox3.Items.Add(reader.GetValue(0) + "\t " + reader.GetValue(2) + "\t" + reader.GetValue(3)+ "\t" + reader.GetValue(4));
-                }
+                string query = @"SELECT * from Products WHERE Date_Order_Received IS NULL";
+                adap = new SqlDataAdapter(query, con);
+                DataSet ds = new DataSet();
+                adap.Fill(ds, "Products");
+                dataGridView2.DataSource = ds;
+                dataGridView2.DataMember = "Products";
                 con.Close();
             }
             catch(SqlException error)
@@ -66,15 +65,12 @@ namespace Finale_Projek_V2._0
             try
             {
                 con.Open();
-                listBox3.Items.Clear();
-                listBox3.Items.Add("Order ID:\tDate Placed:\tAmount\tSupplier ID:");
-                string search = txtDateFilter.Text;
-                cmd = new SqlCommand("SELECT * FROM Orders WHERE Date_Order_Placed LIKE '%" + txtDateFilter.Text + "%'", con);
-                reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    listBox3.Items.Add(reader.GetValue(0) + "\t " + reader.GetValue(2) + "\t" + reader.GetValue(3) + "\t" + reader.GetValue(4));
-                }
+                string query = @"SELECT * from Products WHERE Date_Order_Placed = '" + txtDateFilter.Text + "'";
+                adap = new SqlDataAdapter(query, con);
+                DataSet ds = new DataSet();
+                adap.Fill(ds, "Products");
+                dataGridView2.DataSource = ds;
+                dataGridView2.DataMember = "Products";
                 con.Close();
             }
             catch (SqlException error)
