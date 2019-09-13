@@ -12,9 +12,10 @@ namespace Finale_Projek_V2._0
 {
     public partial class MainScreen : Form
     {
-        public MainScreen()
+        public MainScreen(string employeeID)
         {
             InitializeComponent();
+            tbxEmployee.Text = employeeID;
         }
 
         private void Label1_Click(object sender, EventArgs e)
@@ -24,7 +25,7 @@ namespace Finale_Projek_V2._0
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            Sales frmSales = new Sales();
+            Sales frmSales = new Sales(tbxEmployee.Text);
             frmSales.ShowDialog();
         }
 
@@ -56,6 +57,17 @@ namespace Finale_Projek_V2._0
         {
             Employees frmEmployees = new Employees();
             frmEmployees.ShowDialog();
+        }
+
+        private void Button7_Click(object sender, EventArgs e)
+        {
+            
+           
+        }
+
+        private void MainScreen_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

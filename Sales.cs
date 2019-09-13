@@ -19,9 +19,10 @@ namespace Finale_Projek_V2._0
         SqlDataReader reader;
         SqlDataAdapter adap;
         public string custID, prodID, cartName;
-        double cartPrice, totalPrice;
-        public Sales()
+        public double cartPrice, totalPrice;
+        public Sales(string employeeID)
         {
+            tbxID.Text = employeeID;
             InitializeComponent();
         }
 
@@ -64,37 +65,34 @@ namespace Finale_Projek_V2._0
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows == null)
+            string selectedProductID = dataGridView1.SelectedCells[0].Value.ToString();
+            if ((numericUpDown1.Value == 0) || (numericUpDown1.Value < 0) || (selectedProductID == ""))
             {
-                MessageBox.Show("Please select a product to add to the cart");
+                MessageBox.Show("Please make sure you selected a product and entered a quantity");
             }
             else
             {
-                string selectedProductID = dataGridView1.SelectedCells[0].Value.ToString();
-                if ((numericUpDown1.Value == 0) || (numericUpDown1.Value < 0) || (selectedProductID == ""))
+                int quantity = Convert.ToInt32(numericUpDown1.Value);
+                con.Open();
+                cmd = new SqlCommand("SELECT Product_ID, Product_Name, Price_Sold FROM Products",con);
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
                 {
-                    MessageBox.Show("Please make sure you selected a product and entered a quantity");
-                }
-                else
-                {
-                    int quantity = Convert.ToInt32(numericUpDown1.Value);
-                    con.Open();
-                    cmd = new SqlCommand("SELECT Product_ID, Product_Name, Price_Sold FROM Products", con);
-                    reader = cmd.ExecuteReader();
-                    while (reader.Read())
+                    if (Convert.ToString(reader.GetValue(0)) == selectedProductID)
                     {
-                        if (Convert.ToString(reader.GetValue(0)) == selectedProductID)
-                        {
-                            cartName = Convert.ToString(reader.GetValue(1));
-                            cartPrice = Convert.ToDouble(reader.GetValue(2));
-                        }
+                        cartName = Convert.ToString(reader.GetValue(1));
+                        cartPrice = Convert.ToDouble(reader.GetValue(2));
                     }
-                    con.Close();
+                }
+                con.Close();
+                
                     listBox2.Items.Add(cartName + "\t" + Convert.ToString(quantity) + "\t" + "R" + Convert.ToString(cartPrice * quantity));
                     totalPrice += cartPrice * quantity;
                     listBox2.Items.Add("Total Due:\t\t" + "R" + Convert.ToString(totalPrice));
-                }
+                
+                
             }
+            
             
         }
 
@@ -131,13 +129,17 @@ namespace Finale_Projek_V2._0
         private void Button1_Click(object sender, EventArgs e)
         {
             int index = listBox3.SelectedIndex;
-            if (index >= 0)
+            if (index >= 0 || listBox2.Items.Count > 2)
             {
-                MessageBox.Show("Customer Confirmed");
+                double amount;
+                string date;
+                int Empid = Convert.ToInt32(tbxID.Text);
+                
+
             }
             else
             {
-                MessageBox.Show("Please enter valid customer information");
+                MessageBox.Show("Please enter valid customer information and check if cart is empty");
             }
         }
     }

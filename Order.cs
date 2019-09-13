@@ -20,6 +20,8 @@ namespace Finale_Projek_V2._0
         SqlDataAdapter adap;
         SqlDataReader reader;
         public string name;
+        public string custID, prodID, cartName, manuName;
+        double cartPrice, totalPrice;
         public bool flag = false;
         public Order()
         {
@@ -38,6 +40,49 @@ namespace Finale_Projek_V2._0
             con.Close();
         }
 
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                con.Open();
+                listBox3.Items.Clear();
+                listBox3.Items.Add("Order ID:\tDate Placed:\tAmount\tSupplier ID:");
+                cmd = new SqlCommand("SELECT * FROM Orders WHERE Date_Order_Received IS NULL", con);
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    listBox3.Items.Add(reader.GetValue(0) + "\t " + reader.GetValue(2) + "\t" + reader.GetValue(3)+ "\t" + reader.GetValue(4));
+                }
+                con.Close();
+            }
+            catch(SqlException error)
+            {
+                MessageBox.Show(error.Message);
+            }
+        }
+
+        private void TxtDateFilter_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                con.Open();
+                listBox3.Items.Clear();
+                listBox3.Items.Add("Order ID:\tDate Placed:\tAmount\tSupplier ID:");
+                string search = txtDateFilter.Text;
+                cmd = new SqlCommand("SELECT * FROM Orders WHERE Date_Order_Placed LIKE '%" + txtDateFilter.Text + "%'", con);
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    listBox3.Items.Add(reader.GetValue(0) + "\t " + reader.GetValue(2) + "\t" + reader.GetValue(3) + "\t" + reader.GetValue(4));
+                }
+                con.Close();
+            }
+            catch (SqlException error)
+            {
+                MessageBox.Show(error.Message);
+            }
+        }
+
         private void TextBox5_TextChanged(object sender, EventArgs e)
         {
             con.Open();
@@ -53,6 +98,7 @@ namespace Finale_Projek_V2._0
         private void Order_Load(object sender, EventArgs e)
         {
             listBox1.Items.Add("Supplier Name:\t\t Phone Number:\t\t Email:");
+            listBox2.Items.Add("Product Name:\t\t Quantity:\t\t Price:\t\t Supplier Name");
             con = new SqlConnection(constr);
         }
 
@@ -76,6 +122,35 @@ namespace Finale_Projek_V2._0
             {
                 MessageBox.Show(error.Message);
 
+            }
+        }
+
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            string selectedProductID = dataGridView1.SelectedCells[0].Value.ToString();
+            if ((numericUpDown1.Value == 0) || (numericUpDown1.Value < 0) || (selectedProductID == ""))
+            {
+                MessageBox.Show("Please make sure you selected a product and entered a quantity");
+            }
+            else
+            {
+                int quantity = Convert.ToInt32(numericUpDown1.Value);
+                con.Open();
+                cmd = new SqlCommand("SELECT Product_ID, Product_Name, Price_Sold, Manufacturer_Name FROM Products", con);
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    if (Convert.ToString(reader.GetValue(0)) == selectedProductID)
+                    {
+                        cartName = Convert.ToString(reader.GetValue(1));
+                        cartPrice = Convert.ToDouble(reader.GetValue(2));
+                        manuName = Convert.ToString(reader.GetValue(3));
+                    }
+                }
+                con.Close();
+                listBox2.Items.Add(cartName + "\t" + Convert.ToString(quantity) + "\t" + "R" + Convert.ToString(cartPrice * quantity));
+                totalPrice += cartPrice * quantity;
+                listBox2.Items.Add("Total Due:\t\t" + "R" + Convert.ToString(totalPrice));
             }
         }
     }

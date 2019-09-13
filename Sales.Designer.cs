@@ -45,6 +45,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.listBox3 = new System.Windows.Forms.ListBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.tbxID = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -240,11 +242,30 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Select Customer:";
             // 
+            // tbxID
+            // 
+            this.tbxID.Location = new System.Drawing.Point(847, 23);
+            this.tbxID.Name = "tbxID";
+            this.tbxID.ReadOnly = true;
+            this.tbxID.Size = new System.Drawing.Size(100, 20);
+            this.tbxID.TabIndex = 15;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(844, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(137, 13);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Current employee signed in:";
+            // 
             // Sales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1117, 678);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.tbxID);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnAddSale);
             this.Controls.Add(this.button1);
@@ -285,5 +306,7 @@
         private System.Windows.Forms.ListBox listBox3;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox tbxID;
+        private System.Windows.Forms.Label label2;
     }
 }

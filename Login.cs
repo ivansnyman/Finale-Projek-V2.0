@@ -15,11 +15,12 @@ namespace Finale_Projek_V2._0
     public partial class Login : Form
     {
         SqlConnection con;
+        
         public Login()
         {
             InitializeComponent();
-
         }
+
         private void Login_Load(object sender, EventArgs e)
         {
             String cnn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Gerhard\Source\Repos\ivansnyman\Finale-Projek-V2.0\Supplement_Database.mdf;Integrated Security=True";
@@ -32,16 +33,17 @@ namespace Finale_Projek_V2._0
             {
                 MessageBox.Show("Please enter employee ID");
             }
-            else if(tbxPass.Text == "")
+            else if (tbxPass.Text == "")
             {
                 MessageBox.Show("Please enter employee Password");
             }
             else
             {
+
                 SqlCommand cmd;
                 int empID = Convert.ToInt32(tbxID.Text);
                 string password = tbxPass.Text;
-                MainScreen mainScreen = new MainScreen();
+                MainScreen mainScreen = new MainScreen(tbxID.Text);
                 SqlDataReader dataReader;
                 con.Open();
                 cmd = new SqlCommand("Select Employee_ID, Password FROM Employees", con);
@@ -58,7 +60,6 @@ namespace Finale_Projek_V2._0
                 con.Close();
                 MessageBox.Show("Incorrect Employee ID OR Password, please try again");
             }
-
         }
     }
 }
