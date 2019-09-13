@@ -64,31 +64,37 @@ namespace Finale_Projek_V2._0
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            string selectedProductID = dataGridView1.SelectedCells[0].Value.ToString();
-            if ((numericUpDown1.Value == 0) || (numericUpDown1.Value < 0) || (selectedProductID == ""))
+            if (dataGridView1.SelectedRows == null)
             {
-                MessageBox.Show("Please make sure you selected a product and entered a quantity");
+                MessageBox.Show("Please select a product to add to the cart");
             }
             else
             {
-                int quantity = Convert.ToInt32(numericUpDown1.Value);
-                con.Open();
-                cmd = new SqlCommand("SELECT Product_ID, Product_Name, Price_Sold FROM Products",con);
-                reader = cmd.ExecuteReader();
-                while (reader.Read())
+                string selectedProductID = dataGridView1.SelectedCells[0].Value.ToString();
+                if ((numericUpDown1.Value == 0) || (numericUpDown1.Value < 0) || (selectedProductID == ""))
                 {
-                    if (Convert.ToString(reader.GetValue(0)) == selectedProductID)
-                    {
-                        cartName = Convert.ToString(reader.GetValue(1));
-                        cartPrice = Convert.ToDouble(reader.GetValue(2));
-                    }
+                    MessageBox.Show("Please make sure you selected a product and entered a quantity");
                 }
-                con.Close();
-                listBox2.Items.Add(cartName + "\t" + Convert.ToString(quantity) + "\t" + "R" + Convert.ToString(cartPrice * quantity));
-                totalPrice += cartPrice * quantity;
-                listBox2.Items.Add("Total Due:\t\t" + "R" + Convert.ToString(totalPrice));
+                else
+                {
+                    int quantity = Convert.ToInt32(numericUpDown1.Value);
+                    con.Open();
+                    cmd = new SqlCommand("SELECT Product_ID, Product_Name, Price_Sold FROM Products", con);
+                    reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        if (Convert.ToString(reader.GetValue(0)) == selectedProductID)
+                        {
+                            cartName = Convert.ToString(reader.GetValue(1));
+                            cartPrice = Convert.ToDouble(reader.GetValue(2));
+                        }
+                    }
+                    con.Close();
+                    listBox2.Items.Add(cartName + "\t" + Convert.ToString(quantity) + "\t" + "R" + Convert.ToString(cartPrice * quantity));
+                    totalPrice += cartPrice * quantity;
+                    listBox2.Items.Add("Total Due:\t\t" + "R" + Convert.ToString(totalPrice));
+                }
             }
-            
             
         }
 
