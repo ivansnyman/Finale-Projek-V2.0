@@ -129,5 +129,17 @@ namespace Finale_Projek_V2._0
 
             con.Close();
         }
+
+        private void TextBox5_TextChanged(object sender, EventArgs e)
+        {
+            con.Open();
+            string query = @"SELECT * from Suppliers WHERE Supplier_Name LIKE '%" + textBox5.Text + "%'OR Supplier_ID LIKE '%" + textBox5.Text + "%'";
+            SqlDataAdapter adapter = new SqlDataAdapter(query, con);
+            DataSet ds = new DataSet();
+            adapter.Fill(ds, "Suppliers");
+            dataGridView1.DataSource = ds;
+            dataGridView1.DataMember = "Suppliers";
+            con.Close();
+        }
     }
 }
