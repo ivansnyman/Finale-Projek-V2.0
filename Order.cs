@@ -23,9 +23,9 @@ namespace Finale_Projek_V2._0
         public string custID, prodID, cartName, manuName;
         double cartPrice, totalPrice;
         public bool flag = false;
-        public Order(string employeeID)
+        public Order()
         {
-            txtEmployee.Text = employeeID;
+            
             InitializeComponent();
         }
 

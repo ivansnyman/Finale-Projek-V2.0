@@ -18,11 +18,12 @@ namespace Finale_Projek_V2._0
         SqlCommand cmd;
         SqlDataReader reader;
         SqlDataAdapter adap;
-        public string custID, prodID, cartName;
+        public string custID, cartName;
         public double cartPrice, totalPrice;
-        public Sales(string employeeID)
+        public int currentID, prodID, transactionID;
+        public Sales()
         {
-            tbxID.Text = employeeID;
+            
             InitializeComponent();
         }
 
@@ -33,9 +34,7 @@ namespace Finale_Projek_V2._0
 
         private void Sales_Load(object sender, EventArgs e)
         {
-            listBox3.Items.Add("First Name:\t Last Name:\t Address:");
-            listBox2.Items.Add("Product Name:\t Quantity:\t Price: ");
-            listBox2.Items.Add("---------------------------------------------------------------------------------------");
+           
             con = new SqlConnection(constr);
         }
 
@@ -80,17 +79,31 @@ namespace Finale_Projek_V2._0
                 {
                     if (Convert.ToString(reader.GetValue(0)) == selectedProductID)
                     {
+                        prodID = Convert.ToInt32(reader.GetValue(0));
                         cartName = Convert.ToString(reader.GetValue(1));
                         cartPrice = Convert.ToDouble(reader.GetValue(2));
                     }
                 }
                 con.Close();
                 
-                    listBox2.Items.Add(cartName + "\t" + Convert.ToString(quantity) + "\t" + "R" + Convert.ToString(cartPrice * quantity));
+                    listBox2.Items.Add(prodID + "\t" + cartName + "\t" + Convert.ToString(quantity) + "\t" + "R" + Convert.ToString(cartPrice * quantity));
                     totalPrice += cartPrice * quantity;
                     listBox2.Items.Add("Total Due:\t\t" + "R" + Convert.ToString(totalPrice));
-                
-                
+
+                try
+                {
+                    ConfirmLogin frmConfirm = new ConfirmLogin();
+                    frmConfirm.ShowDialog();
+                    currentID = Convert.ToInt32(frmConfirm.employeeID);
+                    transactionID = Convert.ToInt32(frmConfirm.transactionID);
+                    transactionID += 1;
+                    //append rextfile met regte id
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.Message);
+                    
+                }
             }
             
             
@@ -109,7 +122,6 @@ namespace Finale_Projek_V2._0
             {
                 con.Open();
                 listBox3.Items.Clear();
-                listBox3.Items.Add("First Name:\t\t Last Name:\t\t Address:");
                 string search = textBox3.Text;
                 cmd = new SqlCommand("SELECT * FROM Customers WHERE First_Name LIKE '%" + textBox3.Text + "%' OR Last_Name LIKE '%" + textBox3.Text + "%' OR Phone_Number LIKE '%" + textBox3.Text + "%'",con);
                 reader = cmd.ExecuteReader();
@@ -129,12 +141,10 @@ namespace Finale_Projek_V2._0
         private void Button1_Click(object sender, EventArgs e)
         {
             int index = listBox3.SelectedIndex;
-            if (index >= 0 || listBox2.Items.Count > 2)
+            if (index >= 0 || listBox2.Items.Count > 0)
             {
-                double amount;
-                string date;
-                int Empid = Convert.ToInt32(tbxID.Text);
                 
+                  
 
             }
             else

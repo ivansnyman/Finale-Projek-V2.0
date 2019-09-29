@@ -45,7 +45,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.listBox3 = new System.Windows.Forms.ListBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.tbxID = new System.Windows.Forms.TextBox();
+            this.tbxEmp = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -242,13 +242,13 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Select Customer:";
             // 
-            // tbxID
+            // tbxEmp
             // 
-            this.tbxID.Location = new System.Drawing.Point(847, 23);
-            this.tbxID.Name = "tbxID";
-            this.tbxID.ReadOnly = true;
-            this.tbxID.Size = new System.Drawing.Size(100, 20);
-            this.tbxID.TabIndex = 15;
+            this.tbxEmp.Location = new System.Drawing.Point(847, 23);
+            this.tbxEmp.Name = "tbxEmp";
+            this.tbxEmp.ReadOnly = true;
+            this.tbxEmp.Size = new System.Drawing.Size(100, 20);
+            this.tbxEmp.TabIndex = 15;
             // 
             // label2
             // 
@@ -265,7 +265,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1117, 678);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.tbxID);
+            this.Controls.Add(this.tbxEmp);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnAddSale);
             this.Controls.Add(this.button1);
@@ -306,7 +306,7 @@
         private System.Windows.Forms.ListBox listBox3;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox tbxID;
+        private System.Windows.Forms.TextBox tbxEmp;
         private System.Windows.Forms.Label label2;
     }
 }

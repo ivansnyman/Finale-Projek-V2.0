@@ -8,28 +8,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.IO;
 
 namespace Finale_Projek_V2._0
 {
-    public partial class Login : Form
+    public partial class ConfirmLogin : Form
     {
         SqlConnection con;
-        
-        public Login()
+        public ConfirmLogin()
         {
             InitializeComponent();
         }
+        public String employeeID { get; set; }
+        public String transactionID { get; set; }
 
-      
-
-        private void Login_Load(object sender, EventArgs e)
+        private void ConfirmLogin_Load(object sender, EventArgs e)
         {
             String cnn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Gerhard\Source\Repos\ivansnyman\Finale-Projek-V2.0\Supplement_Database.mdf;Integrated Security=True";
             con = new SqlConnection(cnn);
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        private void BtnConfirm_Click(object sender, EventArgs e)
         {
             if (tbxID.Text == "")
             {
@@ -44,7 +42,6 @@ namespace Finale_Projek_V2._0
                 SqlCommand cmd;
                 int empID = Convert.ToInt32(tbxID.Text);
                 string password = tbxPass.Text;
-                MainScreen mainScreen = new MainScreen();
                 SqlDataReader dataReader;
                 con.Open();
                 cmd = new SqlCommand("Select Employee_ID, Password FROM Employees", con);
@@ -55,7 +52,14 @@ namespace Finale_Projek_V2._0
                     string currPass = Convert.ToString(dataReader.GetValue(1));
                     if ((empID == currID) && (password == currPass))
                     {
-                        mainScreen.ShowDialog();
+                        MessageBox.Show("Login details confirmed.");
+                        employeeID = tbxID.Text;
+                        transactionID = System.IO.File.ReadAllText(@"C:\Users\ivans\source\repos\Finale Projek V2.0\Transaction_ID.txt");
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Incorrect ID/Password, please try again.");
                     }
                 }
                 con.Close();
