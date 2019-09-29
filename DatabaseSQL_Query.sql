@@ -35,7 +35,7 @@ DROP TABLE Products CREATE TABLE [dbo].[Products]
     [Supplier_ID] INT NULL, 
     [Stock] INT NULL 
 )
-DROP TABLE Poduct_Transaction CREATE TABLE [dbo].[Product_Transaction]
+DROP TABLE Product_Transaction CREATE TABLE [dbo].[Product_Transaction]
 (
     [Product_ID] INT NOT NULL PRIMARY KEY, 
     [Transaction_ID] INT NOT NULL,

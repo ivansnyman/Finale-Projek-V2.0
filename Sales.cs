@@ -20,7 +20,7 @@ namespace Finale_Projek_V2._0
         SqlDataAdapter adap;
         public string custID, cartName;
         public double cartPrice, totalPrice;
-        public int currentID, prodID, transactionID;
+        public int currentID, prodID, transactionID, quantity, currentStock;
         public Sales()
         {
             
@@ -71,9 +71,9 @@ namespace Finale_Projek_V2._0
             }
             else
             {
-                int quantity = Convert.ToInt32(numericUpDown1.Value);
+                quantity = Convert.ToInt32(numericUpDown1.Value);
                 con.Open();
-                cmd = new SqlCommand("SELECT Product_ID, Product_Name, Price_Sold FROM Products",con);
+                cmd = new SqlCommand("SELECT Product_ID, Product_Name, Price_Sold, Stock FROM Products",con);
                 reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
@@ -82,6 +82,7 @@ namespace Finale_Projek_V2._0
                         prodID = Convert.ToInt32(reader.GetValue(0));
                         cartName = Convert.ToString(reader.GetValue(1));
                         cartPrice = Convert.ToDouble(reader.GetValue(2));
+                        currentStock = Convert.ToInt32(reader.GetValue(3));
                     }
                 }
                 con.Close();
@@ -97,7 +98,23 @@ namespace Finale_Projek_V2._0
                     currentID = Convert.ToInt32(frmConfirm.employeeID);
                     transactionID = Convert.ToInt32(frmConfirm.transactionID);
                     transactionID += 1;
-                    //append rextfile met regte id
+                    con.Open();
+                    int updatedStock = currentStock - quantity;
+                    SqlCommand command;
+                    SqlDataAdapter adapter = new SqlDataAdapter();
+                    String sql = "Update Product set Stock='" + Convert.ToString(updatedStock) + "' where Product_ID ='" + prodID + "'";
+                    command = new SqlCommand(sql, con);
+                    adapter.UpdateCommand = new SqlCommand(sql, con);
+                    adapter.UpdateCommand.ExecuteNonQuery();
+                    command.Dispose();
+                    con.Close();
+                    con.Open();
+                    command = new SqlCommand(@"INSERT Into Product_Transaction Values(" + prodID + ", " + transactionID + "," + quantity + ")",con);
+                    adap = new SqlDataAdapter();
+                    adap.InsertCommand = command;
+                    adap.InsertCommand.ExecuteNonQuery();
+                    con.Close();
+
                 }
                 catch (Exception error)
                 {
@@ -143,8 +160,8 @@ namespace Finale_Projek_V2._0
             int index = listBox3.SelectedIndex;
             if (index >= 0 || listBox2.Items.Count > 0)
             {
-                
-                  
+                //System.IO.File.WriteAllText(@"C:\Users\ivans\source\repos\Finale Projek V2.0\Transaction_ID.txt", Convert.ToString(transactionID));
+
 
             }
             else

@@ -100,7 +100,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "ConfirmLogin";
-            this.Text = "ConfirmLogin";
+            this.Text = "2";
             this.Load += new System.EventHandler(this.ConfirmLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
