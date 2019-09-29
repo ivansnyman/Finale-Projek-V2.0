@@ -165,5 +165,17 @@ namespace Finale_Projek_V2._0
             cmd.ExecuteNonQuery();
             con.Close();
         }
+
+        private void TextBox3_TextChanged_1(object sender, EventArgs e)
+        {
+            con.Open();
+            string query = @"SELECT * from Employees WHERE First_Name LIKE '%" + textBox3.Text + "%'OR Employee_ID LIKE '%" + textBox3.Text + "%'OR Last_Name LIKE '%" + textBox3.Text + "%'";
+            SqlDataAdapter adap = new SqlDataAdapter(query, con);
+            DataSet ds = new DataSet();
+            adap.Fill(ds, "Employees");
+            dataGridView1.DataSource = ds;
+            dataGridView1.DataMember = "Employees";
+            con.Close();
+        }
     }
 }
