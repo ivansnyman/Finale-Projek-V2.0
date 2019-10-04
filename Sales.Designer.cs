@@ -47,6 +47,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tbxEmp = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnRemove = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -188,7 +189,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Arial", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(433, 462);
+            this.button1.Location = new System.Drawing.Point(437, 516);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(400, 140);
@@ -259,11 +260,22 @@
             this.label2.TabIndex = 16;
             this.label2.Text = "Current employee signed in:";
             // 
+            // btnRemove
+            // 
+            this.btnRemove.Location = new System.Drawing.Point(437, 462);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(139, 28);
+            this.btnRemove.TabIndex = 17;
+            this.btnRemove.Text = "Select Item To Remove";
+            this.btnRemove.UseVisualStyleBackColor = true;
+            // 
             // Sales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1117, 678);
+            this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbxEmp);
             this.Controls.Add(this.groupBox3);
@@ -308,5 +320,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox tbxEmp;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnRemove;
     }
 }
