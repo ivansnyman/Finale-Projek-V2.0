@@ -46,7 +46,7 @@ namespace Finale_Projek_V2._0
             try
             {
                 con.Open();
-                string query = @"SELECT * from Products WHERE Date_Order_Received IS NULL";
+                string query = @"SELECT * from Orders WHERE Date_Order_Received IS NULL";
                 adap = new SqlDataAdapter(query, con);
                 DataSet ds = new DataSet();
                 adap.Fill(ds, "Products");
@@ -65,7 +65,7 @@ namespace Finale_Projek_V2._0
             try
             {
                 con.Open();
-                string query = @"SELECT * from Products WHERE Date_Order_Placed = '" + txtDateFilter.Text + "'";
+                string query = @"SELECT * from Orders WHERE Date_Order_Placed = '" + txtDateFilter.Text + "'";
                 adap = new SqlDataAdapter(query, con);
                 DataSet ds = new DataSet();
                 adap.Fill(ds, "Products");
@@ -94,7 +94,7 @@ namespace Finale_Projek_V2._0
         private void Order_Load(object sender, EventArgs e)
         {
             listBox1.Items.Add("Supplier Name:\t\t Phone Number:\t\t Email:");
-            listBox2.Items.Add("Product Name:\t\t Quantity:\t\t Price:\t\t Supplier Name");
+            listBox2.Items.Add("Product Name:\t Quantity:\t Price:\t Supplier Name");
             con = new SqlConnection(constr);
         }
 
@@ -144,9 +144,9 @@ namespace Finale_Projek_V2._0
                     }
                 }
                 con.Close();
-                listBox2.Items.Add(cartName + "\t" + Convert.ToString(quantity) + "\t" + "R" + Convert.ToString(cartPrice * quantity));
+                listBox2.Items.Add(cartName + "                  " + Convert.ToString(quantity) + "            " + "R" + Convert.ToString(cartPrice * quantity)+ "          " + manuName);
                 totalPrice += cartPrice * quantity;
-                listBox2.Items.Add("Total Due:\t\t" + "R" + Convert.ToString(totalPrice));
+                listBox2.Items.Add("Total Due: " + "R" + Convert.ToString(totalPrice));
             }
         }
     }
