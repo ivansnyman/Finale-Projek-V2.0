@@ -38,6 +38,19 @@ namespace Finale_Projek_V2._0
             con = new SqlConnection(constr);
         }
 
+        private void BtnRemove_Click(object sender, EventArgs e)
+        {
+            string selected_Item = listBox2.SelectedIndex.ToString();
+            int index = selected_Item.IndexOf(",");
+            int selected_ProductID = Convert.ToInt32(selected_Item.Substring(1, index - 1));
+            selected_Item = selected_Item.Remove(1, index);
+            index = selected_Item.IndexOf(",");
+            selected_Item = selected_Item.Remove(1, index);
+            index = selected_Item.IndexOf(",");
+            int quantity = Convert.ToInt32(selected_Item.Substring(1, index - 1));
+            
+        }
+
         private void TextBox1_TextChanged(object sender, EventArgs e)
         {
             con.Open();
@@ -87,7 +100,7 @@ namespace Finale_Projek_V2._0
                 }
                 con.Close();
                 
-                    listBox2.Items.Add(prodID + "\t" + cartName + "\t" + Convert.ToString(quantity) + "\t" + "R" + Convert.ToString(cartPrice * quantity));
+                    listBox2.Items.Add(prodID + "," + "\t" + cartName + "," + "\t" + Convert.ToString(quantity) + "," + "\t" + "R" + Convert.ToString(cartPrice * quantity));
                     totalPrice += cartPrice * quantity;
                     listBox2.Items.Add("Total Due:\t\t" + "R" + Convert.ToString(totalPrice));
 
@@ -114,6 +127,7 @@ namespace Finale_Projek_V2._0
                     adap.InsertCommand = command;
                     adap.InsertCommand.ExecuteNonQuery();
                     con.Close();
+                    //gaan aan met remove cart knoppie en lees to do list
 
                 }
                 catch (Exception error)
