@@ -56,7 +56,8 @@ namespace Finale_Projek_V2._0
                     {
                         MessageBox.Show("Login details confirmed.");
                         employeeID = tbxID.Text;
-                        transactionID = System.IO.File.ReadAllText(@"C:\Users\ivans\source\repos\Finale Projek V2.0\Transaction_ID.txt");
+                        transactionID = System.IO.File.ReadAllText(@"C:\Users\Gerhard\source\repos\Finale Projek V2.0\Transaction_ID.txt");
+                        orderID = System.IO.File.ReadAllText(@"C:\Users\Gerhard\source\repos\Finale Projek V2.0\Order_ID.txt");
                         this.Close();
                     }
                     else

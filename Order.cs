@@ -180,7 +180,7 @@ namespace Finale_Projek_V2._0
                     command.Dispose();
                     con.Close();
                     con.Open();
-                    command = new SqlCommand(@"INSERT Into Product_Transaction Values(" + prodID + ", " + transactionID + "," + quantity + ")", con);
+                    command = new SqlCommand(@"INSERT Into Products_Order Values(" + prodID + ", " + orderID + "," + quantity + ")", con);
                     adap = new SqlDataAdapter();
                     adap.InsertCommand = command;
                     adap.InsertCommand.ExecuteNonQuery();
