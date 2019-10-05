@@ -28,7 +28,9 @@ namespace Finale_Projek_V2._0
         private void Button1_Click(object sender, EventArgs e)
         {
             Add_Employee frmAddEmployee = new Add_Employee();
-            frmAddEmployee.ShowDialog();          
+            frmAddEmployee.ShowDialog();
+            display();
+
         }
 
         private void BtnRefresh_Click(object sender, EventArgs e)
@@ -65,9 +67,10 @@ namespace Finale_Projek_V2._0
             adap.DeleteCommand = cmd;
             adap.DeleteCommand.ExecuteNonQuery();
 
-            display();
 
             con.Close();
+            display();
+
         }
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
@@ -101,7 +104,14 @@ namespace Finale_Projek_V2._0
 
         private void TextBox3_TextChanged(object sender, EventArgs e)
         {
-
+            con.Open();
+            string query = @"SELECT * from Employees WHERE First_Name LIKE '%" + textBox3.Text + "%' OR Last_Name LIKE '%" + textBox3.Text + "%'";
+            SqlDataAdapter adap = new SqlDataAdapter(query, con);
+            DataSet ds = new DataSet();
+            adap.Fill(ds, "Employees");
+            dataGridView1.DataSource = ds;
+            dataGridView1.DataMember = "Employees";
+            con.Close();
         }
 
         private void Employees_Load(object sender, EventArgs e)
@@ -147,9 +157,10 @@ namespace Finale_Projek_V2._0
             cmd.CommandText = insertQuery;
 
             cmd.ExecuteNonQuery();
-            display();
 
             con.Close();
+            display();
+
         }
         private void display()
         {
@@ -169,13 +180,14 @@ namespace Finale_Projek_V2._0
         private void TextBox3_TextChanged_1(object sender, EventArgs e)
         {
             con.Open();
-            string query = @"SELECT * from Employees WHERE First_Name LIKE '%" + textBox3.Text + "%'OR Employee_ID LIKE '%" + textBox3.Text + "%'OR Last_Name LIKE '%" + textBox3.Text + "%'";
+            string query = @"SELECT * from Employees WHERE First_Name LIKE '%" + textBox3.Text + "%' OR Last_Name LIKE '%" + textBox3.Text + "%'";
             SqlDataAdapter adap = new SqlDataAdapter(query, con);
             DataSet ds = new DataSet();
             adap.Fill(ds, "Employees");
             dataGridView1.DataSource = ds;
             dataGridView1.DataMember = "Employees";
             con.Close();
+
         }
     }
 }
