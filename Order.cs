@@ -23,6 +23,7 @@ namespace Finale_Projek_V2._0
         public string custID, prodID, cartName, manuName;
         double cartPrice, totalPrice;
         public bool flag = false;
+        public int orderID, currentID, currentStock;
         public Order()
         {
             
@@ -79,6 +80,18 @@ namespace Finale_Projek_V2._0
             }
         }
 
+        private void BtnRemove_Click(object sender, EventArgs e)
+        {
+            string selected_Item = listBox2.SelectedIndex.ToString();
+            int index = selected_Item.IndexOf(",");
+            int selected_ProductID = Convert.ToInt32(selected_Item.Substring(1, index - 1));
+            selected_Item = selected_Item.Remove(1, index);
+            index = selected_Item.IndexOf(",");
+            selected_Item = selected_Item.Remove(1, index);
+            index = selected_Item.IndexOf(",");
+            int quantity = Convert.ToInt32(selected_Item.Substring(1, index - 1));
+        }
+
         private void TextBox5_TextChanged(object sender, EventArgs e)
         {
             con.Open();
@@ -132,7 +145,7 @@ namespace Finale_Projek_V2._0
             {
                 int quantity = Convert.ToInt32(numericUpDown1.Value);
                 con.Open();
-                cmd = new SqlCommand("SELECT Product_ID, Product_Name, Price_Sold, Manufacturer_Name FROM Products", con);
+                cmd = new SqlCommand("SELECT Product_ID, Product_Name, Price_Sold, Manufacturer_Name, Stock FROM Products", con);
                 reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
@@ -141,12 +154,43 @@ namespace Finale_Projek_V2._0
                         cartName = Convert.ToString(reader.GetValue(1));
                         cartPrice = Convert.ToDouble(reader.GetValue(2));
                         manuName = Convert.ToString(reader.GetValue(3));
+                        currentStock = Convert.ToInt32(reader.GetValue(4));
                     }
                 }
                 con.Close();
                 listBox2.Items.Add(cartName + "                  " + Convert.ToString(quantity) + "            " + "R" + Convert.ToString(cartPrice * quantity)+ "          " + manuName);
                 totalPrice += cartPrice * quantity;
                 listBox2.Items.Add("Total Due: " + "R" + Convert.ToString(totalPrice));
+
+                try
+                {
+                    ConfirmLogin frmConfirm = new ConfirmLogin();
+                    frmConfirm.ShowDialog();
+                    currentID = Convert.ToInt32(frmConfirm.employeeID);
+                    orderID = Convert.ToInt32(frmConfirm.orderID);
+                    orderID += 1;
+                    con.Open();
+                    int updatedStock = currentStock - quantity;
+                    SqlCommand command;
+                    SqlDataAdapter adapter = new SqlDataAdapter();
+                    String sql = "Update Product set Stock='" + Convert.ToString(updatedStock) + "' where Product_ID ='" + prodID + "'";
+                    command = new SqlCommand(sql, con);
+                    adapter.UpdateCommand = new SqlCommand(sql, con);
+                    adapter.UpdateCommand.ExecuteNonQuery();
+                    command.Dispose();
+                    con.Close();
+                    con.Open();
+                    command = new SqlCommand(@"INSERT Into Product_Transaction Values(" + prodID + ", " + transactionID + "," + quantity + ")", con);
+                    adap = new SqlDataAdapter();
+                    adap.InsertCommand = command;
+                    adap.InsertCommand.ExecuteNonQuery();
+                    con.Close();
+                   
+                }
+                catch(Exception error)
+                {
+                    MessageBox.Show(error.Message);
+                }
             }
         }
     }

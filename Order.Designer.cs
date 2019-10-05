@@ -315,6 +315,7 @@
             this.btnRemove.TabIndex = 22;
             this.btnRemove.Text = "Select item to remove";
             this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.BtnRemove_Click);
             // 
             // Order
             // 
