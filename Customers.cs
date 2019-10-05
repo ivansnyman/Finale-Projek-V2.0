@@ -26,6 +26,7 @@ namespace Finale_Projek_V2._0
         {
             AddCustomer frmAddCustomer = new AddCustomer();
             frmAddCustomer.ShowDialog();
+            display();
         }
         private void display()
         {
@@ -140,7 +141,7 @@ namespace Finale_Projek_V2._0
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
             con.Open();
-            string query = @"SELECT * from Customers WHERE First_Name LIKE '%" + textBox1.Text + "%' OR Last_Name LIKE '%" + textBox1.Text + "%'";
+            string query = @"SELECT * from Customers WHERE First_Name LIKE '%" + textBox3.Text + "%' OR Last_Name LIKE '%" + textBox3.Text + "%'";
             SqlDataAdapter adapter = new SqlDataAdapter(query, con);
             DataSet ds = new DataSet();
             adapter.Fill(ds, "Products");
