@@ -21,6 +21,8 @@ namespace Finale_Projek_V2._0
         public String employeeID { get; set; }
         public String transactionID { get; set; }
 
+        public String orderID { get; set; }
+
         private void ConfirmLogin_Load(object sender, EventArgs e)
         {
             String cnn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Gerhard\Source\Repos\ivansnyman\Finale-Projek-V2.0\Supplement_Database.mdf;Integrated Security=True";
