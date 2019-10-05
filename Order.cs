@@ -90,6 +90,41 @@ namespace Finale_Projek_V2._0
             selected_Item = selected_Item.Remove(1, index);
             index = selected_Item.IndexOf(",");
             int quantity = Convert.ToInt32(selected_Item.Substring(1, index - 1));
+            int currentStock = 0;
+            con.Open();
+            SqlCommand command1 = new SqlCommand("Select Stock FROM Products WHERE Product_ID = " + selected_ProductID + "", con);
+            SqlDataReader reader = command1.ExecuteReader();
+            while (reader.Read())
+            {
+                currentStock = Convert.ToInt32(reader.GetValue(0));
+            }
+            //sql query om stock reg te maak 
+            int newStock = currentStock + quantity;
+            string update_Query = "UPDATE Products SET Stock = '" + newStock + "' WHERE Product_ID = '" + currentID + "'";
+            con.Open();
+            SqlCommand command;
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            command = new SqlCommand(update_Query, con);
+            adapter.UpdateCommand = new SqlCommand(update_Query, con);
+            adapter.UpdateCommand.ExecuteNonQuery();
+            command.Dispose();
+            con.Close();
+            //------------------------------------------------------
+            String delete_Query = "DELETE From Products_Order WHERE Product_ID = '" + currentID + "' AND Order_ID = '" + orderID + "' AND Quantity = '" + quantity + "'";
+            try
+            {
+                con.Open();
+                SqlCommand delete_Command = new SqlCommand(delete_Query, con);
+                SqlDataAdapter adapter3 = new SqlDataAdapter();
+                adapter3.DeleteCommand = delete_Command;
+                adapter3.DeleteCommand.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("Item removed succesfully.");
+            }
+            catch (SqlException error)
+            {
+                MessageBox.Show(error.Message);
+            }
         }
 
         private void TextBox5_TextChanged(object sender, EventArgs e)
