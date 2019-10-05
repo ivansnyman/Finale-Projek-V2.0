@@ -161,8 +161,6 @@ namespace Finale_Projek_V2._0
                     adap.InsertCommand = command;
                     adap.InsertCommand.ExecuteNonQuery();
                     con.Close();
-                    //gaan aan met remove cart knoppie en lees to do list
-
                 }
                 catch (Exception error)
                 {
@@ -206,11 +204,10 @@ namespace Finale_Projek_V2._0
         private void Button1_Click(object sender, EventArgs e)
         {
             int index = listBox3.SelectedIndex;
-            if (index >= 0 || listBox2.Items.Count > 0)
+            if (index >= 0 && listBox2.Items.Count > 0)
             {
-                //System.IO.File.WriteAllText(@"C:\Users\ivans\source\repos\Finale Projek V2.0\Transaction_ID.txt", Convert.ToString(transactionID));
-
-
+                System.IO.File.WriteAllText(@"C:\Users\ivans\source\repos\Finale Projek V2.0\Transaction_ID.txt", Convert.ToString(transactionID));
+                MessageBox.Show("Sale completed succesfully");
             }
             else
             {
