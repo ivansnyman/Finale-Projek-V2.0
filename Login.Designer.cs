@@ -90,6 +90,7 @@
             this.tbxPass.Name = "tbxPass";
             this.tbxPass.Size = new System.Drawing.Size(132, 22);
             this.tbxPass.TabIndex = 4;
+            this.tbxPass.UseSystemPasswordChar = true;
             // 
             // btnLogin
             // 
