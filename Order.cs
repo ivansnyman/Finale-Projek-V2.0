@@ -156,7 +156,6 @@ namespace Finale_Projek_V2._0
         private void Order_Load(object sender, EventArgs e)
         {
             listBox1.Items.Add("Supplier Name:\t\t Phone Number:\t\t Email:");
-            listBox2.Items.Add("Product Name:\t Quantity:\t Price:\t Supplier Name");
             con = new SqlConnection(constr);
         }
 
@@ -207,7 +206,7 @@ namespace Finale_Projek_V2._0
                     }
                 }
                 con.Close();
-                listBox2.Items.Add(cartName + "                  " + Convert.ToString(quantity) + "            " + "R" + Convert.ToString(cartPrice * quantity)+ "          " + manuName);
+                listBox2.Items.Add(cartName + "\t," + Convert.ToString(quantity) + "\t," + "R" + Convert.ToString(cartPrice * quantity)+ "\t," + manuName);
                 totalPrice += cartPrice * quantity;
                 listBox2.Items.Add("Total Due: " + "R" + Convert.ToString(totalPrice));
 
