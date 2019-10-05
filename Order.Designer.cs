@@ -46,12 +46,13 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.txtDateFilter = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.txtEmployee = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.btnRemove = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -254,6 +255,14 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Orders not yet received:";
             // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(6, 19);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(326, 269);
+            this.dataGridView2.TabIndex = 23;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -298,19 +307,22 @@
             this.label7.TabIndex = 21;
             this.label7.Text = "Current employee signed in:";
             // 
-            // dataGridView2
+            // btnRemove
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(6, 19);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(326, 269);
-            this.dataGridView2.TabIndex = 23;
+            this.btnRemove.Location = new System.Drawing.Point(458, 432);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(126, 23);
+            this.btnRemove.TabIndex = 22;
+            this.btnRemove.Text = "Select item to remove";
+            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.BtnRemove_Click);
             // 
             // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1194, 625);
+            this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtEmployee);
             this.Controls.Add(this.groupBox4);
@@ -364,5 +376,6 @@
         private System.Windows.Forms.TextBox txtEmployee;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Button btnRemove;
     }
 }

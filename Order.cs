@@ -23,9 +23,10 @@ namespace Finale_Projek_V2._0
         public string custID, prodID, cartName, manuName;
         double cartPrice, totalPrice;
         public bool flag = false;
-        public Order(string employeeID)
+        public int orderID, currentID, currentStock;
+        public Order()
         {
-            txtEmployee.Text = employeeID;
+            
             InitializeComponent();
         }
 
@@ -46,7 +47,7 @@ namespace Finale_Projek_V2._0
             try
             {
                 con.Open();
-                string query = @"SELECT * from Products WHERE Date_Order_Received IS NULL";
+                string query = @"SELECT * from Orders WHERE Date_Order_Received IS NULL";
                 adap = new SqlDataAdapter(query, con);
                 DataSet ds = new DataSet();
                 adap.Fill(ds, "Products");
@@ -65,13 +66,60 @@ namespace Finale_Projek_V2._0
             try
             {
                 con.Open();
-                string query = @"SELECT * from Products WHERE Date_Order_Placed = '" + txtDateFilter.Text + "'";
+                string query = @"SELECT * from Orders WHERE Date_Order_Placed = '" + txtDateFilter.Text + "'";
                 adap = new SqlDataAdapter(query, con);
                 DataSet ds = new DataSet();
                 adap.Fill(ds, "Products");
                 dataGridView2.DataSource = ds;
                 dataGridView2.DataMember = "Products";
                 con.Close();
+            }
+            catch (SqlException error)
+            {
+                MessageBox.Show(error.Message);
+            }
+        }
+
+        private void BtnRemove_Click(object sender, EventArgs e)
+        {
+            string selected_Item = listBox2.SelectedIndex.ToString();
+            int index = selected_Item.IndexOf(",");
+            int selected_ProductID = Convert.ToInt32(selected_Item.Substring(1, index - 1));
+            selected_Item = selected_Item.Remove(1, index);
+            index = selected_Item.IndexOf(",");
+            selected_Item = selected_Item.Remove(1, index);
+            index = selected_Item.IndexOf(",");
+            int quantity = Convert.ToInt32(selected_Item.Substring(1, index - 1));
+            int currentStock = 0;
+            con.Open();
+            SqlCommand command1 = new SqlCommand("Select Stock FROM Products WHERE Product_ID = " + selected_ProductID + "", con);
+            SqlDataReader reader = command1.ExecuteReader();
+            while (reader.Read())
+            {
+                currentStock = Convert.ToInt32(reader.GetValue(0));
+            }
+            //sql query om stock reg te maak 
+            int newStock = currentStock + quantity;
+            string update_Query = "UPDATE Products SET Stock = '" + newStock + "' WHERE Product_ID = '" + currentID + "'";
+            con.Open();
+            SqlCommand command;
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            command = new SqlCommand(update_Query, con);
+            adapter.UpdateCommand = new SqlCommand(update_Query, con);
+            adapter.UpdateCommand.ExecuteNonQuery();
+            command.Dispose();
+            con.Close();
+            //------------------------------------------------------
+            String delete_Query = "DELETE From Products_Order WHERE Product_ID = '" + currentID + "' AND Order_ID = '" + orderID + "' AND Quantity = '" + quantity + "'";
+            try
+            {
+                con.Open();
+                SqlCommand delete_Command = new SqlCommand(delete_Query, con);
+                SqlDataAdapter adapter3 = new SqlDataAdapter();
+                adapter3.DeleteCommand = delete_Command;
+                adapter3.DeleteCommand.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("Item removed succesfully.");
             }
             catch (SqlException error)
             {
@@ -94,7 +142,7 @@ namespace Finale_Projek_V2._0
         private void Order_Load(object sender, EventArgs e)
         {
             listBox1.Items.Add("Supplier Name:\t\t Phone Number:\t\t Email:");
-            listBox2.Items.Add("Product Name:\t\t Quantity:\t\t Price:\t\t Supplier Name");
+            listBox2.Items.Add("Product Name:\t Quantity:\t Price:\t Supplier Name");
             con = new SqlConnection(constr);
         }
 
@@ -132,7 +180,7 @@ namespace Finale_Projek_V2._0
             {
                 int quantity = Convert.ToInt32(numericUpDown1.Value);
                 con.Open();
-                cmd = new SqlCommand("SELECT Product_ID, Product_Name, Price_Sold, Manufacturer_Name FROM Products", con);
+                cmd = new SqlCommand("SELECT Product_ID, Product_Name, Price_Sold, Manufacturer_Name, Stock FROM Products", con);
                 reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
@@ -141,12 +189,43 @@ namespace Finale_Projek_V2._0
                         cartName = Convert.ToString(reader.GetValue(1));
                         cartPrice = Convert.ToDouble(reader.GetValue(2));
                         manuName = Convert.ToString(reader.GetValue(3));
+                        currentStock = Convert.ToInt32(reader.GetValue(4));
                     }
                 }
                 con.Close();
-                listBox2.Items.Add(cartName + "\t" + Convert.ToString(quantity) + "\t" + "R" + Convert.ToString(cartPrice * quantity));
+                listBox2.Items.Add(cartName + "                  " + Convert.ToString(quantity) + "            " + "R" + Convert.ToString(cartPrice * quantity)+ "          " + manuName);
                 totalPrice += cartPrice * quantity;
-                listBox2.Items.Add("Total Due:\t\t" + "R" + Convert.ToString(totalPrice));
+                listBox2.Items.Add("Total Due: " + "R" + Convert.ToString(totalPrice));
+
+                try
+                {
+                    ConfirmLogin frmConfirm = new ConfirmLogin();
+                    frmConfirm.ShowDialog();
+                    currentID = Convert.ToInt32(frmConfirm.employeeID);
+                    orderID = Convert.ToInt32(frmConfirm.orderID);
+                    orderID += 1;
+                    con.Open();
+                    int updatedStock = currentStock - quantity;
+                    SqlCommand command;
+                    SqlDataAdapter adapter = new SqlDataAdapter();
+                    String sql = "Update Product set Stock='" + Convert.ToString(updatedStock) + "' where Product_ID ='" + prodID + "'";
+                    command = new SqlCommand(sql, con);
+                    adapter.UpdateCommand = new SqlCommand(sql, con);
+                    adapter.UpdateCommand.ExecuteNonQuery();
+                    command.Dispose();
+                    con.Close();
+                    con.Open();
+                    command = new SqlCommand(@"INSERT Into Products_Order Values(" + prodID + ", " + orderID + "," + quantity + ")", con);
+                    adap = new SqlDataAdapter();
+                    adap.InsertCommand = command;
+                    adap.InsertCommand.ExecuteNonQuery();
+                    con.Close();
+                   
+                }
+                catch(Exception error)
+                {
+                    MessageBox.Show(error.Message);
+                }
             }
         }
     }

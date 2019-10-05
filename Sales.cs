@@ -18,11 +18,12 @@ namespace Finale_Projek_V2._0
         SqlCommand cmd;
         SqlDataReader reader;
         SqlDataAdapter adap;
-        public string custID, prodID, cartName;
+        public string custID, cartName;
         public double cartPrice, totalPrice;
-        public Sales(string employeeID)
+        public int currentID, prodID, transactionID, quantity, currentStock;
+        public Sales()
         {
-            tbxID.Text = employeeID;
+            
             InitializeComponent();
         }
 
@@ -33,11 +34,56 @@ namespace Finale_Projek_V2._0
 
         private void Sales_Load(object sender, EventArgs e)
         {
-            listBox3.Items.Add("First Name:\t Last Name:\t Address:");
-            listBox2.Items.Add("Product Name:\t Quantity:\t Price: ");
-            listBox2.Items.Add("---------------------------------------------------------------------------------------");
+           
             con = new SqlConnection(constr);
         }
+
+        private void BtnRemove_Click(object sender, EventArgs e)
+        {
+            string selected_Item = listBox2.SelectedIndex.ToString();
+            int index = selected_Item.IndexOf(",");
+            int selected_ProductID = Convert.ToInt32(selected_Item.Substring(1, index - 1));
+            selected_Item = selected_Item.Remove(1, index);
+            index = selected_Item.IndexOf(",");
+            selected_Item = selected_Item.Remove(1, index);
+            index = selected_Item.IndexOf(",");
+            int quantity = Convert.ToInt32(selected_Item.Substring(1, index - 1));
+            int currentStock = 0;
+            con.Open();
+            SqlCommand command1 = new SqlCommand("Select Stock FROM Products WHERE Product_ID = " + selected_ProductID + "", con);
+            SqlDataReader reader = command1.ExecuteReader();
+            while (reader.Read())
+            {
+                currentStock = Convert.ToInt32(reader.GetValue(0));
+            }
+            //sql query om stock reg te maak 
+            int newStock = currentStock + quantity;
+            string update_Query = "UPDATE Products SET Stock = '" + newStock + "' WHERE Product_ID = '" + currentID + "'";
+            con.Open();
+            SqlCommand command;
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            command = new SqlCommand(update_Query,con);
+            adapter.UpdateCommand = new SqlCommand(update_Query, con);
+            adapter.UpdateCommand.ExecuteNonQuery();
+            command.Dispose();
+            con.Close();
+            //------------------------------------------------------
+            String delete_Query = "DELETE From Product_Transaction WHERE Product_ID = '" + currentID + "' AND Transaction_ID = '" + transactionID + "' AND Quantity = '" + quantity + "'";
+            try
+            {
+                con.Open();
+                SqlCommand delete_Command = new SqlCommand(delete_Query, con);
+                SqlDataAdapter adapter3 = new SqlDataAdapter();
+                adapter3.DeleteCommand = delete_Command;
+                adapter3.DeleteCommand.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("Item removed succesfully.");
+            }
+            catch (SqlException error)
+            {
+                MessageBox.Show(error.Message);
+            }
+        }   
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
         {
@@ -72,25 +118,55 @@ namespace Finale_Projek_V2._0
             }
             else
             {
-                int quantity = Convert.ToInt32(numericUpDown1.Value);
+                quantity = Convert.ToInt32(numericUpDown1.Value);
                 con.Open();
-                cmd = new SqlCommand("SELECT Product_ID, Product_Name, Price_Sold FROM Products",con);
+                cmd = new SqlCommand("SELECT Product_ID, Product_Name, Price_Sold, Stock FROM Products",con);
                 reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
                     if (Convert.ToString(reader.GetValue(0)) == selectedProductID)
                     {
+                        prodID = Convert.ToInt32(reader.GetValue(0));
                         cartName = Convert.ToString(reader.GetValue(1));
                         cartPrice = Convert.ToDouble(reader.GetValue(2));
+                        currentStock = Convert.ToInt32(reader.GetValue(3));
                     }
                 }
                 con.Close();
                 
-                    listBox2.Items.Add(cartName + "\t" + Convert.ToString(quantity) + "\t" + "R" + Convert.ToString(cartPrice * quantity));
+                    listBox2.Items.Add(prodID + "," + "\t" + cartName + "," + "\t" + Convert.ToString(quantity) + "," + "\t" + "R" + Convert.ToString(cartPrice * quantity));
                     totalPrice += cartPrice * quantity;
                     listBox2.Items.Add("Total Due:\t\t" + "R" + Convert.ToString(totalPrice));
-                
-                
+
+                try
+                {
+                    ConfirmLogin frmConfirm = new ConfirmLogin();
+                    frmConfirm.ShowDialog();
+                    currentID = Convert.ToInt32(frmConfirm.employeeID);
+                    transactionID = Convert.ToInt32(frmConfirm.transactionID);
+                    transactionID += 1;
+                    con.Open();
+                    int updatedStock = currentStock - quantity;
+                    SqlCommand command;
+                    SqlDataAdapter adapter = new SqlDataAdapter();
+                    String sql = "Update Product set Stock='" + Convert.ToString(updatedStock) + "' where Product_ID ='" + prodID + "'";
+                    command = new SqlCommand(sql, con);
+                    adapter.UpdateCommand = new SqlCommand(sql, con);
+                    adapter.UpdateCommand.ExecuteNonQuery();
+                    command.Dispose();
+                    con.Close();
+                    con.Open();
+                    command = new SqlCommand(@"INSERT Into Product_Transaction Values(" + prodID + ", " + transactionID + "," + quantity + ")",con);
+                    adap = new SqlDataAdapter();
+                    adap.InsertCommand = command;
+                    adap.InsertCommand.ExecuteNonQuery();
+                    con.Close();
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.Message);
+                    
+                }
             }
             
             
@@ -109,7 +185,6 @@ namespace Finale_Projek_V2._0
             {
                 con.Open();
                 listBox3.Items.Clear();
-                listBox3.Items.Add("First Name:\t\t Last Name:\t\t Address:");
                 string search = textBox3.Text;
                 cmd = new SqlCommand("SELECT * FROM Customers WHERE First_Name LIKE '%" + textBox3.Text + "%' OR Last_Name LIKE '%" + textBox3.Text + "%' OR Phone_Number LIKE '%" + textBox3.Text + "%'",con);
                 reader = cmd.ExecuteReader();
@@ -129,13 +204,10 @@ namespace Finale_Projek_V2._0
         private void Button1_Click(object sender, EventArgs e)
         {
             int index = listBox3.SelectedIndex;
-            if (index >= 0 || listBox2.Items.Count > 2)
+            if (index >= 0 && listBox2.Items.Count > 0)
             {
-                double amount;
-                string date;
-                int Empid = Convert.ToInt32(tbxID.Text);
-                
-
+                System.IO.File.WriteAllText(@"C:\Users\ivans\source\repos\Finale Projek V2.0\Transaction_ID.txt", Convert.ToString(transactionID));
+                MessageBox.Show("Sale completed succesfully");
             }
             else
             {
