@@ -44,11 +44,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 28.2F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.BackColor = System.Drawing.Color.Gray;
+            this.label1.Font = new System.Drawing.Font("Segoe Print", 36F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(918, 108);
+            this.label1.Location = new System.Drawing.Point(862, 66);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(293, 55);
+            this.label1.Size = new System.Drawing.Size(419, 105);
             this.label1.TabIndex = 0;
             this.label1.Text = "Main Screen";
             this.label1.Click += new System.EventHandler(this.Label1_Click);
@@ -142,7 +143,7 @@
             this.tbxEmployee.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.tbxEmployee.ForeColor = System.Drawing.SystemColors.Menu;
             this.tbxEmployee.Location = new System.Drawing.Point(905, 815);
-            this.tbxEmployee.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbxEmployee.Margin = new System.Windows.Forms.Padding(4);
             this.tbxEmployee.Name = "tbxEmployee";
             this.tbxEmployee.ReadOnly = true;
             this.tbxEmployee.Size = new System.Drawing.Size(132, 22);
@@ -164,7 +165,7 @@
             // tbxGlobal
             // 
             this.tbxGlobal.Location = new System.Drawing.Point(1288, 108);
-            this.tbxGlobal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbxGlobal.Margin = new System.Windows.Forms.Padding(4);
             this.tbxGlobal.Name = "tbxGlobal";
             this.tbxGlobal.ReadOnly = true;
             this.tbxGlobal.Size = new System.Drawing.Size(132, 22);
