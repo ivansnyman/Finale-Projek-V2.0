@@ -71,5 +71,10 @@ namespace Finale_Projek_V2._0
         {
 
         }
+
+        private void tbxEmployee_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
