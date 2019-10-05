@@ -61,6 +61,20 @@ namespace Finale_Projek_V2._0
             }
         }
 
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            int index = listBox1.SelectedIndex;
+            if (index >= 0 && listBox2.Items.Count > 0)
+            {
+                System.IO.File.WriteAllText(@"C:\Users\Gerhard\source\repos\ivansnyman\Finale-Projek-V2.0\Order_ID.txt", Convert.ToString(transactionID));
+                MessageBox.Show("Order completed succesfully");
+            }
+            else
+            {
+                MessageBox.Show("Please enter valid supplier information and check if cart is empty");
+            }
+        }
+
         private void TxtDateFilter_TextChanged(object sender, EventArgs e)
         {
             try
