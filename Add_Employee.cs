@@ -44,5 +44,10 @@ namespace Finale_Projek_V2._0
 
             MessageBox.Show("Successfully added employee");
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
