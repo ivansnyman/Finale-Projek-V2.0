@@ -66,7 +66,7 @@ namespace Finale_Projek_V2._0
             int index = listBox1.SelectedIndex;
             if (index >= 0 && listBox2.Items.Count > 0)
             {
-                System.IO.File.WriteAllText(@"C:\Users\Gerhard\source\repos\ivansnyman\Finale-Projek-V2.0\Order_ID.txt", Convert.ToString(transactionID));
+                System.IO.File.WriteAllText(@"C:\Users\Gerhard\source\repos\ivansnyman\Finale-Projek-V2.0\Order_ID.txt", Convert.ToString(orderID));
                 MessageBox.Show("Order completed succesfully");
             }
             else
