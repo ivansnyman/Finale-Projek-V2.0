@@ -101,12 +101,12 @@ namespace Finale_Projek_V2._0
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            string order_ID = listBox1.SelectedIndex.ToString();
+            //string order_ID = listBox1.SelectedIndex.ToString();
             var fromAddress = new MailAddress("randburgstrengthandfitness@gmail.com", "Randburg Strength & Fitness");
             var toAddress = new MailAddress("Barendjohannesvanderwalt1998@gmail.com", "Hanno");
             const string fromPassword = "kameelperdkalmeerpil";
             const string subject = "Late Order Enquiry";
-            string body = "Hi, \nOur company Randburg Strength & Fitness placed and order that has not yet been received\nOrder Number: "+ order_ID + "." + "\nCould you please give us some feedback and call us on 0728644173\nKind Regards";
+            string body = "Hello boepens dis katryn way praat";
 
             var smtp = new SmtpClient
             {

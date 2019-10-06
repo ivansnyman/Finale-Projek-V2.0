@@ -153,6 +153,7 @@
     <Compile Include="Sales.Designer.cs">
       <DependentUpon>Sales.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sales_Class.cs" />
     <Compile Include="Suppliers.cs">
       <SubType>Form</SubType>
     </Compile>
