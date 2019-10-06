@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using System.Net.Mail;
 using System.Net;
 
+
 namespace Finale_Projek_V2._0
 {
     public partial class Reporting : Form
@@ -26,16 +27,16 @@ namespace Finale_Projek_V2._0
         DataSet ds;
         private void Reporting_Load(object sender, EventArgs e)
         {
-            con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Gerhard\Source\Repos\ivansnyman\Finale-Projek-V2.0\Supplement_Database.mdf;Integrated Security=True");
+            con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\baren\Source\Repos\ivansnyman\Finale-Projek-V2.0\Supplement_Database.mdf;Integrated Security=True");
             //Uitfigure watse maand dit is en dan deur dit gaan met 'n loop vir die maand se sales
-           /* string date = DateTime.Today.ToShortDateString(); // DD/MM/YYYY
+            string date = DateTime.Today.ToShortDateString(); // DD/MM/YYYY
             string date_Search = date.Substring(4, 10); // MM/YYYY
             int count = 0;
             double income = 0;
             try
             {
                 con.Open();
-                command = new SqlCommand("SELECT * FROM Transactions WHERE Date_of_Transaction LIKE '%%" + date_Search + "'", con); // '%%/MM/YYYY'
+                command = new SqlCommand("SELECT * FROM Transactions WHERE Date_of_Transaction LIKE '%%/" + date_Search + "'", con); // '%%/MM/YYYY'
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
@@ -96,7 +97,7 @@ namespace Finale_Projek_V2._0
             catch (SqlException error)
             {
                 MessageBox.Show(error.Message);
-            }*/
+            }
         }
         
 
@@ -107,7 +108,7 @@ namespace Finale_Projek_V2._0
             var toAddress = new MailAddress("Barendjohannesvanderwalt1998@gmail.com", "Hanno");
             const string fromPassword = "kameelperdkalmeerpil";
             const string subject = "Late Order Enquiry";
-            string body = "Hello boepens dis katryn way praat";
+            string body = "Hello boepens dis katryn wat praat";
 
             var smtp = new SmtpClient
             {
@@ -127,6 +128,11 @@ namespace Finale_Projek_V2._0
                 smtp.Send(message);
             }
 
+        }
+
+        private void BtnExport_Click(object sender, EventArgs e)
+        {
+         
         }
     }
 }
