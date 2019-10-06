@@ -28,34 +28,17 @@ namespace Finale_Projek_V2._0
         {
             Add_Supplier frmAddSupplier = new Add_Supplier();
             frmAddSupplier.ShowDialog();
+            display();
         }
 
         private void BtnRefresh_Click(object sender, EventArgs e)
         {
-            con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Gerhard\\Source\\Repos\\ivansnyman\\Finale-Projek-V2.0\\Supplement_Database.mdf;Integrated Security=True");
-
-            con.Open();
-            String sql;
-            sql = "Select * From Suppliers";
-            SqlCommand command;
-            SqlDataReader reader;
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            command = new SqlCommand(sql, con);
-            adapter.SelectCommand = command;
-
-            DataSet ds = new DataSet();
-            adapter.Fill(ds, "Suppliers");
-
-            dataGridView1.DataSource = ds;
-            dataGridView1.DataMember = "Suppliers";
-
-            reader = command.ExecuteReader();
-
-            con.Close();
+            display();
         }
 
         private void display()
         {
+            con.Open();
             string selectquery = "SELECT * FROM Suppliers";
             SqlCommand cmd = new SqlCommand(selectquery, con);
             DataSet ds = new DataSet();
@@ -65,6 +48,7 @@ namespace Finale_Projek_V2._0
             dataGridView1.DataSource = ds;
             dataGridView1.DataMember = "Suppliers";
             cmd.ExecuteNonQuery();
+            con.Close();
         }
 
         private void BtnDelete_Click(object sender, EventArgs e)
@@ -77,9 +61,10 @@ namespace Finale_Projek_V2._0
             adapter.DeleteCommand = cmd;
             adapter.DeleteCommand.ExecuteNonQuery();
 
-            display();
 
             con.Close();
+            display();
+
         }
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
@@ -99,7 +84,7 @@ namespace Finale_Projek_V2._0
             int index = comboBox1.SelectedIndex;
             string id = dataGridView1.SelectedCells[0].Value.ToString();
             string insertQuery;
-
+            
             if (index == 0)
             {
                 insertQuery = @"UPDATE Suppliers SET Phone_Number = '" + textBox7.Text + "' WHERE Supplier_ID = '" + id + "'";
@@ -125,9 +110,9 @@ namespace Finale_Projek_V2._0
             cmd.CommandText = insertQuery;
 
             cmd.ExecuteNonQuery();
-            display();
 
             con.Close();
+            display();
         }
 
         private void TextBox5_TextChanged(object sender, EventArgs e)
@@ -139,6 +124,30 @@ namespace Finale_Projek_V2._0
             adapter.Fill(ds, "Suppliers");
             dataGridView1.DataSource = ds;
             dataGridView1.DataMember = "Suppliers";
+            con.Close();
+        }
+
+        private void Suppliers_Load(object sender, EventArgs e)
+        {
+            con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\baren\\Source\\Repos\\ivansnyman\\Finale-Projek-V2.0\\Supplement_Database.mdf;Integrated Security=True");
+
+            con.Open();
+            String sql;
+            sql = "Select * From Suppliers";
+            SqlCommand command;
+            SqlDataReader reader;
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            command = new SqlCommand(sql, con);
+            adapter.SelectCommand = command;
+
+            DataSet ds = new DataSet();
+            adapter.Fill(ds, "Suppliers");
+
+            dataGridView1.DataSource = ds;
+            dataGridView1.DataMember = "Suppliers";
+
+            reader = command.ExecuteReader();
+
             con.Close();
         }
     }

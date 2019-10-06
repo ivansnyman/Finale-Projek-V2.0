@@ -22,28 +22,26 @@ namespace Finale_Projek_V2._0
 
         private void Products_Load(object sender, EventArgs e)
         {
-            String cnn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Gerhard\Source\Repos\ivansnyman\Finale-Projek-V2.0\Supplement_Database.mdf;Integrated Security=True";
+            String cnn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\baren\Source\Repos\ivansnyman\Finale-Projek-V2.0\Supplement_Database.mdf;Integrated Security=True";
             con = new SqlConnection(cnn);
-            con.Open();
             display();
-            con.Close();
         }
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
             Add_Product myproduct = new Add_Product();
             myproduct.ShowDialog();
+            display();
         }
 
         private void BtnRefresh_Click(object sender, EventArgs e)
         {
-            con.Open();
             display();
-            con.Close();
         }
 
         private void display()
         {
+            con.Open();
             string selectquery = "SELECT * FROM Products";
             SqlCommand cmd = new SqlCommand(selectquery, con);
             DataSet ds = new DataSet();
@@ -53,6 +51,7 @@ namespace Finale_Projek_V2._0
             dataGridView1.DataSource = ds;
             dataGridView1.DataMember = "Products";
             cmd.ExecuteNonQuery();
+            con.Close();
         }
 
         private void BtnDelete_Click(object sender, EventArgs e)
@@ -65,10 +64,9 @@ namespace Finale_Projek_V2._0
             adapter.DeleteCommand = cmd;
             adapter.DeleteCommand.ExecuteNonQuery();
 
-            display();
 
             con.Close();
-
+            display();
         }
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
@@ -126,10 +124,9 @@ namespace Finale_Projek_V2._0
             cmd.CommandText = insertQuery;
 
             cmd.ExecuteNonQuery();
-            display();
 
             con.Close();
-
+            display();
         }
 
         private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -144,7 +141,7 @@ namespace Finale_Projek_V2._0
         private void TextBox3_TextChanged(object sender, EventArgs e)
         {
             con.Open();
-            string query = @"SELECT * from Products WHERE Manufacturer_Name LIKE '%" + textBox3.Text + "%' OR Product_Name LIKE '%" + textBox3.Text + "%' OR Product_ID LIKE '%"+ textBox3.Text+"%'";
+            string query = @"SELECT * from Products WHERE Manufacturer_Name LIKE '%" + textBox3.Text + "%' OR Product_Name LIKE '%" + textBox3.Text + "%'";
             SqlDataAdapter adapter = new SqlDataAdapter(query, con);
             DataSet ds = new DataSet();
             adapter.Fill(ds, "Products");

@@ -61,6 +61,20 @@ namespace Finale_Projek_V2._0
             }
         }
 
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            int index = listBox1.SelectedIndex;
+            if (index >= 0 && listBox2.Items.Count > 0)
+            {
+                System.IO.File.WriteAllText(@"C:\Users\Gerhard\source\repos\ivansnyman\Finale-Projek-V2.0\Order_ID.txt", Convert.ToString(orderID));
+                MessageBox.Show("Order completed succesfully");
+            }
+            else
+            {
+                MessageBox.Show("Please enter valid supplier information and check if cart is empty");
+            }
+        }
+
         private void TxtDateFilter_TextChanged(object sender, EventArgs e)
         {
             try
@@ -142,7 +156,6 @@ namespace Finale_Projek_V2._0
         private void Order_Load(object sender, EventArgs e)
         {
             listBox1.Items.Add("Supplier Name:\t\t Phone Number:\t\t Email:");
-            listBox2.Items.Add("Product Name:\t Quantity:\t Price:\t Supplier Name");
             con = new SqlConnection(constr);
         }
 
@@ -193,7 +206,7 @@ namespace Finale_Projek_V2._0
                     }
                 }
                 con.Close();
-                listBox2.Items.Add(cartName + "                  " + Convert.ToString(quantity) + "            " + "R" + Convert.ToString(cartPrice * quantity)+ "          " + manuName);
+                listBox2.Items.Add(cartName + "\t," + Convert.ToString(quantity) + "\t," + "R" + Convert.ToString(cartPrice * quantity)+ "\t," + manuName);
                 totalPrice += cartPrice * quantity;
                 listBox2.Items.Add("Total Due: " + "R" + Convert.ToString(totalPrice));
 

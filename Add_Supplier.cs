@@ -24,29 +24,48 @@ namespace Finale_Projek_V2._0
 
         private void Add_Supplier_Load(object sender, EventArgs e)
         {
-            String cnn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Gerhard\Source\Repos\ivansnyman\Finale-Projek-V2.0\Supplement_Database.mdf;Integrated Security=True";
+            String cnn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\baren\Source\Repos\ivansnyman\Finale-Projek-V2.0\Supplement_Database.mdf;Integrated Security=True";
             con = new SqlConnection(cnn);
         }
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
-            phone = tbxPhone.Text;
-            email = tbxEmail.Text;
-            website = tbxWebsite.Text;
-            name = tbxName.Text;
-            con.Open();
+            if (tbxEmail.Text == "")
+            {
+                MessageBox.Show("Please enter supplier email ");
+            }
+            else if (tbxName.Text == "")
+            {
+                MessageBox.Show("Please enter supplier name ");
+            }
+            else if (tbxPhone.Text == "")
+            {
+                MessageBox.Show("Please enter supplier phone number ");
+            }
+            else if (tbxWebsite.Text == "")
+            {
+                MessageBox.Show("Please enter supplier website adress ");
+            }
+            else
+            {
 
-            String insertQuery = "INSERT INTO  Suppliers VALUES('" + phone + "','" + email + "','" + website + "','" + name + "')";
+                phone = tbxPhone.Text;
+                email = tbxEmail.Text;
+                website = tbxWebsite.Text;
+                name = tbxName.Text;
+                con.Open();
 
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            SqlCommand cmd = new SqlCommand(insertQuery, con);
-            cmd.ExecuteNonQuery();
+                String insertQuery = "INSERT INTO  Suppliers VALUES('" + phone + "','" + email + "','" + website + "','" + name + "')";
 
-            con.Close();
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                SqlCommand cmd = new SqlCommand(insertQuery, con);
+                cmd.ExecuteNonQuery();
 
-            MessageBox.Show("Successfully added Supplier");
-            this.Close();
-            
+                con.Close();
+
+                MessageBox.Show("Successfully added Supplier");
+                this.Close();
+            }
         }
     }
 }

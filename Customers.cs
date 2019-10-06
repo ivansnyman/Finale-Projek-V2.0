@@ -26,9 +26,11 @@ namespace Finale_Projek_V2._0
         {
             AddCustomer frmAddCustomer = new AddCustomer();
             frmAddCustomer.ShowDialog();
+            display();
         }
         private void display()
         {
+            con.Open();
             string selectquery = "SELECT * FROM Customers";
             SqlCommand cmd = new SqlCommand(selectquery, con);
             DataSet ds = new DataSet();
@@ -38,23 +40,20 @@ namespace Finale_Projek_V2._0
             dataGridView1.DataSource = ds;
             dataGridView1.DataMember = "Customers";
             cmd.ExecuteNonQuery();
+            con.Close();
         }
 
         private void Customers_Load(object sender, EventArgs e)
         {
-            String cnn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Gerhard\Source\Repos\ivansnyman\Finale-Projek-V2.0\Supplement_Database.mdf;Integrated Security=True";
+            String cnn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\baren\Source\Repos\ivansnyman\Finale-Projek-V2.0\Supplement_Database.mdf;Integrated Security=True";
             con = new SqlConnection(cnn);
-            con.Open();
             display();
-            con.Close();
 
         }
 
         private void BtnRefresh_Click(object sender, EventArgs e)
         {
-            con.Open();
             display();
-            con.Close();
         }
 
         private void BtnDelete_Click(object sender, EventArgs e)
@@ -67,9 +66,9 @@ namespace Finale_Projek_V2._0
             adapter.DeleteCommand = cmd;
             adapter.DeleteCommand.ExecuteNonQuery();
 
-            display();
 
             con.Close();
+            display();
 
         }
 
@@ -129,14 +128,26 @@ namespace Finale_Projek_V2._0
             cmd.CommandText = insertQuery;
 
             cmd.ExecuteNonQuery();
-            display();
-
             con.Close();
+            display();
 
         }
 
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            con.Open();
+            string query = @"SELECT * from Customers WHERE First_Name LIKE '%" + textBox3.Text + "%' OR Last_Name LIKE '%" + textBox3.Text + "%'";
+            SqlDataAdapter adapter = new SqlDataAdapter(query, con);
+            DataSet ds = new DataSet();
+            adapter.Fill(ds, "Products");
+            dataGridView1.DataSource = ds;
+            dataGridView1.DataMember = "Products";
+            con.Close();
 
         }
     }
