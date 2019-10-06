@@ -39,7 +39,12 @@ namespace Finale_Projek_V2._0
         }
 
         private void BtnRemove_Click(object sender, EventArgs e)
-        {
+        {   
+            if(!(listBox3.SelectedIndex >= 0))
+            MessageBox.Show("Please select an item to remove");
+
+            
+
             string selected_Item = listBox2.SelectedIndex.ToString();
             int index = selected_Item.IndexOf(",");
             int selected_ProductID = Convert.ToInt32(selected_Item.Substring(1, index - 1));
@@ -111,65 +116,73 @@ namespace Finale_Projek_V2._0
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            string selectedProductID = dataGridView1.SelectedCells[0].Value.ToString();
-            if ((numericUpDown1.Value == 0) || (numericUpDown1.Value < 0) || (selectedProductID == ""))
-            {
-                MessageBox.Show("Please make sure you selected a product and entered a quantity");
-            }
+            if (!(listBox3.SelectedIndex >= 0))
+                MessageBox.Show("Please select an customer to proceed");
+            else if (dataGridView1.SelectedRows == null)
+                MessageBox.Show("Please select one or more product to proceed");
+            else if (!(numericUpDown1.Value > 0))
+                MessageBox.Show("Please select the quintity of the product you wish to add to cart");
             else
             {
-                quantity = Convert.ToInt32(numericUpDown1.Value);
-                con.Open();
-                cmd = new SqlCommand("SELECT Product_ID, Product_Name, Price_Sold, Stock FROM Products",con);
-                reader = cmd.ExecuteReader();
-                while (reader.Read())
+                string selectedProductID = dataGridView1.SelectedCells[0].Value.ToString();
+                if ((numericUpDown1.Value == 0) || (numericUpDown1.Value < 0) || (selectedProductID == ""))
                 {
-                    if (Convert.ToString(reader.GetValue(0)) == selectedProductID)
-                    {
-                        prodID = Convert.ToInt32(reader.GetValue(0));
-                        cartName = Convert.ToString(reader.GetValue(1));
-                        cartPrice = Convert.ToDouble(reader.GetValue(2));
-                        currentStock = Convert.ToInt32(reader.GetValue(3));
-                    }
+                    MessageBox.Show("Please make sure you selected a product and entered a quantity");
                 }
-                con.Close();
-                
+                else
+                {
+                    quantity = Convert.ToInt32(numericUpDown1.Value);
+                    con.Open();
+                    cmd = new SqlCommand("SELECT Product_ID, Product_Name, Price_Sold, Stock FROM Products", con);
+                    reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        if (Convert.ToString(reader.GetValue(0)) == selectedProductID)
+                        {
+                            prodID = Convert.ToInt32(reader.GetValue(0));
+                            cartName = Convert.ToString(reader.GetValue(1));
+                            cartPrice = Convert.ToDouble(reader.GetValue(2));
+                            currentStock = Convert.ToInt32(reader.GetValue(3));
+                        }
+                    }
+                    con.Close();
+
                     listBox2.Items.Add(prodID + "," + "\t" + cartName + "," + "\t" + Convert.ToString(quantity) + "," + "\t" + "R" + Convert.ToString(cartPrice * quantity));
                     totalPrice += cartPrice * quantity;
                     listBox2.Items.Add("Total Due:\t\t" + "R" + Convert.ToString(totalPrice));
 
-                try
-                {
-                    ConfirmLogin frmConfirm = new ConfirmLogin();
-                    frmConfirm.ShowDialog();
-                    currentID = Convert.ToInt32(frmConfirm.employeeID);
-                    transactionID = Convert.ToInt32(frmConfirm.transactionID);
-                    transactionID += 1;
-                    con.Open();
-                    int updatedStock = currentStock - quantity;
-                    SqlCommand command;
-                    SqlDataAdapter adapter = new SqlDataAdapter();
-                    String sql = "Update Product set Stock='" + Convert.ToString(updatedStock) + "' where Product_ID ='" + prodID + "'";
-                    command = new SqlCommand(sql, con);
-                    adapter.UpdateCommand = new SqlCommand(sql, con);
-                    adapter.UpdateCommand.ExecuteNonQuery();
-                    command.Dispose();
-                    con.Close();
-                    con.Open();
-                    command = new SqlCommand(@"INSERT Into Product_Transaction Values(" + prodID + ", " + transactionID + "," + quantity + ")",con);
-                    adap = new SqlDataAdapter();
-                    adap.InsertCommand = command;
-                    adap.InsertCommand.ExecuteNonQuery();
-                    con.Close();
+                    try
+                    {
+                        ConfirmLogin frmConfirm = new ConfirmLogin();
+                        frmConfirm.ShowDialog();
+                        currentID = Convert.ToInt32(frmConfirm.employeeID);
+                        transactionID = Convert.ToInt32(frmConfirm.transactionID);
+                        transactionID += 1;
+                        con.Open();
+                        int updatedStock = currentStock - quantity;
+                        SqlCommand command;
+                        SqlDataAdapter adapter = new SqlDataAdapter();
+                        String sql = "Update Product set Stock='" + Convert.ToString(updatedStock) + "' where Product_ID ='" + prodID + "'";
+                        command = new SqlCommand(sql, con);
+                        adapter.UpdateCommand = new SqlCommand(sql, con);
+                        adapter.UpdateCommand.ExecuteNonQuery();
+                        command.Dispose();
+                        con.Close();
+                        con.Open();
+                        command = new SqlCommand(@"INSERT Into Product_Transaction Values(" + prodID + ", " + transactionID + "," + quantity + ")", con);
+                        adap = new SqlDataAdapter();
+                        adap.InsertCommand = command;
+                        adap.InsertCommand.ExecuteNonQuery();
+                        con.Close();
+                    }
+                    catch (Exception error)
+                    {
+                        MessageBox.Show(error.Message);
+
+                    }
                 }
-                catch (Exception error)
-                {
-                    MessageBox.Show(error.Message);
-                    
-                }
-            }
-            
-            
+
+            }  
         }
 
         private void BtnCustomer_Click(object sender, EventArgs e)

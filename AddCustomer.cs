@@ -25,34 +25,53 @@ namespace Finale_Projek_V2._0
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
-            con.Open();
-            int phone;
-            string fName, Lname, email,gender, dob;
-            
-            phone = int.Parse(tbxPhone.Text);
-            fName = tbxFname.Text;
-            Lname = tbxLname.Text;
-            email = tbxEmail.Text;
-            dob = txbdob.Text;
+            if (tbxEmail.Text == "")
+                MessageBox.Show("Please enter Customer email");
+            else if (tbxFname.Text == "")
+                MessageBox.Show("Please enter Customer first name");
+            else if (tbxLname.Text == "")
+                MessageBox.Show("Please enter Customer last name");
+            else if (tbxPhone.Text == "")
+                MessageBox.Show("Please enter Customer phone number");
+            else if (txbdob.Text == "")
+                MessageBox.Show("Please enter Customer date of birth");
+            else if (!(radioButton1.Checked || radioButton2.Checked))
+                MessageBox.Show("Please select customer gender");
+            else if (!(int.TryParse(tbxPhone.Text, out int myInt)))
+            {
+                MessageBox.Show("Please enter a valid phone number");
+            }
 
-            if (radioButton1.Checked)
-                gender = "Male";
-            else if (radioButton2.Checked)
-                gender = "Female";
             else
-                gender = "";
-             
+            {
+                con.Open();
+                int phone;
+                string fName, Lname, email, gender, dob;
 
-            String insertQuery = "INSERT INTO  Customers VALUES('" + fName + "','" + Lname + "','" + phone + "','" + email + "','" + gender + "','" + dob + "')";
+                phone = int.Parse(tbxPhone.Text);
+                fName = tbxFname.Text;
+                Lname = tbxLname.Text;
+                email = tbxEmail.Text;
+                dob = txbdob.Text;
 
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            SqlCommand cmd = new SqlCommand(insertQuery, con);
-            cmd.ExecuteNonQuery();
+                if (radioButton1.Checked)
+                    gender = "Male";
+                else if (radioButton2.Checked)
+                    gender = "Female";
+                else
+                    gender = "";
 
-            con.Close();
 
-            MessageBox.Show("Successfully added customer");
+                String insertQuery = "INSERT INTO  Customers VALUES('" + fName + "','" + Lname + "','" + phone + "','" + email + "','" + gender + "','" + dob + "')";
 
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                SqlCommand cmd = new SqlCommand(insertQuery, con);
+                cmd.ExecuteNonQuery();
+
+                con.Close();
+
+                MessageBox.Show("Successfully added customer");
+            }
         }
 
         private void AddCustomer_Load(object sender, EventArgs e)

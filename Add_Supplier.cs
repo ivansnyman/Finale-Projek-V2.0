@@ -38,13 +38,13 @@ namespace Finale_Projek_V2._0
             {
                 MessageBox.Show("Please enter supplier name ");
             }
-            else if (tbxPhone.Text == "")
-            {
-                MessageBox.Show("Please enter supplier phone number ");
-            }
             else if (tbxWebsite.Text == "")
             {
                 MessageBox.Show("Please enter supplier website adress ");
+            }
+            else if (!(int.TryParse(tbxPhone.Text, out int myInt)))
+            {
+                MessageBox.Show("Please enter a valid phone number");
             }
             else
             {

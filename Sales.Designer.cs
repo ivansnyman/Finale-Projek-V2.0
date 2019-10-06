@@ -94,11 +94,11 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(323, 430);
+            this.groupBox1.Location = new System.Drawing.Point(136, 430);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(797, 438);
+            this.groupBox1.Size = new System.Drawing.Size(984, 438);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Select item:";
@@ -110,7 +110,7 @@
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(783, 272);
+            this.dataGridView1.Size = new System.Drawing.Size(970, 272);
             this.dataGridView1.TabIndex = 15;
             // 
             // label6
@@ -154,10 +154,10 @@
             // 
             this.btnAddSale.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddSale.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnAddSale.Location = new System.Drawing.Point(322, 872);
+            this.btnAddSale.Location = new System.Drawing.Point(135, 872);
             this.btnAddSale.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddSale.Name = "btnAddSale";
-            this.btnAddSale.Size = new System.Drawing.Size(552, 52);
+            this.btnAddSale.Size = new System.Drawing.Size(739, 52);
             this.btnAddSale.TabIndex = 14;
             this.btnAddSale.Text = "Add to Cart";
             this.btnAddSale.UseVisualStyleBackColor = true;
@@ -226,7 +226,7 @@
             this.listBox3.Location = new System.Drawing.Point(5, 65);
             this.listBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(783, 157);
+            this.listBox3.Size = new System.Drawing.Size(971, 157);
             this.listBox3.TabIndex = 9;
             // 
             // groupBox3
@@ -235,11 +235,11 @@
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.textBox3);
             this.groupBox3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(325, 155);
+            this.groupBox3.Location = new System.Drawing.Point(138, 155);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox3.Size = new System.Drawing.Size(795, 250);
+            this.groupBox3.Size = new System.Drawing.Size(982, 250);
             this.groupBox3.TabIndex = 14;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Select Customer:";
@@ -252,6 +252,7 @@
             this.tbxEmp.ReadOnly = true;
             this.tbxEmp.Size = new System.Drawing.Size(132, 22);
             this.tbxEmp.TabIndex = 15;
+            this.tbxEmp.Visible = false;
             // 
             // label2
             // 

@@ -53,18 +53,32 @@ namespace Finale_Projek_V2._0
 
         private void BtnDelete_Click(object sender, EventArgs e)
         {
-            con.Open();
-            string sql = @"DELETE FROM Suppliers WHERE Supplier_ID = '" + textBox2.Text + "'";
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            SqlCommand cmd = new SqlCommand(sql, con);
-            DataSet ds = new DataSet();
-            adapter.DeleteCommand = cmd;
-            adapter.DeleteCommand.ExecuteNonQuery();
+            if (textBox2.Text == "")
+                MessageBox.Show("Please enter Supplier ID to delete");
+            string id = textBox2.Text.ToString();
+            int myInt;
+
+            if (int.TryParse(id, out myInt))
+            {
+                if (myInt < 0)
+                    MessageBox.Show("Please enter a positive Supplier ID to delete");
+                else
+                {
+                    con.Open();
+                    string sql = @"DELETE FROM Suppliers WHERE Supplier_ID = '" + textBox2.Text + "'";
+                    SqlDataAdapter adapter = new SqlDataAdapter();
+                    SqlCommand cmd = new SqlCommand(sql, con);
+                    DataSet ds = new DataSet();
+                    adapter.DeleteCommand = cmd;
+                    adapter.DeleteCommand.ExecuteNonQuery();
 
 
-            con.Close();
-            display();
-
+                    con.Close();
+                    display();
+                }
+            }
+            else
+                MessageBox.Show("Please enter an integer value for Supplier ID");
         }
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
@@ -81,38 +95,50 @@ namespace Finale_Projek_V2._0
 
         private void Button3_Click(object sender, EventArgs e)
         {
-            int index = comboBox1.SelectedIndex;
-            string id = dataGridView1.SelectedCells[0].Value.ToString();
-            string insertQuery;
-            
-            if (index == 0)
+            if (textBox7.Text == "")
             {
-                insertQuery = @"UPDATE Suppliers SET Phone_Number = '" + textBox7.Text + "' WHERE Supplier_ID = '" + id + "'";
+                MessageBox.Show("Please enter a new value to change to");
             }
-            else if (index == 1)
+            else if (!(comboBox1.SelectedIndex >= 0))
             {
-                insertQuery = @"UPDATE Suppliers SET Email = '" + textBox7.Text + "' WHERE Supplier_ID = '" + id + "'";
-            }
-            else if (index == 2)
-            {
-                insertQuery = @"UPDATE Suppliers SET Website = '" + textBox7.Text + "' WHERE Supplier_ID = '" + id + "'";
+                MessageBox.Show("Please select an attribute to change");
+
             }
             else
             {
-                insertQuery = @"UPDATE Suppliers SET Supplier_Name = '" + textBox7.Text + "' WHERE Supplier_ID = '" + id + "'";
+                int index = comboBox1.SelectedIndex;
+                string id = dataGridView1.SelectedCells[0].Value.ToString();
+                string insertQuery;
+
+                if (index == 0)
+                {
+                    insertQuery = @"UPDATE Suppliers SET Phone_Number = '" + textBox7.Text + "' WHERE Supplier_ID = '" + id + "'";
+                }
+                else if (index == 1)
+                {
+                    insertQuery = @"UPDATE Suppliers SET Email = '" + textBox7.Text + "' WHERE Supplier_ID = '" + id + "'";
+                }
+                else if (index == 2)
+                {
+                    insertQuery = @"UPDATE Suppliers SET Website = '" + textBox7.Text + "' WHERE Supplier_ID = '" + id + "'";
+                }
+                else
+                {
+                    insertQuery = @"UPDATE Suppliers SET Supplier_Name = '" + textBox7.Text + "' WHERE Supplier_ID = '" + id + "'";
+                }
+
+                con.Open();
+
+
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                SqlCommand cmd = new SqlCommand(insertQuery, con);
+                cmd.CommandText = insertQuery;
+
+                cmd.ExecuteNonQuery();
+
+                con.Close();
+                display();
             }
-
-            con.Open();
-
-
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            SqlCommand cmd = new SqlCommand(insertQuery, con);
-            cmd.CommandText = insertQuery;
-
-            cmd.ExecuteNonQuery();
-
-            con.Close();
-            display();
         }
 
         private void TextBox5_TextChanged(object sender, EventArgs e)
