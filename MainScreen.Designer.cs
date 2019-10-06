@@ -39,6 +39,7 @@
             this.tbxEmployee = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tbxGlobal = new System.Windows.Forms.TextBox();
+            this.button7 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -73,7 +74,7 @@
             this.button2.BackColor = System.Drawing.Color.Gray;
             this.button2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(905, 392);
+            this.button2.Location = new System.Drawing.Point(905, 350);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(337, 74);
@@ -87,7 +88,7 @@
             this.button3.BackColor = System.Drawing.Color.Gray;
             this.button3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button3.Location = new System.Drawing.Point(905, 488);
+            this.button3.Location = new System.Drawing.Point(905, 428);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(337, 74);
@@ -101,7 +102,7 @@
             this.button4.BackColor = System.Drawing.Color.Gray;
             this.button4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button4.Location = new System.Drawing.Point(905, 587);
+            this.button4.Location = new System.Drawing.Point(905, 506);
             this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(337, 74);
@@ -115,7 +116,7 @@
             this.button5.BackColor = System.Drawing.Color.Gray;
             this.button5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button5.Location = new System.Drawing.Point(905, 692);
+            this.button5.Location = new System.Drawing.Point(905, 584);
             this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(337, 74);
@@ -129,7 +130,7 @@
             this.button6.BackColor = System.Drawing.Color.Gray;
             this.button6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button6.Location = new System.Drawing.Point(905, 292);
+            this.button6.Location = new System.Drawing.Point(905, 272);
             this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(337, 74);
@@ -142,7 +143,7 @@
             // 
             this.tbxEmployee.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.tbxEmployee.ForeColor = System.Drawing.SystemColors.Menu;
-            this.tbxEmployee.Location = new System.Drawing.Point(905, 815);
+            this.tbxEmployee.Location = new System.Drawing.Point(905, 782);
             this.tbxEmployee.Margin = new System.Windows.Forms.Padding(4);
             this.tbxEmployee.Name = "tbxEmployee";
             this.tbxEmployee.ReadOnly = true;
@@ -155,7 +156,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(900, 786);
+            this.label2.Location = new System.Drawing.Point(900, 753);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(256, 25);
@@ -172,6 +173,20 @@
             this.tbxGlobal.TabIndex = 9;
             this.tbxGlobal.Visible = false;
             // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.Gray;
+            this.button7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button7.Location = new System.Drawing.Point(905, 662);
+            this.button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(337, 74);
+            this.button7.TabIndex = 10;
+            this.button7.Text = "Reporting";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click_1);
+            // 
             // MainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -179,7 +194,8 @@
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1513, 775);
+            this.ClientSize = new System.Drawing.Size(1513, 980);
+            this.Controls.Add(this.button7);
             this.Controls.Add(this.tbxGlobal);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbxEmployee);
@@ -212,5 +228,6 @@
         private System.Windows.Forms.TextBox tbxEmployee;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbxGlobal;
+        private System.Windows.Forms.Button button7;
     }
 }

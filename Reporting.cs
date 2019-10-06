@@ -28,7 +28,7 @@ namespace Finale_Projek_V2._0
         {
             con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Gerhard\Source\Repos\ivansnyman\Finale-Projek-V2.0\Supplement_Database.mdf;Integrated Security=True");
             //Uitfigure watse maand dit is en dan deur dit gaan met 'n loop vir die maand se sales
-            string date = DateTime.Today.ToShortDateString(); // DD/MM/YYYY
+           /* string date = DateTime.Today.ToShortDateString(); // DD/MM/YYYY
             string date_Search = date.Substring(4, 10); // MM/YYYY
             int count = 0;
             double income = 0;
@@ -96,8 +96,9 @@ namespace Finale_Projek_V2._0
             catch (SqlException error)
             {
                 MessageBox.Show(error.Message);
-            }
+            }*/
         }
+        
 
         private void Button2_Click(object sender, EventArgs e)
         {
