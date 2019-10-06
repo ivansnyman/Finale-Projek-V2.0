@@ -207,6 +207,20 @@ namespace Finale_Projek_V2._0
             if (index >= 0 && listBox2.Items.Count > 0)
             {
                 System.IO.File.WriteAllText(@"C:\Users\ivans\source\repos\Finale Projek V2.0\Transaction_ID.txt", Convert.ToString(transactionID));
+                DateTime date = DateTime.Now;
+                try
+                {
+                    con.Open();
+                    SqlCommand command = new SqlCommand(@"Insert Into Transactions Values('" + transactionID + "', " + totalPrice + "," + date.ToShortDateString() + ", " + custID + "," + currentID + "')", con);
+                    SqlDataAdapter adapter = new SqlDataAdapter();
+                    adapter.InsertCommand = command;
+                    adapter.InsertCommand.ExecuteNonQuery();
+                    con.Close();
+                }
+                catch (SqlException error)
+                {
+                    MessageBox.Show(error.Message);
+                }
                 MessageBox.Show("Sale completed succesfully");
             }
             else
