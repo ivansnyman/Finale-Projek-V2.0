@@ -58,17 +58,33 @@ namespace Finale_Projek_V2._0
 
         private void BtnDelete_Click(object sender, EventArgs e)
         {
-            con.Open();
-            string sql = @"DELETE FROM Customers WHERE Customer_ID = '" + textBox2.Text + "'";
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            SqlCommand cmd = new SqlCommand(sql, con);
-            DataSet ds = new DataSet();
-            adapter.DeleteCommand = cmd;
-            adapter.DeleteCommand.ExecuteNonQuery();
+            if (textBox2.Text == "")
+                MessageBox.Show("Please enter Customer ID to delete");
+            string id = textBox2.Text.ToString();
+            int myInt;
+
+            if (int.TryParse(id, out myInt)) 
+            {
+                if (myInt < 0) 
+                    MessageBox.Show("Please enter a positive Customer ID to delete");
+                else
+                {
+                    con.Open();
+                    string sql = @"DELETE FROM Customers WHERE Customer_ID = '" + textBox2.Text + "'";
+                    SqlDataAdapter adapter = new SqlDataAdapter();
+                    SqlCommand cmd = new SqlCommand(sql, con);
+                    DataSet ds = new DataSet();
+                    adapter.DeleteCommand = cmd;
+                    adapter.DeleteCommand.ExecuteNonQuery();
 
 
-            con.Close();
-            display();
+                    con.Close();
+                    display();
+                }
+            }
+            else
+                MessageBox.Show("Please enter an integer value for customer ID");
+
 
         }
 
@@ -87,49 +103,61 @@ namespace Finale_Projek_V2._0
 
         private void Button3_Click(object sender, EventArgs e)
         {
-            int index = comboBox1.SelectedIndex;
-            string id = dataGridView1.SelectedCells[0].Value.ToString();
-            string insertQuery;
+            if (Valuetxt.Text == "")
+            {
+                MessageBox.Show("Please enter a new value to change to");
+            }
+            else if (!(comboBox1.SelectedIndex >= 0))
+            {
+                MessageBox.Show("Please select an attribute to change");
 
-            if (index == 0)
-            {
-                insertQuery = @"UPDATE Customers SET First_Name = '" + Valuetxt.Text + "' WHERE Customer_ID = '" + id + "'";
-            }
-            else if (index == 1)
-            {
-                insertQuery = @"UPDATE Customers SET Last_Name = '" + Valuetxt.Text + "' WHERE Customer_ID = '" + id + "'";
-            }
-            else if (index == 2)
-            {
-                insertQuery = @"UPDATE Customers SET Phone_Number = '" + int.Parse(Valuetxt.Text) + "' WHERE Customer_ID = '" + id + "'";
-            }
-            else if (index == 3)
-            {
-                insertQuery = @"UPDATE Customers SET Email = '" + int.Parse(Valuetxt.Text) + "' WHERE Customer_ID = '" + id + "'";
-            }
-            else if (index == 4)
-            {
-                insertQuery = @"UPDATE Customers SET Gender = '" + int.Parse(Valuetxt.Text) + "' WHERE Customer_ID = '" + id + "'";
-            }
-            else if (index == 5)
-            {
-                insertQuery = @"UPDATE Customers SET Date_of_Birth = '" + int.Parse(Valuetxt.Text) + "' WHERE Customer_ID= '" + id + "'";
             }
             else
             {
-                insertQuery = @"UPDATE Customers SET Stock = '" + int.Parse(Valuetxt.Text) + "' WHERE Customer_ID = '" + id + "'";
+                int index = comboBox1.SelectedIndex;
+                string id = dataGridView1.SelectedCells[0].Value.ToString();
+                string insertQuery;
+
+                if (index == 0)
+                {
+                    insertQuery = @"UPDATE Customers SET First_Name = '" + Valuetxt.Text + "' WHERE Customer_ID = '" + id + "'";
+                }
+                else if (index == 1)
+                {
+                    insertQuery = @"UPDATE Customers SET Last_Name = '" + Valuetxt.Text + "' WHERE Customer_ID = '" + id + "'";
+                }
+                else if (index == 2)
+                {
+                    insertQuery = @"UPDATE Customers SET Phone_Number = '" + int.Parse(Valuetxt.Text) + "' WHERE Customer_ID = '" + id + "'";
+                }
+                else if (index == 3)
+                {
+                    insertQuery = @"UPDATE Customers SET Email = '" + int.Parse(Valuetxt.Text) + "' WHERE Customer_ID = '" + id + "'";
+                }
+                else if (index == 4)
+                {
+                    insertQuery = @"UPDATE Customers SET Gender = '" + int.Parse(Valuetxt.Text) + "' WHERE Customer_ID = '" + id + "'";
+                }
+                else if (index == 5)
+                {
+                    insertQuery = @"UPDATE Customers SET Date_of_Birth = '" + int.Parse(Valuetxt.Text) + "' WHERE Customer_ID= '" + id + "'";
+                }
+                else
+                {
+                    insertQuery = @"UPDATE Customers SET Stock = '" + int.Parse(Valuetxt.Text) + "' WHERE Customer_ID = '" + id + "'";
+                }
+
+                con.Open();
+
+
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                SqlCommand cmd = new SqlCommand(insertQuery, con);
+                cmd.CommandText = insertQuery;
+
+                cmd.ExecuteNonQuery();
+                con.Close();
+                display();
             }
-
-            con.Open();
-
-
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            SqlCommand cmd = new SqlCommand(insertQuery, con);
-            cmd.CommandText = insertQuery;
-
-            cmd.ExecuteNonQuery();
-            con.Close();
-            display();
 
         }
 

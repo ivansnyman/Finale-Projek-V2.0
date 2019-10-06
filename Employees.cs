@@ -14,7 +14,7 @@ namespace Finale_Projek_V2._0
     public partial class Employees : Form
     {
         SqlConnection con;
-        public String constr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Gerhard\Source\Repos\ivansnyman\Finale-Projek-V2.0\Supplement_Database.mdf;Integrated Security=True";
+        public String constr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\baren\Source\Gerhard\ivansnyman\Finale-Projek-V2.0\Supplement_Database.mdf;Integrated Security=True";
         SqlCommand cmd;
         SqlDataAdapter adap;
       
@@ -63,6 +63,7 @@ namespace Finale_Projek_V2._0
                 MessageBox.Show("Please enter an employee ID to delete");
             string id = textBox2.Text.ToString();
             int myInt;
+
             if (int.TryParse(id, out myInt)) //if user input is a number then
             {
                 if (myInt < 0) //if user input is negative
