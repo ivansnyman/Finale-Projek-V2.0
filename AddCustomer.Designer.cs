@@ -98,10 +98,10 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 22.2F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(151, 36);
+            this.label6.Font = new System.Drawing.Font("Segoe Print", 36F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(49, -3);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(262, 43);
+            this.label6.Size = new System.Drawing.Size(486, 105);
             this.label6.TabIndex = 57;
             this.label6.Text = "Add Customer";
             // 
@@ -205,6 +205,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(551, 422);
             this.Controls.Add(this.txbdob);
             this.Controls.Add(this.radioButton2);

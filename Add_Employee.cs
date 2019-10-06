@@ -44,10 +44,9 @@ namespace Finale_Projek_V2._0
             else if (!(tbxPassword.Text == textBox1.Text))
                 MessageBox.Show("Passwords do not match");
             else if (!(int.TryParse(tbxPhone.Text, out int myInt)))
-            {
                 MessageBox.Show("Please enter a valid phone number");
-
-            }
+            else if (tbxPhone.Text.Length != 10)
+                MessageBox.Show("Phone number should be 10 digits long");
 
             else
             {
