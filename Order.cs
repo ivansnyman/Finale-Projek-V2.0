@@ -221,14 +221,14 @@ namespace Finale_Projek_V2._0
                     int updatedStock = currentStock - quantity;
                     SqlCommand command;
                     SqlDataAdapter adapter = new SqlDataAdapter();
-                    String sql = "Update Product set Stock='" + Convert.ToString(updatedStock) + "' where Product_ID ='" + prodID + "'";
+                    String sql = "Update Products set Stock='" + Convert.ToString(updatedStock) + "' where Product_ID ='" + prodID + "'";
                     command = new SqlCommand(sql, con);
                     adapter.UpdateCommand = new SqlCommand(sql, con);
                     adapter.UpdateCommand.ExecuteNonQuery();
                     command.Dispose();
                     con.Close();
                     con.Open();
-                    command = new SqlCommand(@"INSERT Into Products_Order Values(" + prodID + ", " + orderID + "," + quantity + ")", con);
+                    command = new SqlCommand(@"INSERT Into Products_Order Values(" + prodID + "," + orderID + "," + quantity + ")", con);
                     adap = new SqlDataAdapter();
                     adap.InsertCommand = command;
                     adap.InsertCommand.ExecuteNonQuery();

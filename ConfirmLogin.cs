@@ -69,7 +69,6 @@ namespace Finale_Projek_V2._0
                     }
                 }
                 con.Close();
-                MessageBox.Show("Incorrect Employee ID OR Password, please try again");
             }
         }
     }
