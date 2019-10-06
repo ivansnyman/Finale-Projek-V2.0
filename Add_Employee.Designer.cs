@@ -40,6 +40,8 @@
             this.tbxEmail = new System.Windows.Forms.TextBox();
             this.tbxPassword = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -112,7 +114,7 @@
             // tbxFirst
             // 
             this.tbxFirst.Location = new System.Drawing.Point(250, 77);
-            this.tbxFirst.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbxFirst.Margin = new System.Windows.Forms.Padding(4);
             this.tbxFirst.Name = "tbxFirst";
             this.tbxFirst.Size = new System.Drawing.Size(132, 22);
             this.tbxFirst.TabIndex = 7;
@@ -120,7 +122,7 @@
             // tbxLast
             // 
             this.tbxLast.Location = new System.Drawing.Point(249, 107);
-            this.tbxLast.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbxLast.Margin = new System.Windows.Forms.Padding(4);
             this.tbxLast.Name = "tbxLast";
             this.tbxLast.Size = new System.Drawing.Size(132, 22);
             this.tbxLast.TabIndex = 8;
@@ -128,7 +130,7 @@
             // tbxPhone
             // 
             this.tbxPhone.Location = new System.Drawing.Point(250, 137);
-            this.tbxPhone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbxPhone.Margin = new System.Windows.Forms.Padding(4);
             this.tbxPhone.Name = "tbxPhone";
             this.tbxPhone.Size = new System.Drawing.Size(132, 22);
             this.tbxPhone.TabIndex = 9;
@@ -136,7 +138,7 @@
             // tbxEmail
             // 
             this.tbxEmail.Location = new System.Drawing.Point(249, 167);
-            this.tbxEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbxEmail.Margin = new System.Windows.Forms.Padding(4);
             this.tbxEmail.Name = "tbxEmail";
             this.tbxEmail.Size = new System.Drawing.Size(132, 22);
             this.tbxEmail.TabIndex = 10;
@@ -144,7 +146,7 @@
             // tbxPassword
             // 
             this.tbxPassword.Location = new System.Drawing.Point(249, 197);
-            this.tbxPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbxPassword.Margin = new System.Windows.Forms.Padding(4);
             this.tbxPassword.Name = "tbxPassword";
             this.tbxPassword.Size = new System.Drawing.Size(132, 22);
             this.tbxPassword.TabIndex = 11;
@@ -152,7 +154,7 @@
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(126, 240);
+            this.btnAdd.Location = new System.Drawing.Point(126, 257);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(255, 34);
@@ -161,12 +163,31 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(250, 226);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(132, 22);
+            this.textBox1.TabIndex = 34;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(111, 226);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(134, 18);
+            this.label7.TabIndex = 35;
+            this.label7.Text = "Confirm password:";
+            // 
             // Add_Employee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(513, 319);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.tbxPassword);
             this.Controls.Add(this.tbxEmail);
@@ -179,7 +200,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Add_Employee";
             this.Text = "Add Employee ";
             this.Load += new System.EventHandler(this.Add_Employee_Load);
@@ -202,5 +223,7 @@
         private System.Windows.Forms.TextBox tbxEmail;
         private System.Windows.Forms.TextBox tbxPassword;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label7;
     }
 }
