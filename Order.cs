@@ -66,8 +66,8 @@ namespace Finale_Projek_V2._0
             int index = listBox1.SelectedIndex;
             if (index >= 0 && listBox2.Items.Count > 0)
             {
-                orderID = orderID + 1;
                 System.IO.File.WriteAllText(@"C:\Users\Gerhard\source\repos\ivansnyman\Finale-Projek-V2.0\Order_ID.txt", Convert.ToString(orderID));
+                listBox2.Items.Clear();
                 MessageBox.Show("Order completed succesfully");
             }
             else
@@ -115,7 +115,7 @@ namespace Finale_Projek_V2._0
                 currentStock = Convert.ToInt32(reader.GetValue(0));
             }
             //sql query om stock reg te maak 
-            int newStock = currentStock + quantity;
+            int newStock = currentStock - quantity;
             string update_Query = "UPDATE Products SET Stock = '" + newStock + "' WHERE Product_ID = '" + currentID + "'";
             con.Close();
             con.Open();
@@ -221,7 +221,7 @@ namespace Finale_Projek_V2._0
                     orderID = Convert.ToInt32(frmConfirm.orderID);
                     orderID += 1;
                     con.Open();
-                    int updatedStock = currentStock - quantity;
+                    int updatedStock = currentStock + quantity;
                     SqlCommand command;
                     SqlDataAdapter adapter = new SqlDataAdapter();
                     String sql = "Update Products set Stock='" + Convert.ToString(updatedStock) + "' where Product_ID ='" + Convert.ToInt32(selectedProductID) + "'";
