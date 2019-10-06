@@ -13,6 +13,7 @@ namespace Finale_Projek_V2._0
 {
     public partial class ConfirmLogin : Form
     {
+        public bool isTrue = false;
         SqlConnection con;
         public ConfirmLogin()
         {
@@ -31,6 +32,7 @@ namespace Finale_Projek_V2._0
 
         private void BtnConfirm_Click(object sender, EventArgs e)
         {
+            
             if (tbxID.Text == "")
             {
                 MessageBox.Show("Please enter employee ID");
@@ -48,13 +50,14 @@ namespace Finale_Projek_V2._0
                 con.Open();
                 cmd = new SqlCommand("Select Employee_ID, Password FROM Employees", con);
                 dataReader = cmd.ExecuteReader();
-                while (dataReader.Read())
+                while ((dataReader.Read())&&(isTrue==false))
                 {
                     int currID = Convert.ToInt32(dataReader.GetValue(0));
                     string currPass = Convert.ToString(dataReader.GetValue(1));
                     if ((empID == currID) && (password == currPass))
                     {
                         MessageBox.Show("Login details confirmed.");
+                        isTrue = true;
                         employeeID = tbxID.Text;
                         transactionID = System.IO.File.ReadAllText(@"C:\Users\Gerhard\source\repos\ivansnyman\Finale-Projek-V2.0\Transaction_ID.txt");
                         orderID = System.IO.File.ReadAllText(@"C:\Users\Gerhard\source\repos\ivansnyman\Finale-Projek-V2.0\Order_ID.txt");
