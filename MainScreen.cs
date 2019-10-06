@@ -76,5 +76,11 @@ namespace Finale_Projek_V2._0
         {
 
         }
+
+        private void button7_Click_1(object sender, EventArgs e)
+        {
+            Reporting frmReporting = new Reporting();
+            frmReporting.ShowDialog();
+        }
     }
 }
