@@ -70,7 +70,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe Print", 36F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(773, 26);
+            this.label5.Location = new System.Drawing.Point(615, 0);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(153, 84);
@@ -80,7 +80,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(156, 21);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(242, 26);
             this.textBox1.TabIndex = 5;
@@ -96,10 +96,10 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(102, 349);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Location = new System.Drawing.Point(9, 323);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(738, 356);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
@@ -127,7 +127,7 @@
             // numericUpDown1
             // 
             this.numericUpDown1.Location = new System.Drawing.Point(71, 324);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(33, 26);
             this.numericUpDown1.TabIndex = 13;
@@ -136,7 +136,7 @@
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(156, 58);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(2);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(242, 26);
             this.textBox5.TabIndex = 11;
@@ -157,8 +157,8 @@
             // 
             this.btnAddSale.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddSale.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnAddSale.Location = new System.Drawing.Point(101, 708);
-            this.btnAddSale.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddSale.Location = new System.Drawing.Point(9, 683);
+            this.btnAddSale.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddSale.Name = "btnAddSale";
             this.btnAddSale.Size = new System.Drawing.Size(554, 42);
             this.btnAddSale.TabIndex = 14;
@@ -170,11 +170,11 @@
             // 
             this.groupBox2.Controls.Add(this.listBox2);
             this.groupBox2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(856, 126);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Location = new System.Drawing.Point(763, 100);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox2.Size = new System.Drawing.Size(628, 403);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Size = new System.Drawing.Size(585, 403);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Cart:";
@@ -184,20 +184,20 @@
             this.listBox2.FormattingEnabled = true;
             this.listBox2.ItemHeight = 18;
             this.listBox2.Location = new System.Drawing.Point(4, 24);
-            this.listBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listBox2.Margin = new System.Windows.Forms.Padding(2);
             this.listBox2.Name = "listBox2";
             this.listBox2.ScrollAlwaysVisible = true;
-            this.listBox2.Size = new System.Drawing.Size(620, 346);
+            this.listBox2.Size = new System.Drawing.Size(577, 364);
             this.listBox2.TabIndex = 0;
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Arial", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(856, 566);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Location = new System.Drawing.Point(763, 540);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(628, 140);
+            this.button1.Size = new System.Drawing.Size(585, 140);
             this.button1.TabIndex = 13;
             this.button1.Text = "Confirm Sale";
             this.button1.UseVisualStyleBackColor = true;
@@ -206,7 +206,7 @@
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(150, 24);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(242, 26);
             this.textBox3.TabIndex = 5;
@@ -228,7 +228,7 @@
             this.listBox3.FormattingEnabled = true;
             this.listBox3.ItemHeight = 15;
             this.listBox3.Location = new System.Drawing.Point(4, 53);
-            this.listBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listBox3.Margin = new System.Windows.Forms.Padding(2);
             this.listBox3.Name = "listBox3";
             this.listBox3.Size = new System.Drawing.Size(729, 124);
             this.listBox3.TabIndex = 9;
@@ -239,10 +239,10 @@
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.textBox3);
             this.groupBox3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(104, 126);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Location = new System.Drawing.Point(11, 100);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox3.Size = new System.Drawing.Size(736, 203);
             this.groupBox3.TabIndex = 14;
             this.groupBox3.TabStop = false;
@@ -250,7 +250,7 @@
             // 
             // tbxEmp
             // 
-            this.tbxEmp.Location = new System.Drawing.Point(1321, 614);
+            this.tbxEmp.Location = new System.Drawing.Point(1198, 515);
             this.tbxEmp.Name = "tbxEmp";
             this.tbxEmp.ReadOnly = true;
             this.tbxEmp.Size = new System.Drawing.Size(100, 20);
@@ -261,7 +261,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(1203, 540);
+            this.label2.Location = new System.Drawing.Point(1007, 513);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(185, 17);
             this.label2.TabIndex = 16;
@@ -271,8 +271,8 @@
             // 
             this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemove.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnRemove.Location = new System.Drawing.Point(856, 531);
-            this.btnRemove.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRemove.Location = new System.Drawing.Point(763, 505);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(2);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(188, 33);
             this.btnRemove.TabIndex = 17;
@@ -287,7 +287,7 @@
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1028, 609);
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbxEmp);
@@ -298,7 +298,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label5);
             this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Sales";
             this.Text = "Sales";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

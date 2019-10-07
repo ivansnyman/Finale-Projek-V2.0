@@ -47,6 +47,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnReceived = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.txtDateFilter = new System.Windows.Forms.TextBox();
@@ -54,7 +55,6 @@
             this.txtEmployee = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnRemove = new System.Windows.Forms.Button();
-            this.btnReceived = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -67,7 +67,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Arial", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(685, 610);
+            this.button1.Location = new System.Drawing.Point(546, 566);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(400, 123);
@@ -80,7 +80,7 @@
             // 
             this.groupBox2.Controls.Add(this.listBox2);
             this.groupBox2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(682, 179);
+            this.groupBox2.Location = new System.Drawing.Point(543, 135);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
@@ -110,11 +110,11 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(27, 392);
+            this.groupBox1.Location = new System.Drawing.Point(17, 350);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(650, 341);
+            this.groupBox1.Size = new System.Drawing.Size(514, 341);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Select item:";
@@ -125,7 +125,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(5, 89);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(640, 171);
+            this.dataGridView1.Size = new System.Drawing.Size(504, 171);
             this.dataGridView1.TabIndex = 15;
             // 
             // btnAdd
@@ -204,7 +204,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe Print", 36F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Location = new System.Drawing.Point(794, 90);
+            this.label5.Location = new System.Drawing.Point(618, 25);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(179, 84);
@@ -217,9 +217,9 @@
             this.groupBox3.Controls.Add(this.textBox2);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(32, 179);
+            this.groupBox3.Location = new System.Drawing.Point(22, 137);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(645, 199);
+            this.groupBox3.Size = new System.Drawing.Size(509, 199);
             this.groupBox3.TabIndex = 18;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Select Supplier";
@@ -258,12 +258,22 @@
             this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Controls.Add(this.txtDateFilter);
             this.groupBox4.Controls.Add(this.button3);
-            this.groupBox4.Location = new System.Drawing.Point(1108, 203);
+            this.groupBox4.Location = new System.Drawing.Point(973, 160);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(338, 380);
             this.groupBox4.TabIndex = 19;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Orders not yet received:";
+            // 
+            // btnReceived
+            // 
+            this.btnReceived.Location = new System.Drawing.Point(14, 331);
+            this.btnReceived.Name = "btnReceived";
+            this.btnReceived.Size = new System.Drawing.Size(178, 43);
+            this.btnReceived.TabIndex = 24;
+            this.btnReceived.Text = "Select item received";
+            this.btnReceived.UseVisualStyleBackColor = true;
+            this.btnReceived.Click += new System.EventHandler(this.BtnReceived_Click);
             // 
             // dataGridView2
             // 
@@ -306,9 +316,9 @@
             // 
             // txtEmployee
             // 
-            this.txtEmployee.Location = new System.Drawing.Point(1172, 179);
+            this.txtEmployee.Location = new System.Drawing.Point(1189, 138);
             this.txtEmployee.Name = "txtEmployee";
-            this.txtEmployee.Size = new System.Drawing.Size(150, 20);
+            this.txtEmployee.Size = new System.Drawing.Size(122, 20);
             this.txtEmployee.TabIndex = 20;
             // 
             // label7
@@ -316,7 +326,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label7.Location = new System.Drawing.Point(1105, 180);
+            this.label7.Location = new System.Drawing.Point(970, 137);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(191, 18);
             this.label7.TabIndex = 21;
@@ -325,7 +335,7 @@
             // btnRemove
             // 
             this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemove.Location = new System.Drawing.Point(682, 544);
+            this.btnRemove.Location = new System.Drawing.Point(543, 500);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(402, 52);
             this.btnRemove.TabIndex = 22;
@@ -333,23 +343,13 @@
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.BtnRemove_Click);
             // 
-            // btnReceived
-            // 
-            this.btnReceived.Location = new System.Drawing.Point(14, 331);
-            this.btnReceived.Name = "btnReceived";
-            this.btnReceived.Size = new System.Drawing.Size(178, 43);
-            this.btnReceived.TabIndex = 24;
-            this.btnReceived.Text = "Select item received";
-            this.btnReceived.UseVisualStyleBackColor = true;
-            this.btnReceived.Click += new System.EventHandler(this.BtnReceived_Click);
-            // 
             // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.ClientSize = new System.Drawing.Size(1333, 749);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtEmployee);
