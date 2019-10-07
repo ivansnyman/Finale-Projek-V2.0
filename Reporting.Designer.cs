@@ -128,7 +128,6 @@
             // 
             this.tbxCosts.Location = new System.Drawing.Point(207, 111);
             this.tbxCosts.Name = "tbxCosts";
-            this.tbxCosts.ReadOnly = true;
             this.tbxCosts.Size = new System.Drawing.Size(211, 20);
             this.tbxCosts.TabIndex = 9;
             // 
@@ -136,7 +135,6 @@
             // 
             this.tbxProfit.Location = new System.Drawing.Point(207, 136);
             this.tbxProfit.Name = "tbxProfit";
-            this.tbxProfit.ReadOnly = true;
             this.tbxProfit.Size = new System.Drawing.Size(211, 20);
             this.tbxProfit.TabIndex = 10;
             // 
@@ -164,7 +162,6 @@
             // 
             this.tbxOrders.Location = new System.Drawing.Point(207, 87);
             this.tbxOrders.Name = "tbxOrders";
-            this.tbxOrders.ReadOnly = true;
             this.tbxOrders.Size = new System.Drawing.Size(211, 20);
             this.tbxOrders.TabIndex = 7;
             // 
@@ -182,7 +179,6 @@
             // 
             this.tbxIncome.Location = new System.Drawing.Point(207, 58);
             this.tbxIncome.Name = "tbxIncome";
-            this.tbxIncome.ReadOnly = true;
             this.tbxIncome.Size = new System.Drawing.Size(211, 20);
             this.tbxIncome.TabIndex = 3;
             // 
@@ -200,7 +196,6 @@
             // 
             this.tbxSales.Location = new System.Drawing.Point(207, 31);
             this.tbxSales.Name = "tbxSales";
-            this.tbxSales.ReadOnly = true;
             this.tbxSales.Size = new System.Drawing.Size(211, 20);
             this.tbxSales.TabIndex = 1;
             // 
