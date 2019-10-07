@@ -177,7 +177,7 @@ namespace Finale_Projek_V2._0
             {
                 con.Close();
                 con.Open();
-                command = new SqlCommand("SELECT * FROM Transactions");
+                command = new SqlCommand("SELECT * FROM Transactions",con);
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
@@ -286,7 +286,7 @@ namespace Finale_Projek_V2._0
             try
             {
                 con.Open();
-                command = new SqlCommand("SELECT * FROM Orders");
+                command = new SqlCommand("SELECT * FROM Orders",con);
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
