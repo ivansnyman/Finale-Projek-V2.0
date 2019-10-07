@@ -223,60 +223,69 @@ namespace Finale_Projek_V2._0
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
-            string selectedProductID = dataGridView1.SelectedCells[0].Value.ToString();
-            if ((numericUpDown1.Value == 0) || (numericUpDown1.Value < 0) || (selectedProductID == ""))
-            {
-                MessageBox.Show("Please make sure you selected a product and entered a quantity");
-            }
+            if (!(listBox1.SelectedIndex >= 0))
+                MessageBox.Show("Please select an supplier to proceed");
+            else if (dataGridView1.SelectedRows == null)
+                MessageBox.Show("Please select one or more product to proceed");
+            else if (!(numericUpDown1.Value > 0))
+                MessageBox.Show("Please select the quantity of the product you wish to add to cart");
             else
-            {
-                quantity = Convert.ToInt32(numericUpDown1.Value);
-                con.Open();
-                cmd = new SqlCommand("SELECT Product_ID, Product_Name, Price_Sold, Manufacturer_Name, Stock FROM Products", con);
-                reader = cmd.ExecuteReader();
-                while (reader.Read())
+            { 
+                string selectedProductID = dataGridView1.SelectedCells[0].Value.ToString();
+                if ((numericUpDown1.Value == 0) || (numericUpDown1.Value < 0) || (selectedProductID == ""))
                 {
-                    if (Convert.ToString(reader.GetValue(0)) == selectedProductID)
+                    MessageBox.Show("Please make sure you selected a product and entered a quantity");
+                }
+                else
+                {
+                    quantity = Convert.ToInt32(numericUpDown1.Value);
+                    con.Open();
+                    cmd = new SqlCommand("SELECT Product_ID, Product_Name, Price_Sold, Manufacturer_Name, Stock FROM Products", con);
+                    reader = cmd.ExecuteReader();
+                    while (reader.Read())
                     {
-                        cartName = Convert.ToString(reader.GetValue(1));
-                        cartPrice = Convert.ToDouble(reader.GetValue(2));
-                        manuName = Convert.ToString(reader.GetValue(3));
-                        currentStock = Convert.ToInt32(reader.GetValue(4));
+                        if (Convert.ToString(reader.GetValue(0)) == selectedProductID)
+                        {
+                            cartName = Convert.ToString(reader.GetValue(1));
+                            cartPrice = Convert.ToDouble(reader.GetValue(2));
+                            manuName = Convert.ToString(reader.GetValue(3));
+                            currentStock = Convert.ToInt32(reader.GetValue(4));
+                        }
                     }
-                }
-                con.Close();
-                listBox2.Items.Add(selectedProductID +"    ,"+cartName + "    ," + Convert.ToString(quantity) + "    ," + "R" + Convert.ToString(cartPrice * quantity)+ "    ," + manuName);
-                totalPrice += cartPrice * quantity;
-                listBox2.Items.Add("Total Due: " + "R" + Convert.ToString(totalPrice));
+                    con.Close();
+                    listBox2.Items.Add(selectedProductID + "    ," + cartName + "    ," + Convert.ToString(quantity) + "    ," + "R" + Convert.ToString(cartPrice * quantity) + "    ," + manuName);
+                    totalPrice += cartPrice * quantity;
+                    listBox2.Items.Add("Total Due: " + "R" + Convert.ToString(totalPrice));
 
-                try
-                {
-                    ConfirmLogin frmConfirm = new ConfirmLogin();
-                    frmConfirm.ShowDialog();
-                    currentID = Convert.ToInt32(frmConfirm.employeeID);
-                    orderID = Convert.ToInt32(frmConfirm.orderID);
-                    orderID += 1;
-                    con.Open();
-                    int updatedStock = currentStock + quantity;
-                    SqlCommand command;
-                    SqlDataAdapter adapter = new SqlDataAdapter();
-                    String sql = "Update Products set Stock='" + Convert.ToString(updatedStock) + "' where Product_ID ='" + Convert.ToInt32(selectedProductID) + "'";
-                    command = new SqlCommand(sql, con);
-                    adapter.UpdateCommand = new SqlCommand(sql, con);
-                    adapter.UpdateCommand.ExecuteNonQuery();
-                    command.Dispose();
-                    con.Close();
-                    con.Open();
-                    command = new SqlCommand(@"INSERT Into Products_Order Values('" + Convert.ToInt32(selectedProductID) + "','" + orderID + "','" + quantity + "')", con);
-                    adap = new SqlDataAdapter();
-                    adap.InsertCommand = command;
-                    adap.InsertCommand.ExecuteNonQuery();
-                    con.Close();
-                   
-                }
-                catch(Exception error)
-                {
-                    MessageBox.Show(error.Message);
+                    try
+                    {
+                        ConfirmLogin frmConfirm = new ConfirmLogin();
+                        frmConfirm.ShowDialog();
+                        currentID = Convert.ToInt32(frmConfirm.employeeID);
+                        orderID = Convert.ToInt32(frmConfirm.orderID);
+                        orderID += 1;
+                        con.Open();
+                        int updatedStock = currentStock + quantity;
+                        SqlCommand command;
+                        SqlDataAdapter adapter = new SqlDataAdapter();
+                        String sql = "Update Products set Stock='" + Convert.ToString(updatedStock) + "' where Product_ID ='" + Convert.ToInt32(selectedProductID) + "'";
+                        command = new SqlCommand(sql, con);
+                        adapter.UpdateCommand = new SqlCommand(sql, con);
+                        adapter.UpdateCommand.ExecuteNonQuery();
+                        command.Dispose();
+                        con.Close();
+                        con.Open();
+                        command = new SqlCommand(@"INSERT Into Products_Order Values('" + Convert.ToInt32(selectedProductID) + "','" + orderID + "','" + quantity + "')", con);
+                        adap = new SqlDataAdapter();
+                        adap.InsertCommand = command;
+                        adap.InsertCommand.ExecuteNonQuery();
+                        con.Close();
+
+                    }
+                    catch (Exception error)
+                    {
+                        MessageBox.Show(error.Message);
+                    }
                 }
             }
         }

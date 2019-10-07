@@ -84,7 +84,7 @@ namespace Finale_Projek_V2._0
             }
             else
                 MessageBox.Show("Please enter an integer value for customer ID");
-
+            textBox2.Text = "";
 
         }
 
@@ -158,7 +158,7 @@ namespace Finale_Projek_V2._0
                 con.Close();
                 display();
             }
-
+            Valuetxt.Text = "";
         }
 
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)

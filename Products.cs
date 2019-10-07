@@ -82,7 +82,7 @@ namespace Finale_Projek_V2._0
             }
             else
                 MessageBox.Show("Please enter an integer value for Product ID");
-
+            textBox2.Text = "";
         }
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
@@ -155,6 +155,7 @@ namespace Finale_Projek_V2._0
                 con.Close();
                 display();
             }
+            Valuetxt.Text = "";
         }
 
         private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

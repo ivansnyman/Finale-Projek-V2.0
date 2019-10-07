@@ -84,7 +84,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(402, 361);
+            this.groupBox2.Size = new System.Drawing.Size(402, 351);
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Cart:";
@@ -230,7 +230,7 @@
             this.listBox1.ItemHeight = 18;
             this.listBox1.Location = new System.Drawing.Point(12, 80);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(375, 58);
+            this.listBox1.Size = new System.Drawing.Size(491, 112);
             this.listBox1.TabIndex = 2;
             // 
             // textBox2
