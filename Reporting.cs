@@ -25,6 +25,7 @@ namespace Finale_Projek_V2._0
         SqlDataAdapter adapter;
         SqlCommand command;
         DataSet ds;
+        int count_Employees;
         private void Reporting_Load(object sender, EventArgs e)
         {
             con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\baren\Source\Repos\ivansnyman\Finale-Projek-V2.0\Supplement_Database.mdf;Integrated Security=True");
@@ -98,6 +99,24 @@ namespace Finale_Projek_V2._0
             {
                 MessageBox.Show(error.Message);
             }
+
+            count_Employees = 0;
+            try
+            {
+                con.Open();
+                command = new SqlCommand("SELECT * FROM Employees");
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    count_Employees += 1;
+                }
+                con.Close();
+            }
+            catch (SqlException error)
+            {
+
+                MessageBox.Show(error.Message);
+            }
         }
         
 
@@ -133,6 +152,166 @@ namespace Finale_Projek_V2._0
         private void BtnExport_Click(object sender, EventArgs e)
         {
          
+        }
+
+        private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedIndex == 0)
+            {
+                try
+                {
+                    listBox2.Items.Clear();
+                    con.Open();
+                    adapter = new SqlDataAdapter();
+                    command = new SqlCommand("SELECT * FROM Transactions", con);
+                    ds = new DataSet();
+                    adapter.SelectCommand = command;
+                    adapter.Fill(ds, "Info");
+                    dataGridView1.DataSource = ds;
+                    dataGridView1.DataMember = "Info";
+                    con.Close();
+                }
+                catch (SqlException error)
+                {
+
+                    MessageBox.Show(error.Message);
+                }
+                string sale_ID = dataGridView1.SelectedCells[0].Value.ToString();
+                string line = "";
+                
+                try
+                {
+                    listBox2.Items.Clear();
+                    listBox2.Items.Add("Product Bought\tQuantity");
+                    con.Open();
+                    command = new SqlCommand("SELECT * FROM Product_Transaction WHERE Transaction_ID = " + Convert.ToInt32(sale_ID) +"", con);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        line = reader.GetValue(0) + "\t" + reader.GetValue(2);
+                        listBox2.Items.Add(line);
+                    }
+                }
+                catch (SqlException error)
+                {
+
+                    MessageBox.Show(error.Message);
+                }
+            }
+            else if (comboBox1.SelectedIndex == 1)
+            {
+                try
+                {
+                    con.Open();
+                    adapter = new SqlDataAdapter();
+                    command = new SqlCommand("SELECT * FROM Orders", con);
+                    ds = new DataSet();
+                    adapter.SelectCommand = command;
+                    adapter.Fill(ds, "Info");
+                    dataGridView1.DataSource = ds;
+                    dataGridView1.DataMember = "Info";
+                    con.Close();
+                }
+                catch (SqlException error)
+                {
+
+                    MessageBox.Show(error.Message);
+                }
+                string order_ID = dataGridView1.SelectedCells[0].Value.ToString();
+                string line = "";
+
+                try
+                {
+                    listBox2.Items.Clear();
+                    listBox2.Items.Add("Product Bought\tQuantity");
+                    con.Open();
+                    command = new SqlCommand("SELECT * FROM Products_Order WHERE Order_ID = " + Convert.ToInt32(order_ID) + "", con);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        line = reader.GetValue(0) + "\t" + reader.GetValue(2);
+                        listBox2.Items.Add(line);
+                    }
+                }
+                catch (SqlException error)
+                {
+
+                    MessageBox.Show(error.Message);
+                }
+            }
+           
+            //customers between 18 and 30
+            else if (comboBox1.SelectedIndex == 2)
+            {
+                con.Open();
+                adapter = new SqlDataAdapter();
+                command = new SqlCommand("SELECT * FROM Customers WHERE Date_of_Birth BETWEEN '%%/%%/1989' AND '%%/%%/2001'",con);
+                ds = new DataSet();
+                adapter.SelectCommand = command;
+                adapter.Fill(ds, "Info");
+                dataGridView1.DataSource = ds;
+                dataGridView1.DataMember = "Info";
+                con.Close();
+            }
+            //customers between 30 and 40 
+            else if (comboBox1.SelectedIndex == 3)
+            {
+                con.Open();
+                adapter = new SqlDataAdapter();
+                command = new SqlCommand("SELECT * FROM Customers WHERE Date_of_Birth BETWEEN '%%/%%/1979' AND '%%/%%/1989'", con);
+                ds = new DataSet();
+                adapter.SelectCommand = command;
+                adapter.Fill(ds, "Info");
+                dataGridView1.DataSource = ds;
+                dataGridView1.DataMember = "Info";
+                con.Close();
+            }
+            //customers between 40 and 60
+            else if (comboBox1.SelectedIndex == 4)
+            {
+                con.Open();
+                adapter = new SqlDataAdapter();
+                command = new SqlCommand("SELECT * FROM Customers WHERE Date_of_Birth BETWEEN '%%/%%/1959' AND '%%/%%/1979'", con);
+                ds = new DataSet();
+                adapter.SelectCommand = command;
+                adapter.Fill(ds, "Info");
+                dataGridView1.DataSource = ds;
+                dataGridView1.DataMember = "Info";
+                con.Close();
+            }
+            //amount of males 
+            else
+            {
+                int total_Male = 0;
+                int total_Female = 0;
+                try
+                {
+                    con.Open();
+                    command = new SqlCommand("SELECT Gender FROM Customers");
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        string gender = Convert.ToString(reader.GetValue(0));
+                        if (gender == "Male")
+                        {
+                            total_Male += 1;
+                        }
+                        else
+                        {
+                            total_Female += 1;
+                        }
+                    }
+                    con.Close();
+                }
+                catch (SqlException error)
+                {
+
+                    MessageBox.Show(error.Message);
+                }
+                listBox2.Items.Clear();
+                listBox2.Items.Add("Total Male Customers: " + total_Male + "\tTotal Female Customers: " + total_Female);
+            }
+           
         }
     }
 }
