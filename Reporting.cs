@@ -28,7 +28,7 @@ namespace Finale_Projek_V2._0
         int count_Employees;
         private void Reporting_Load(object sender, EventArgs e)
         {
-            con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Gerhard\Source\Repos\ivansnyman\Finale-Projek-V2.0\Supplement_Database.mdf;Integrated Security=True");
+            con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\baren\Source\Repos\ivansnyman\Finale-Projek-V2.0\Supplement_Database.mdf;Integrated Security=True");
             //Uitfigure watse maand dit is en dan deur dit gaan met 'n loop vir die maand se sales
             string date = DateTime.Today.ToShortDateString(); // DD/MM/YYYY
             string date_Search = date.Substring(3, 7); // MM/YYYY
@@ -199,27 +199,7 @@ namespace Finale_Projek_V2._0
 
                     MessageBox.Show(error.Message);
                 }
-                string sale_ID = dataGridView1.SelectedCells[0].Value.ToString();
-                string line = "";
                 
-                try
-                {
-                    listBox2.Items.Clear();
-                    listBox2.Items.Add("Product Bought\tQuantity");
-                    con.Open();
-                    command = new SqlCommand("SELECT * FROM Product_Transaction WHERE Transaction_ID = " + Convert.ToInt32(sale_ID) +"", con);
-                    SqlDataReader reader = command.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        line = reader.GetValue(0) + "\t" + reader.GetValue(2);
-                        listBox2.Items.Add(line);
-                    }
-                }
-                catch (SqlException error)
-                {
-
-                    MessageBox.Show(error.Message);
-                }
             }
             else if (comboBox1.SelectedIndex == 1)
             {
@@ -240,27 +220,7 @@ namespace Finale_Projek_V2._0
 
                     MessageBox.Show(error.Message);
                 }
-                string order_ID = dataGridView1.SelectedCells[0].Value.ToString();
-                string line = "";
-
-                try
-                {
-                    listBox2.Items.Clear();
-                    listBox2.Items.Add("Product Bought\tQuantity");
-                    con.Open();
-                    command = new SqlCommand("SELECT * FROM Products_Order WHERE Order_ID = " + Convert.ToInt32(order_ID) + "", con);
-                    SqlDataReader reader = command.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        line = reader.GetValue(0) + "\t" + reader.GetValue(2);
-                        listBox2.Items.Add(line);
-                    }
-                }
-                catch (SqlException error)
-                {
-
-                    MessageBox.Show(error.Message);
-                }
+                
             }
            
             //customers between 18 and 30
@@ -367,7 +327,59 @@ namespace Finale_Projek_V2._0
 
         private void DataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (comboBox1.SelectedIndex == 0)
+            {
+                string sale_ID = dataGridView1.SelectedCells[0].Value.ToString();
+                string line = "";
 
+                try
+                {
+                    listBox2.Items.Clear();
+                    listBox2.Items.Add("Product Bought\tQuantity");
+                    con.Open();
+                    command = new SqlCommand("SELECT * FROM Product_Transaction WHERE Transaction_ID = " + Convert.ToInt32(sale_ID) + "", con);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        line = reader.GetValue(0) + "\t" + reader.GetValue(2);
+                        listBox2.Items.Add(line);
+                    }
+                }
+                catch (SqlException error)
+                {
+
+                    MessageBox.Show(error.Message);
+                }
+            }
+            else if (comboBox1.SelectedIndex == 1)
+            {
+                string order_ID = dataGridView1.SelectedCells[0].Value.ToString();
+                string line = "";
+
+                try
+                {
+                    listBox2.Items.Clear();
+                    listBox2.Items.Add("Product Bought\tQuantity");
+                    con.Open();
+                    command = new SqlCommand("SELECT * FROM Products_Order WHERE Order_ID = " + Convert.ToInt32(order_ID) + "", con);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        line = reader.GetValue(0) + "\t" + reader.GetValue(2);
+                        listBox2.Items.Add(line);
+                    }
+                }
+                catch (SqlException error)
+                {
+
+                    MessageBox.Show(error.Message);
+                }
+               
+            }
+            else
+            {
+                MessageBox.Show("Invalid Index");
+            }
         }
     }
 }
