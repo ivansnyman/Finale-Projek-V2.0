@@ -67,7 +67,8 @@ namespace Finale_Projek_V2._0
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            date_placed= DateTime.Today.ToShortDateString();
+            
+            date_placed = DateTime.Today.ToShortDateString();
             int index = listBox1.SelectedIndex;
             if (index >= 0 && listBox2.Items.Count > 0)
             {
