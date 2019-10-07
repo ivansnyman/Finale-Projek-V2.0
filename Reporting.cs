@@ -151,7 +151,28 @@ namespace Finale_Projek_V2._0
 
         private void BtnExport_Click(object sender, EventArgs e)
         {
-         
+            //Hanno maak 'n textfile in folder genoem Sales_Data.txt
+            try
+            {
+                con.Open();
+                command = new SqlCommand("SELECT * FROM Transactions");
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    string output = Convert.ToString(reader.GetValue(0)) + "\t" + Convert.ToString(reader.GetValue(1)) + "\t" + Convert.ToString(reader.GetValue(2)) + "\t" + Convert.ToString(reader.GetValue(3)) + "\t" + Convert.ToString(reader.GetValue(4)) + "\t";
+                    using (System.IO.StreamWriter file =
+                        new System.IO.StreamWriter(@"C:\Users\ivans\source\repos\Finale Projek V2.0\Sales_Data.txt", true))
+                    {
+                        file.WriteLine(output);
+                    }
+                }
+            }
+            catch (SqlException error)
+            {
+
+               MessageBox.Show(error.Message);
+            }
+            MessageBox.Show("Sucessfully exported sales data");
         }
 
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -312,6 +333,34 @@ namespace Finale_Projek_V2._0
                 listBox2.Items.Add("Total Male Customers: " + total_Male + "\tTotal Female Customers: " + total_Female);
             }
            
+        }
+
+        private void BtnExport_Orders_Click(object sender, EventArgs e)
+        {
+            
+            //Hanno maak 'n textfile in folder genoem Order_Data.txt
+            //Order_ID  \t  Employee_ID \t Date Placed \t Amount \t Supplier_ID \t Date Received
+            try
+            {
+                con.Open();
+                command = new SqlCommand("SELECT * FROM Orders");
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    string output = Convert.ToString(reader.GetValue(0)) + "\t" + Convert.ToString(reader.GetValue(1)) + "\t" + Convert.ToString(reader.GetValue(2)) + "\t" + Convert.ToString(reader.GetValue(3)) + "\t" + Convert.ToString(reader.GetValue(4)) + "\t";
+                    using (System.IO.StreamWriter file =
+                        new System.IO.StreamWriter(@"C:\Users\ivans\source\repos\Finale Projek V2.0\Order_Data.txt", true))
+                    {
+                        file.WriteLine(output);
+                    }
+                }
+            }
+            catch (SqlException error)
+            {
+
+                MessageBox.Show(error.Message);
+            }
+            MessageBox.Show("Sucessfully exported order data");
         }
     }
 }
