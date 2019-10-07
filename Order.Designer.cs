@@ -66,7 +66,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Arial", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(747, 751);
+            this.button1.Location = new System.Drawing.Point(913, 751);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(533, 151);
@@ -79,7 +79,7 @@
             // 
             this.groupBox2.Controls.Add(this.listBox2);
             this.groupBox2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(744, 220);
+            this.groupBox2.Location = new System.Drawing.Point(910, 220);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -95,7 +95,7 @@
             this.listBox2.Location = new System.Drawing.Point(3, 30);
             this.listBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(527, 395);
+            this.listBox2.Size = new System.Drawing.Size(527, 372);
             this.listBox2.TabIndex = 0;
             // 
             // groupBox1
@@ -109,11 +109,11 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(181, 482);
+            this.groupBox1.Location = new System.Drawing.Point(36, 482);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(536, 420);
+            this.groupBox1.Size = new System.Drawing.Size(867, 420);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Select item:";
@@ -125,7 +125,7 @@
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(516, 210);
+            this.dataGridView1.Size = new System.Drawing.Size(853, 210);
             this.dataGridView1.TabIndex = 15;
             // 
             // btnAdd
@@ -201,7 +201,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe Print", 36F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Location = new System.Drawing.Point(893, 111);
+            this.label5.Location = new System.Drawing.Point(1059, 111);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(226, 105);
             this.label5.TabIndex = 14;
@@ -213,11 +213,11 @@
             this.groupBox3.Controls.Add(this.textBox2);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(188, 220);
+            this.groupBox3.Location = new System.Drawing.Point(43, 220);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox3.Size = new System.Drawing.Size(529, 245);
+            this.groupBox3.Size = new System.Drawing.Size(860, 245);
             this.groupBox3.TabIndex = 18;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Select Supplier";
@@ -229,7 +229,7 @@
             this.listBox1.Location = new System.Drawing.Point(16, 98);
             this.listBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(499, 96);
+            this.listBox1.Size = new System.Drawing.Size(499, 73);
             this.listBox1.TabIndex = 2;
             // 
             // textBox2
@@ -258,7 +258,7 @@
             this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Controls.Add(this.txtDateFilter);
             this.groupBox4.Controls.Add(this.button3);
-            this.groupBox4.Location = new System.Drawing.Point(1311, 250);
+            this.groupBox4.Location = new System.Drawing.Point(1477, 250);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
@@ -291,7 +291,7 @@
             // 
             // txtDateFilter
             // 
-            this.txtDateFilter.Location = new System.Drawing.Point(263, 376);
+            this.txtDateFilter.Location = new System.Drawing.Point(263, 377);
             this.txtDateFilter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDateFilter.Name = "txtDateFilter";
             this.txtDateFilter.Size = new System.Drawing.Size(161, 22);
@@ -301,7 +301,7 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(18, 341);
+            this.button3.Location = new System.Drawing.Point(19, 341);
             this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(237, 59);
@@ -323,7 +323,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label7.Location = new System.Drawing.Point(1307, 222);
+            this.label7.Location = new System.Drawing.Point(1473, 222);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(248, 24);
@@ -333,7 +333,7 @@
             // btnRemove
             // 
             this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemove.Location = new System.Drawing.Point(744, 670);
+            this.btnRemove.Location = new System.Drawing.Point(910, 670);
             this.btnRemove.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(536, 64);
@@ -348,7 +348,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1793, 865);
+            this.ClientSize = new System.Drawing.Size(1595, 858);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtEmployee);

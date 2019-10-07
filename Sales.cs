@@ -14,7 +14,7 @@ namespace Finale_Projek_V2._0
     public partial class Sales : Form
     {
         SqlConnection con;
-        public String constr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\baren\Source\Repos\ivansnyman\Finale-Projek-V2.0\Supplement_Database.mdf;Integrated Security=True";
+        public String constr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Gerhard\Source\Repos\ivansnyman\Finale-Projek-V2.0\Supplement_Database.mdf;Integrated Security=True";
         SqlCommand cmd;
         SqlDataReader reader;
         SqlDataAdapter adap;
@@ -40,19 +40,18 @@ namespace Finale_Projek_V2._0
 
         private void BtnRemove_Click(object sender, EventArgs e)
         {   
-            if(!(listBox3.SelectedIndex >= 0))
+            if(!(listBox2.SelectedIndex >= 0))
             MessageBox.Show("Please select an item to remove");
 
             
-
-            string selected_Item = listBox2.SelectedIndex.ToString();
-            int index = selected_Item.IndexOf(",");
-            int selected_ProductID = Convert.ToInt32(selected_Item.Substring(1, index - 1));
-            selected_Item = selected_Item.Remove(1, index);
-            index = selected_Item.IndexOf(",");
-            selected_Item = selected_Item.Remove(1, index);
-            index = selected_Item.IndexOf(",");
-            int quantity = Convert.ToInt32(selected_Item.Substring(1, index - 1));
+            string selected_Item = listBox2.SelectedItem.ToString();
+            int index = selected_Item.IndexOf(',');
+            int selected_ProductID = Convert.ToInt32(selected_Item.Substring(0, index - 1));
+            selected_Item = selected_Item.Remove(0, index+1);
+            index = selected_Item.IndexOf(',');
+            selected_Item = selected_Item.Remove(0, index+1);
+            index = selected_Item.IndexOf(',');
+            int quantity = Convert.ToInt32(selected_Item.Substring(0, index - 1));
             int currentStock = 0;
             con.Open();
             SqlCommand command1 = new SqlCommand("Select Stock FROM Products WHERE Product_ID = " + selected_ProductID + "", con);
@@ -64,6 +63,7 @@ namespace Finale_Projek_V2._0
             //sql query om stock reg te maak 
             int newStock = currentStock + quantity;
             string update_Query = "UPDATE Products SET Stock = '" + newStock + "' WHERE Product_ID = '" + currentID + "'";
+            con.Close();
             con.Open();
             SqlCommand command;
             SqlDataAdapter adapter = new SqlDataAdapter();
@@ -121,7 +121,7 @@ namespace Finale_Projek_V2._0
             else if (dataGridView1.SelectedRows == null)
                 MessageBox.Show("Please select one or more product to proceed");
             else if (!(numericUpDown1.Value > 0))
-                MessageBox.Show("Please select the quintity of the product you wish to add to cart");
+                MessageBox.Show("Please select the quantity of the product you wish to add to cart");
             else
             {
                 string selectedProductID = dataGridView1.SelectedCells[0].Value.ToString();
@@ -147,7 +147,7 @@ namespace Finale_Projek_V2._0
                     }
                     con.Close();
 
-                    listBox2.Items.Add(prodID + "," + "\t" + cartName + "," + "\t" + Convert.ToString(quantity) + "," + "\t" + "R" + Convert.ToString(cartPrice * quantity));
+                    listBox2.Items.Add(prodID +"\t," + cartName + "\t," + Convert.ToString(quantity) + "\t," + "R" + Convert.ToString(cartPrice * quantity));
                     totalPrice += cartPrice * quantity;
                     listBox2.Items.Add("Total Due:\t\t" + "R" + Convert.ToString(totalPrice));
 
@@ -162,14 +162,14 @@ namespace Finale_Projek_V2._0
                         int updatedStock = currentStock - quantity;
                         SqlCommand command;
                         SqlDataAdapter adapter = new SqlDataAdapter();
-                        String sql = "Update Product set Stock='" + Convert.ToString(updatedStock) + "' where Product_ID ='" + prodID + "'";
+                        String sql = "Update Products set Stock='" + Convert.ToString(updatedStock) + "' where Product_ID ='" + prodID + "'";
                         command = new SqlCommand(sql, con);
                         adapter.UpdateCommand = new SqlCommand(sql, con);
                         adapter.UpdateCommand.ExecuteNonQuery();
                         command.Dispose();
                         con.Close();
                         con.Open();
-                        command = new SqlCommand(@"INSERT Into Product_Transaction Values(" + prodID + ", " + transactionID + "," + quantity + ")", con);
+                        command = new SqlCommand(@"INSERT Into Product_Transaction Values('" + prodID + "','" + transactionID + "','" + quantity + "')", con);
                         adap = new SqlDataAdapter();
                         adap.InsertCommand = command;
                         adap.InsertCommand.ExecuteNonQuery();
@@ -219,12 +219,12 @@ namespace Finale_Projek_V2._0
             int index = listBox3.SelectedIndex;
             if (index >= 0 && listBox2.Items.Count > 0)
             {
-                System.IO.File.WriteAllText(@"C:\Users\ivans\source\repos\Finale Projek V2.0\Transaction_ID.txt", Convert.ToString(transactionID));
+                System.IO.File.WriteAllText(@"C:\Users\Gerhard\source\repos\ivansnyman\Finale-Projek-V2.0\Transaction_ID.txt", Convert.ToString(transactionID));
                 DateTime date = DateTime.Now;
                 try
                 {
                     con.Open();
-                    SqlCommand command = new SqlCommand(@"Insert Into Transactions Values('" + transactionID + "', " + totalPrice + "," + date.ToShortDateString() + ", " + custID + "," + currentID + "')", con);
+                    SqlCommand command = new SqlCommand(@"Insert Into Transactions Values('" + transactionID + "', '" + totalPrice + "','" + date.ToShortDateString() + "',' " + custID + "','" + currentID + "')", con);
                     SqlDataAdapter adapter = new SqlDataAdapter();
                     adapter.InsertCommand = command;
                     adapter.InsertCommand.ExecuteNonQuery();
@@ -235,6 +235,7 @@ namespace Finale_Projek_V2._0
                     MessageBox.Show(error.Message);
                 }
                 MessageBox.Show("Sale completed succesfully");
+                listBox2.Items.Clear();
             }
             else
             {
