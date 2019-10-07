@@ -30,14 +30,13 @@ namespace Finale_Projek_V2._0
         {
             con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Gerhard\Source\Repos\ivansnyman\Finale-Projek-V2.0\Supplement_Database.mdf;Integrated Security=True");
             //Uitfigure watse maand dit is en dan deur dit gaan met 'n loop vir die maand se sales
-            string date = DateTime.Today.ToShortDateString(); // DD/MM/YYYY
-            string date_Search = date.Substring(3, 7); // MM/YYYY
+            
             int count = 0;
             double income = 0;
             try
             {
                 con.Open();
-                command = new SqlCommand("SELECT * FROM Transactions WHERE Date_of_Transaction = '%/" + date_Search + "'", con); // '%%/MM/YYYY'
+                command = new SqlCommand("SELECT * FROM Transactions", con); // '%%/MM/YYYY'
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
@@ -59,7 +58,7 @@ namespace Finale_Projek_V2._0
             {
                 con.Close();
                 con.Open();
-                command = new SqlCommand("SELECT * FROM Orders WHERE Date_Order_Placed LIKE '%%" + date_Search + "'", con); // '%%/MM/YYYY'
+                command = new SqlCommand("SELECT * FROM Orders", con); // '%%/MM/YYYY'
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
@@ -244,46 +243,7 @@ namespace Finale_Projek_V2._0
                 
             }
            
-            //customers between 18 and 30
-            else if (comboBox1.SelectedIndex == 2)
-            {
-                con.Open();
-                adapter = new SqlDataAdapter();
-                command = new SqlCommand("SELECT * FROM Customers WHERE Date_of_Birth BETWEEN '%%/%%/1989' AND '%%/%%/2001'",con);
-                ds = new DataSet();
-                adapter.SelectCommand = command;
-                adapter.Fill(ds, "Info");
-                dataGridView1.DataSource = ds;
-                dataGridView1.DataMember = "Info";
-                con.Close();
-            }
-            //customers between 30 and 40 
-            else if (comboBox1.SelectedIndex == 3)
-            {
-                con.Open();
-                adapter = new SqlDataAdapter();
-                command = new SqlCommand("SELECT * FROM Customers WHERE Date_of_Birth BETWEEN '%%/%%/1979' AND '%%/%%/1989'", con);
-                ds = new DataSet();
-                adapter.SelectCommand = command;
-                adapter.Fill(ds, "Info");
-                dataGridView1.DataSource = ds;
-                dataGridView1.DataMember = "Info";
-                con.Close();
-            }
-            //customers between 40 and 60
-            else if (comboBox1.SelectedIndex == 4)
-            {
-                con.Open();
-                adapter = new SqlDataAdapter();
-                command = new SqlCommand("SELECT * FROM Customers WHERE Date_of_Birth BETWEEN '%%/%%/1959' AND '%%/%%/1979'", con);
-                ds = new DataSet();
-                adapter.SelectCommand = command;
-                adapter.Fill(ds, "Info");
-                dataGridView1.DataSource = ds;
-                dataGridView1.DataMember = "Info";
-                con.Close();
-            }
-            //amount of males 
+            //amount of males and females
             else
             {
                 int total_Male = 0;
