@@ -28,7 +28,7 @@ namespace Finale_Projek_V2._0
         int count_Employees;
         private void Reporting_Load(object sender, EventArgs e)
         {
-            con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\baren\Source\Repos\ivansnyman\Finale-Projek-V2.0\Supplement_Database.mdf;Integrated Security=True");
+            con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Gerhard\Source\Repos\ivansnyman\Finale-Projek-V2.0\Supplement_Database.mdf;Integrated Security=True");
             //Uitfigure watse maand dit is en dan deur dit gaan met 'n loop vir die maand se sales
             string date = DateTime.Today.ToShortDateString(); // DD/MM/YYYY
             string date_Search = date.Substring(3, 7); // MM/YYYY

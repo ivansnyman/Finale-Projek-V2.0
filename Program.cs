@@ -16,7 +16,7 @@ namespace Finale_Projek_V2._0
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Reporting());
+            Application.Run(new Login());
         }
     }
 }
