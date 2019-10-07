@@ -24,6 +24,10 @@ namespace Finale_Projek_V2._0
         double cartPrice, totalPrice;
         public bool flag = false;
         public int orderID, currentID, currentStock;
+        public int supplierID = 1;
+        public string date_placed;
+        public int quantity;
+        public string date_received = "";
         public Order()
         {
             
@@ -47,12 +51,12 @@ namespace Finale_Projek_V2._0
             try
             {
                 con.Open();
-                string query = @"SELECT * from Orders WHERE Date_Order_Received IS NULL";
+                string query = @"SELECT * from Orders WHERE Date_Order_Received = '" + date_received + "'";
                 adap = new SqlDataAdapter(query, con);
                 DataSet ds = new DataSet();
-                adap.Fill(ds, "Products");
+                adap.Fill(ds, "Orders");
                 dataGridView2.DataSource = ds;
-                dataGridView2.DataMember = "Products";
+                dataGridView2.DataMember = "Orders";
                 con.Close();
             }
             catch(SqlException error)
@@ -63,12 +67,19 @@ namespace Finale_Projek_V2._0
 
         private void Button1_Click(object sender, EventArgs e)
         {
+            date_placed= DateTime.Today.ToShortDateString();
             int index = listBox1.SelectedIndex;
             if (index >= 0 && listBox2.Items.Count > 0)
             {
                 System.IO.File.WriteAllText(@"C:\Users\Gerhard\source\repos\ivansnyman\Finale-Projek-V2.0\Order_ID.txt", Convert.ToString(orderID));
                 listBox2.Items.Clear();
                 MessageBox.Show("Order completed succesfully");
+                con.Open();
+                SqlCommand command = new SqlCommand(@"Insert Into Orders Values('" + orderID + "','" + currentID + "','" + date_placed + "','" + totalPrice + "','" + supplierID + "','" + date_received + "')", con);
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.InsertCommand = command;
+                adapter.InsertCommand.ExecuteNonQuery();
+                con.Close();
             }
             else
             {
@@ -194,7 +205,7 @@ namespace Finale_Projek_V2._0
             }
             else
             {
-                int quantity = Convert.ToInt32(numericUpDown1.Value);
+                quantity = Convert.ToInt32(numericUpDown1.Value);
                 con.Open();
                 cmd = new SqlCommand("SELECT Product_ID, Product_Name, Price_Sold, Manufacturer_Name, Stock FROM Products", con);
                 reader = cmd.ExecuteReader();

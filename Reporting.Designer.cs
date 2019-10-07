@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reporting));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnExport_Orders = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -62,7 +62,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnExport_Orders);
             this.groupBox1.Controls.Add(this.btnExport);
             this.groupBox1.Location = new System.Drawing.Point(564, 598);
             this.groupBox1.Name = "groupBox1";
@@ -71,16 +71,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Select data to export";
             // 
-            // button1
+            // btnExport_Orders
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(163, 19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(127, 37);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Export orders";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnExport_Orders.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExport_Orders.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnExport_Orders.Location = new System.Drawing.Point(163, 19);
+            this.btnExport_Orders.Name = "btnExport_Orders";
+            this.btnExport_Orders.Size = new System.Drawing.Size(127, 37);
+            this.btnExport_Orders.TabIndex = 4;
+            this.btnExport_Orders.Text = "Export orders";
+            this.btnExport_Orders.UseVisualStyleBackColor = true;
+            this.btnExport_Orders.Click += new System.EventHandler(this.BtnExport_Orders_Click);
             // 
             // btnExport
             // 
@@ -262,9 +263,9 @@
             this.groupBox5.Controls.Add(this.listBox2);
             this.groupBox5.Controls.Add(this.dataGridView1);
             this.groupBox5.Location = new System.Drawing.Point(564, 223);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox5.Size = new System.Drawing.Size(808, 370);
             this.groupBox5.TabIndex = 11;
             this.groupBox5.TabStop = false;
@@ -295,7 +296,7 @@
             "Amount Male Customers",
             "Amount Female Customers"});
             this.comboBox1.Location = new System.Drawing.Point(170, 20);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(92, 21);
             this.comboBox1.TabIndex = 14;
@@ -305,7 +306,7 @@
             // 
             this.listBox2.FormattingEnabled = true;
             this.listBox2.Location = new System.Drawing.Point(407, 44);
-            this.listBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listBox2.Margin = new System.Windows.Forms.Padding(2);
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(398, 316);
             this.listBox2.TabIndex = 13;
@@ -314,12 +315,13 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(10, 44);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(393, 317);
             this.dataGridView1.TabIndex = 12;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellDoubleClick);
             // 
             // Reporting
             // 
@@ -365,7 +367,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbxSales;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnExport_Orders;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tbxProfit;
         private System.Windows.Forms.GroupBox groupBox4;
