@@ -362,5 +362,10 @@ namespace Finale_Projek_V2._0
             }
             MessageBox.Show("Sucessfully exported order data");
         }
+
+        private void DataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
