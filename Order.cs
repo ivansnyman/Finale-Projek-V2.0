@@ -51,12 +51,12 @@ namespace Finale_Projek_V2._0
             try
             {
                 con.Open();
-                string query = @"SELECT * from Orders WHERE Date_Order_Received IS NULL";
+                string query = @"SELECT * from Orders WHERE Date_Order_Received = '" + date_received + "'";
                 adap = new SqlDataAdapter(query, con);
                 DataSet ds = new DataSet();
-                adap.Fill(ds, "Products");
+                adap.Fill(ds, "Orders");
                 dataGridView2.DataSource = ds;
-                dataGridView2.DataMember = "Products";
+                dataGridView2.DataMember = "Orders";
                 con.Close();
             }
             catch(SqlException error)
