@@ -106,6 +106,31 @@ namespace Finale_Projek_V2._0
             }
         }
 
+        private void BtnReceived_Click(object sender, EventArgs e)
+        {
+            string date_received_order = DateTime.Today.ToShortDateString();
+            string selectedOrderID = dataGridView2.SelectedCells[0].Value.ToString();
+
+            try
+            {
+                string recQuery = "UPDATE Orders SET Date_Order_Received = '" + date_received_order + "' WHERE Order_ID = '" + selectedOrderID + "'";
+                con.Close();
+                con.Open();
+                SqlCommand command;
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                command = new SqlCommand(recQuery, con);
+                adapter.UpdateCommand = new SqlCommand(recQuery, con);
+                adapter.UpdateCommand.ExecuteNonQuery();
+                command.Dispose();
+                con.Close();
+                MessageBox.Show("Successfully received order");
+            }
+            catch(SqlException error)
+            {
+                MessageBox.Show(error.Message);
+            }
+        }
+
         private void BtnRemove_Click(object sender, EventArgs e)
         {
             con.Close();

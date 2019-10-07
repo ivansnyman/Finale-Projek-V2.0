@@ -54,6 +54,7 @@
             this.txtEmployee = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnRemove = new System.Windows.Forms.Button();
+            this.btnReceived = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -252,13 +253,14 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.btnReceived);
             this.groupBox4.Controls.Add(this.dataGridView2);
             this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Controls.Add(this.txtDateFilter);
             this.groupBox4.Controls.Add(this.button3);
             this.groupBox4.Location = new System.Drawing.Point(1108, 203);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(338, 336);
+            this.groupBox4.Size = new System.Drawing.Size(338, 380);
             this.groupBox4.TabIndex = 19;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Orders not yet received:";
@@ -331,6 +333,16 @@
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.BtnRemove_Click);
             // 
+            // btnReceived
+            // 
+            this.btnReceived.Location = new System.Drawing.Point(14, 331);
+            this.btnReceived.Name = "btnReceived";
+            this.btnReceived.Size = new System.Drawing.Size(178, 43);
+            this.btnReceived.TabIndex = 24;
+            this.btnReceived.Text = "Select item received";
+            this.btnReceived.UseVisualStyleBackColor = true;
+            this.btnReceived.Click += new System.EventHandler(this.BtnReceived_Click);
+            // 
             // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -394,5 +406,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button btnRemove;
+        private System.Windows.Forms.Button btnReceived;
     }
 }
