@@ -323,7 +323,7 @@ namespace Finale_Projek_V2._0
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        line = reader.GetValue(0) + "\t" + reader.GetValue(2);
+                        line = reader.GetValue(0) + "\t\t" + reader.GetValue(2);
                         listBox2.Items.Add(line);
                     }
                     con.Close();
@@ -348,7 +348,7 @@ namespace Finale_Projek_V2._0
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        line = reader.GetValue(0) + "\t" + reader.GetValue(2);
+                        line = reader.GetValue(0) + "\t\t" + reader.GetValue(2);
                         listBox2.Items.Add(line);
                     }
                     con.Close();
