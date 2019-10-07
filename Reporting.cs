@@ -37,7 +37,7 @@ namespace Finale_Projek_V2._0
             try
             {
                 con.Open();
-                command = new SqlCommand("SELECT * FROM Transactions WHERE Date_of_Transaction LIKE '%%/" + date_Search + "'", con); // '%%/MM/YYYY'
+                command = new SqlCommand("SELECT * FROM Transactions WHERE Date_of_Transaction = '__/" + date_Search + "'", con); // '%%/MM/YYYY'
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
@@ -63,7 +63,7 @@ namespace Finale_Projek_V2._0
                 while (reader.Read())
                 {
                     count_Orders += 1; //Kry total orders vir gegewe maand
-                    double order_Amount = Convert.ToDouble(reader.GetValue(1));
+                    double order_Amount = Convert.ToDouble(reader.GetValue(3));
                     monthly_Cost += order_Amount; //Tell die total income vir die maand
                 }
                 con.Close();
@@ -82,7 +82,7 @@ namespace Finale_Projek_V2._0
             tbxProfit.Text = Convert.ToString(total_Profit);
 
             //Populate die combobox met orders wat nog nie gekom het nie
-            try
+            /*try
             {
                 string null_Search = "";
                 con.Open();
@@ -100,6 +100,24 @@ namespace Finale_Projek_V2._0
             {
                 MessageBox.Show(error.Message);
             }
+            */
+            string date_received = "";
+            try
+            {
+                con.Open();
+                string query = @"SELECT * from Orders WHERE Date_Order_Received = '" + date_received + "'";
+                adapter = new SqlDataAdapter(query, con);
+                DataSet ds = new DataSet();
+                adapter.Fill(ds, "Orders");
+                dataGridView2.DataSource = ds;
+                dataGridView2.DataMember = "Orders";
+                con.Close();
+            }
+            catch (SqlException error)
+            {
+                MessageBox.Show(error.Message);
+            }
+            
 
             count_Employees = 0;
             try
@@ -118,30 +136,14 @@ namespace Finale_Projek_V2._0
 
                 MessageBox.Show(error.Message);
             }
-            string date_received = "";
-           /* try
-            {
-                con.Open();
-                string query = @"SELECT * from Orders WHERE Date_Order_Received = '" + date_received + "'";
-                adap = new SqlDataAdapter(query, con);
-                DataSet ds = new DataSet();
-                adap.Fill(ds, "Orders");
-                dataGridView2.DataSource = ds;
-                dataGridView2.DataMember = "Orders";
-                con.Close();
-            }
-            catch (SqlException error)
-            {
-                MessageBox.Show(error.Message);
-            }
-            */
+           
 
         }
         
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            string order_ID = listBox1.SelectedIndex.ToString();
+            string order_ID = dataGridView2.SelectedColumns.ToString();
             var fromAddress = new MailAddress("randburgstrengthandfitness@gmail.com", "Randburg Strength & Fitness");
             var toAddress = new MailAddress("Barendjohannesvanderwalt1998@gmail.com", "Hanno");
             const string fromPassword = "kameelperdkalmeerpil";
