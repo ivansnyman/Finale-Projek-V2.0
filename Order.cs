@@ -134,6 +134,10 @@ namespace Finale_Projek_V2._0
 
         private void BtnRemove_Click(object sender, EventArgs e)
         {
+            if (!(listBox2.SelectedIndex >= 0))
+                MessageBox.Show("Please select an item to remove");
+
+
             con.Close();
             string selected_Item = listBox2.SelectedItem.ToString();
             int index = selected_Item.IndexOf(',');
@@ -240,6 +244,7 @@ namespace Finale_Projek_V2._0
                 else
                 {
                     quantity = Convert.ToInt32(numericUpDown1.Value);
+                    con.Close();
                     con.Open();
                     cmd = new SqlCommand("SELECT Product_ID, Product_Name, Price_Sold, Manufacturer_Name, Stock FROM Products", con);
                     reader = cmd.ExecuteReader();

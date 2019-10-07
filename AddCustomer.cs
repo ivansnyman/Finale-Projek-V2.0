@@ -73,6 +73,7 @@ namespace Finale_Projek_V2._0
                 con.Close();
 
                 MessageBox.Show("Successfully added customer");
+                this.Close();
             }
         }
 

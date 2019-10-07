@@ -266,6 +266,7 @@
             this.label2.Size = new System.Drawing.Size(185, 17);
             this.label2.TabIndex = 16;
             this.label2.Text = "Current employee signed in:";
+            this.label2.Visible = false;
             // 
             // btnRemove
             // 

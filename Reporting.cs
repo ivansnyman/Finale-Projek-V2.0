@@ -143,12 +143,12 @@ namespace Finale_Projek_V2._0
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            string order_ID = dataGridView2.SelectedColumns.ToString();
+            string order_ID = dataGridView2.SelectedRows.ToString();
             var fromAddress = new MailAddress("randburgstrengthandfitness@gmail.com", "Randburg Strength & Fitness");
             var toAddress = new MailAddress("Barendjohannesvanderwalt1998@gmail.com", "Hanno");
             const string fromPassword = "kameelperdkalmeerpil";
             const string subject = "Late Order Enquiry";
-            string body = "Good day,\nAn order we placed with your company has still not arrived, any feedback regarding the matter would be greatly appreciated.\nOrder number: " + order_ID + "\nKind Regards\nRandburg Strength & Fitness";
+            string body = "Good day,\nAn order we placed with your company has still not arrived, any feedback regarding the matter would be greatly appreciated.\nKind Regards\nRandburg Strength & Fitness";
 
             var smtp = new SmtpClient
             {
@@ -183,7 +183,7 @@ namespace Finale_Projek_V2._0
                 {
                     string output = Convert.ToString(reader.GetValue(0)) + "\t" + Convert.ToString(reader.GetValue(1)) + "\t" + Convert.ToString(reader.GetValue(2)) + "\t" + Convert.ToString(reader.GetValue(3)) + "\t" + Convert.ToString(reader.GetValue(4)) + "\t";
                     using (System.IO.StreamWriter file =
-                        new System.IO.StreamWriter(@"C:\Users\Gerhard\source\repos\ivansnyman\Finale-Projek-V2.0\Sales_Data.txt", true))
+                        new System.IO.StreamWriter(@"C:\Users\Gerhard\source\repos\ivansnyman\Finale-Projek-V2.0\Sales_Data.txt", false))
                     {
                         file.WriteLine(output);
                     }
@@ -195,6 +195,7 @@ namespace Finale_Projek_V2._0
                MessageBox.Show(error.Message);
             }
             MessageBox.Show("Sucessfully exported sales data");
+            con.Close();
         }
 
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -251,7 +252,7 @@ namespace Finale_Projek_V2._0
                 try
                 {
                     con.Open();
-                    command = new SqlCommand("SELECT Gender FROM Customers");
+                    command = new SqlCommand("SELECT Gender FROM Customers",con);
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
@@ -292,7 +293,7 @@ namespace Finale_Projek_V2._0
                 {
                     string output = Convert.ToString(reader.GetValue(0)) + "\t" + Convert.ToString(reader.GetValue(1)) + "\t" + Convert.ToString(reader.GetValue(2)) + "\t" + Convert.ToString(reader.GetValue(3)) + "\t" + Convert.ToString(reader.GetValue(4)) + "\t";
                     using (System.IO.StreamWriter file =
-                        new System.IO.StreamWriter(@"C:\Users\ivans\source\repos\Finale Projek V2.0\Order_Data.txt", true))
+                        new System.IO.StreamWriter(@"C:\Users\Gerhard\source\repos\ivansnyman\Finale-Projek-V2.0\Order_Data.txt", false))
                     {
                         file.WriteLine(output);
                     }
