@@ -28,10 +28,10 @@ namespace Finale_Projek_V2._0
         int count_Employees;
         private void Reporting_Load(object sender, EventArgs e)
         {
-            con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\baren\Source\Repos\ivansnyman\Finale-Projek-V2.0\Supplement_Database.mdf;Integrated Security=True");
+            con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Gerhard\Source\Repos\ivansnyman\Finale-Projek-V2.0\Supplement_Database.mdf;Integrated Security=True");
             //Uitfigure watse maand dit is en dan deur dit gaan met 'n loop vir die maand se sales
             string date = DateTime.Today.ToShortDateString(); // DD/MM/YYYY
-            string date_Search = date.Substring(4, 10); // MM/YYYY
+            string date_Search = date.Substring(3, 7); // MM/YYYY
             int count = 0;
             double income = 0;
             try
@@ -94,6 +94,7 @@ namespace Finale_Projek_V2._0
                 listBox1.DisplayMember = "Order_ID";
                 listBox1.ValueMember = "Order_ID";
                 listBox1.DataSource = ds.Tables["Orders"];
+                con.Close();
             }
             catch (SqlException error)
             {
@@ -104,7 +105,7 @@ namespace Finale_Projek_V2._0
             try
             {
                 con.Open();
-                command = new SqlCommand("SELECT * FROM Employees");
+                command = new SqlCommand("SELECT * FROM Employees", con);
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
@@ -122,12 +123,12 @@ namespace Finale_Projek_V2._0
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            //string order_ID = listBox1.SelectedIndex.ToString();
+            string order_ID = listBox1.SelectedIndex.ToString();
             var fromAddress = new MailAddress("randburgstrengthandfitness@gmail.com", "Randburg Strength & Fitness");
             var toAddress = new MailAddress("Barendjohannesvanderwalt1998@gmail.com", "Hanno");
             const string fromPassword = "kameelperdkalmeerpil";
             const string subject = "Late Order Enquiry";
-            string body = "Hello boepens dis katryn wat praat";
+            string body = "Good day,\nAn order we placed with your company has still not arrived, any feedback regarding the matter would be greatly appreciated.\nOrder number: " + order_ID + "\nKind Regards\nRandburg Strength & Fitness";
 
             var smtp = new SmtpClient
             {
@@ -154,6 +155,7 @@ namespace Finale_Projek_V2._0
             //Hanno maak 'n textfile in folder genoem Sales_Data.txt
             try
             {
+                con.Close();
                 con.Open();
                 command = new SqlCommand("SELECT * FROM Transactions");
                 SqlDataReader reader = command.ExecuteReader();
@@ -161,7 +163,7 @@ namespace Finale_Projek_V2._0
                 {
                     string output = Convert.ToString(reader.GetValue(0)) + "\t" + Convert.ToString(reader.GetValue(1)) + "\t" + Convert.ToString(reader.GetValue(2)) + "\t" + Convert.ToString(reader.GetValue(3)) + "\t" + Convert.ToString(reader.GetValue(4)) + "\t";
                     using (System.IO.StreamWriter file =
-                        new System.IO.StreamWriter(@"C:\Users\ivans\source\repos\Finale Projek V2.0\Sales_Data.txt", true))
+                        new System.IO.StreamWriter(@"C:\Users\Gerhard\source\repos\ivansnyman\Finale-Projek-V2.0\Sales_Data.txt", true))
                     {
                         file.WriteLine(output);
                     }
