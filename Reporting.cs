@@ -37,7 +37,7 @@ namespace Finale_Projek_V2._0
             try
             {
                 con.Open();
-                command = new SqlCommand("SELECT * FROM Transactions WHERE Date_of_Transaction = '__/" + date_Search + "'", con); // '%%/MM/YYYY'
+                command = new SqlCommand("SELECT * FROM Transactions WHERE Date_of_Transaction = '%/" + date_Search + "'", con); // '%%/MM/YYYY'
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
@@ -57,6 +57,7 @@ namespace Finale_Projek_V2._0
             double monthly_Cost = 0;
             try
             {
+                con.Close();
                 con.Open();
                 command = new SqlCommand("SELECT * FROM Orders WHERE Date_Order_Placed LIKE '%%" + date_Search + "'", con); // '%%/MM/YYYY'
                 SqlDataReader reader = command.ExecuteReader();
@@ -336,6 +337,7 @@ namespace Finale_Projek_V2._0
                         file.WriteLine(output);
                     }
                 }
+                con.Close();
             }
             catch (SqlException error)
             {
@@ -364,6 +366,7 @@ namespace Finale_Projek_V2._0
                         line = reader.GetValue(0) + "\t" + reader.GetValue(2);
                         listBox2.Items.Add(line);
                     }
+                    con.Close();
                 }
                 catch (SqlException error)
                 {
@@ -388,6 +391,7 @@ namespace Finale_Projek_V2._0
                         line = reader.GetValue(0) + "\t" + reader.GetValue(2);
                         listBox2.Items.Add(line);
                     }
+                    con.Close();
                 }
                 catch (SqlException error)
                 {
